@@ -1,2 +1,2 @@
 # Main program executable.
-add_executable(PICUP)
+add_executable(PICUP PICUP.cpp)
