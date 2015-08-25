@@ -2,6 +2,8 @@
 cmake_minimum_required(VERSION 2.8.12.2)
 project(PICUP)
 set(PROJECT_BRIEF "Particle-In-Cell Utility for Practice")
+set(PROJECT_VERSION_MAJOR 0)
+set(PROJECT_VERSION_MINOR 1)
 
 ## Add subdirectories
 add_subdirectory (src)
@@ -17,7 +19,7 @@ set(DOC_PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}" CACH
 # Find Doxygen
 find_package(Doxygen REQUIRED)
 # Doxyfile variables
-set(PROJECT_NUMBER PROJECT_VERSION)
+set(PROJECT_NUMBER         "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}")
 set(OUTPUT_DIRECTORY       doc)
 set(OPTIMIZE_OUTPUT_FOR_C  "YES")
 set(BUILTIN_STL_SUPPORT    "YES")
@@ -26,27 +28,15 @@ set(USE_MDFILE_AS_MAINPAGE "README.md")
 set(SOURCE_BROWSER         "YES")
 
 if(DOC_GEN_HTML)
-  set(DOC_GENERATE_HTML "YES")
+  set(GENERATE_HTML "YES")
 else()
-  set(DOC_GENERATE_HTML "NO")
+  set(GENERATE_HTML "NO")
 endif()
 
 if(DOC_GEN_PDF)
-  set(DOC_GENERATE_PDF "YES")
+	set(GENERATE_LATEX "YES")
 else()
-  set(DOC_GENERATE_PDF "NO")
-endif()
-
-if(DOC_GEN_RTF)
-  set(DOC_GENERATE_RTF "YES")
-else()
-  set(DOC_GENERATE_RTF "NO")
-endif()
-
-if(DOC_GEN_MAN)
-  set(DOC_GENERATE_MAN "YES")
-else()
-  set(DOC_GENERATE_MAN "NO")
+	set(GENERATE_LATEX "NO")
 endif()
 
 if(DOXYGEN_DOT_FOUND AND (NOT DISABLE_DOT))
@@ -63,7 +53,6 @@ add_custom_target(
 	doc ALL
 	COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
 	DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
-	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 	COMMENT "Generating API documentation with Doxygen" VERBATIM
 	SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile
 	)
