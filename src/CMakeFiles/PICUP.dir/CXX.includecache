@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bcornille/Documents/GradResearch/PICUP/src/test.cpp
+test.hpp
+/home/bcornille/Documents/GradResearch/PICUP/src/test.hpp
+
+/home/bcornille/Documents/GradResearch/PICUP/src/test.hpp
+
