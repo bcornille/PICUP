@@ -1,0 +1,5 @@
+# Build directory
+build
+
+# Doxygenerated documentation
+docs/doxygen
