@@ -12,6 +12,6 @@ The secondary goals for this project include:
 
 ## Building with CMake
 
-    # mkdir build; cd build
-    # cmake ../
-    # make
+    mkdir build; cd build
+    cmake ../
+    make
