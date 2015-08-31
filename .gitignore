@@ -1,2 +1,5 @@
-# Ignore the build directory
+# Build directory
 build
+
+# Doxygenerated documentation
+docs/doxygen
