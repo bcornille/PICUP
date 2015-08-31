@@ -9,3 +9,9 @@ The secondary goals for this project include:
 * Learning the methods used for particle-in-cell codes
 * Learning/practicing object-oriented programming
 * Fun
+
+## Building with CMake
+
+    # mkdir build; cd build
+    # cmake ../
+    # make
