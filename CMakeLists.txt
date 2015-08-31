@@ -29,6 +29,8 @@ set(BUILTIN_STL_SUPPORT    "YES")
 set(INPUT                  "../src ../test")
 set(USE_MDFILE_AS_MAINPAGE "../README.md")
 set(SOURCE_BROWSER         "YES")
+set(FULL_PATH_NAMES        "YES")
+set(STRIP_FROM_PATH        ${PROJECT_SOURCE_DIR})
 
 if(DOC_GEN_HTML)
   set(GENERATE_HTML "YES")
