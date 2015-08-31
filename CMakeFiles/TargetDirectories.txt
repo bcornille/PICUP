@@ -1,2 +1,0 @@
-/home/bcornille/Documents/GradResearch/PICUP/src/CMakeFiles/PICUP.dir
-/home/bcornille/Documents/GradResearch/PICUP/CMakeFiles/doc.dir
