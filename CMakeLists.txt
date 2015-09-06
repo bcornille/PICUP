@@ -7,7 +7,7 @@ set(PROJECT_VERSION_MINOR 1)
 
 ## Add subdirectories
 add_subdirectory (src)
-#add_subdirectory (test)
+add_subdirectory (test)
 
 ## Create documentation (adapted from quickdox by Nicolas Granger;
 #	github.com/pixelou/quickdox)
@@ -23,14 +23,14 @@ set(DOC_PROJECT_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
 find_package(Doxygen REQUIRED)
 # Doxyfile variables
 set(PROJECT_NUMBER         ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR})
-set(OUTPUT_DIRECTORY       ${PROJECT_SOURCE_DIR}/docs/doxygen)
+set(OUTPUT_DIRECTORY       ../docs/doxygen)
 set(OPTIMIZE_OUTPUT_FOR_C  "YES")
 set(BUILTIN_STL_SUPPORT    "YES")
 set(INPUT                  "../README.md ../src ../test")
 set(USE_MDFILE_AS_MAINPAGE "../README.md")
 set(SOURCE_BROWSER         "YES")
-set(FULL_PATH_NAMES        "YES")
-set(STRIP_FROM_PATH        ${PROJECT_SOURCE_DIR})
+set(FULL_PATH_NAMES        "NO")
+set(STRIP_FROM_PATH        "")
 
 if(DOC_GEN_HTML)
   set(GENERATE_HTML "YES")
