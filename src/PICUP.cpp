@@ -3,21 +3,18 @@
  * \brief This is the main program file for the Particle-In-Cell Utility for
  * 			Practice (PICUP).
  *
- * Longer description will go here.
+ * The PICUP program will be split into 3 main kernels.
+ *
+ *  1. PICIN - will read the input file(s) and initialize the calculation.
+ *
+ *  2. PICPUSH - the particle-in-cell physics solver.
+ *
+ *  3. PICOUT - will generate output files with physics data.
  ******************************************************************************/
 
 #include <iostream>
-#include "test.hpp"
 
 int main(int argc, char *argv[])
 {
-	Test testTest(1.0, -1.0, 0.5);
-	std::cout << "(" << testTest.GetX() << ", " << testTest.GetY() << ", " <<
-		testTest.GetZ() << ")" << std::endl;
-
-	testTest.SetTest(2.0, 3.0, -6.5);
-	std::cout << "(" << testTest.GetX() << ", " << testTest.GetY() << ", " <<
-		testTest.GetZ() << ")" << std::endl;
-
 	return 0;
 }
