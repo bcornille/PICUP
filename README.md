@@ -11,7 +11,13 @@ The secondary goals for this project include:
 * Fun
 
 ## Building with CMake
+Type the following commands into the terminal to build on Linux systems.
 
     mkdir build; cd build
     cmake ../
     make
+
+### Dependencies
+These packages are required to build PICUP.
+ * CMake (>= 2.8.12.2)
+ * Doxygen
