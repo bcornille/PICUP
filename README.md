@@ -19,5 +19,11 @@ Type the following commands into the terminal to build on Linux systems.
 
 ### Dependencies
 These packages are required to build PICUP.
- * CMake (>= 2.8.12.2)
- * Doxygen
+ * [CMake](https://cmake.org/) (>= 2.8.12.2)
+ * [Doxygen](https://doxygen.org/)
+
+#### Included libraries and frameworks
+This project includes source code from several other projects.
+ * [GoogleTest](https://github.com/google/googletest)
+   and [GoogleMock](https://github.com/google/googletest/tree/master/googlemock)
+ * Portions of [Eigen](http://eigen.tuxfamily.org/)
