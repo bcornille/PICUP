@@ -6,6 +6,7 @@
  *  * Particles class
  */
 
+#include <vector>
 #include "Eigen/Core"
 
 #ifndef _particles_hpp
@@ -16,13 +17,17 @@
  * The template class allows for using 1D, 2D, or 3D vectors for
  * particle positions and velocities.
  */
-template <typename Vector>
+template <typename PosVec, typename VelVec>
 class Particles
 {
 	private:
-		int num_particles;	/*!< Number of particles.			*/
-		Vector *positions; 	/*!< Positions of the particles.	*/
-		Vector *velocities;	/*!< Velocieites of the particles.	*/
+		int num_particles;	/*!< Number of particles. */
+		/*! Positions of the particles. */
+		std::vector<PosVec, Eigen::aligned_allocator<PosVec> >
+			positions;
+		/*! Velocities of the particles. */
+		std::vector<VelVec, Eigen::aligned_allocator<VelVec> >
+			velocities;
 
 	public:
 		//! Particles default constructor.

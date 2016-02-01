@@ -15,29 +15,34 @@
  **********************************************************************/
 #include "particles.hpp"
 
-template <typename Vector>
-Particles<Vector>::Particles(int N)
+template <typename PosVec, typename VelVec>
+Particles<PosVec, VelVec>::Particles(int N)
 {
 	num_particles = N;
-	positions = new Vector[N];
-	velocities = new Vector[N];
+	positions.resize(N);
+	velocities.resize(N);
 }
 
-template <typename Vector>
-Particles<Vector>::~Particles()
+template <typename PosVec, typename VelVec>
+Particles<PosVec, VelVec>::~Particles()
 {
-	delete[] positions;
-	positions = NULL;
-	delete[] velocities;
-	velocities = NULL;
 	num_particles = 0;
 }
 
-template <typename Vector>
-int Particles<Vector>::getNumParticles() { return num_particles; }
+template <typename PosVec, typename VelVec>
+int Particles<PosVec, VelVec>::getNumParticles() { return num_particles; }
 
 /* These templates need to be instantiated so that classes of these
  * types my be used elsewhere in the code. */
-template class Particles<double>;			//< For 1D PIC runs.
-template class Particles<Eigen::Vector2d>;	//< For 2D PIC runs.
-template class Particles<Eigen::Vector3d>;	//< For 3D PIC runs.
+// For 1-D PIC runs.
+template class Particles<double, double>;
+// For 1-1/2-D PIC runs.
+template class Particles<double, Eigen::Vector2d>;
+// For 1-2/2-D PIC runs.
+template class Particles<double, Eigen::Vector3d>;
+// For 2-D PIC runs.
+template class Particles<Eigen::Vector2d, Eigen::Vector2d>;
+// For 2-1/2-D PIC runs.
+template class Particles<Eigen::Vector2d, Eigen::Vector3d>;
+// For 3-D PIC runs.
+template class Particles<Eigen::Vector3d, Eigen::Vector3d>;
