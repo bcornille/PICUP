@@ -3,7 +3,7 @@
  * \brief Particles header file.
  */
 
-#include <Eigen/Core>
+#include "Eigen/Core"
 
 #ifndef _particles_hpp
 #define _particles_hpp
@@ -28,7 +28,9 @@ class Particles
 		 * number of particles is set to zero and the position and
 		 * velocity pointers are set to null.
 		 */
+		/*
 		Particles();
+		*/
 
 		//! Particles main constructor.
 		/*!
@@ -42,6 +44,12 @@ class Particles
 		 * number of particles to zero.
 		 */
 		~Particles();
-}
+
+		//! Public facing method to get num_particles.
+		/*!
+		 * \return num_particles
+		 */
+		int getNumParticles();
+};
 
 #endif //_particles_hpp

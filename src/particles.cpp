@@ -6,24 +6,38 @@
  * Contents:
  *
  **********************************************************************/
+#include "particles.hpp"
 
-Particles::Particles()
+/*
+template <typename Vector>
+Particles<Vector>::Particles()
 {
 	num_particles = 0;
 	positions = NULL;
 	velocities = NULL;
 }
+*/
 
-Particles::Particles(int N)
+template <typename Vector>
+Particles<Vector>::Particles(int N)
 {
 	num_particles = N;
 	positions = new Vector[N];
 	velocities = new Vector[N];
 }
 
-Particles::~Particles()
+template <typename Vector>
+Particles<Vector>::~Particles()
 {
 	delete[] positions;
+	positions = NULL;
 	delete[] velocities;
+	velocities = NULL;
 	num_particles = 0;
 }
+
+template <typename Vector>
+int Particles<Vector>::getNumParticles() { return num_particles; }
+
+template class Particles<double>;
+//template class Particles<Vector3d>;

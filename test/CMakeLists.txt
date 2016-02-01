@@ -1,8 +1,13 @@
-# Enable testing
-enable_testing()
-
 # Add Googlet Test and Google Mock
 add_subdirectory(googletest)
 
 # Setup Testing
-include_directories(${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS})
+include_directories(${SRC_DIR} ${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS})
+
+add_executable(particles_tests particles_test.cpp)
+
+find_library(GMOCK_GTEST_LIBS gmock-gtest-all ${CMAKE_CURRENT_SOURCE_DIR})
+find_library(PARTICLES particles ${SRC_DIR})
+target_link_libraries(particles_tests gmock-gtest-all particles)
+
+add_test(NAME ParticlesTests COMMAND particles_tests)

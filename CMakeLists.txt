@@ -5,6 +5,13 @@ set(PROJECT_BRIEF "Particle-In-Cell Utility for Practice")
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 1)
 
+## Enable testing
+enable_testing()
+
+## Set variables for source and test directories
+set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set(TEST_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test)
+
 ## Add subdirectories
 add_subdirectory (src)
 add_subdirectory (test)
