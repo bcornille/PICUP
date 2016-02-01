@@ -1,6 +1,9 @@
 /*!
  * \file
  * \brief Particles header file.
+ *
+ * Contents:
+ *  * Particles class
  */
 
 #include "Eigen/Core"

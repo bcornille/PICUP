@@ -4,19 +4,16 @@
  * template class.
  *
  * Contents:
+ *  * Particles(int N) implementation
+ *  * ~Particles() implementation
+ *  * getNumParticles() implemenation
+ *  * Intantiated templates
+ *    * double
+ *    * Eigen::Vector2d
+ *    * Eigen::Vector3d
  *
  **********************************************************************/
 #include "particles.hpp"
-
-/*
-template <typename Vector>
-Particles<Vector>::Particles()
-{
-	num_particles = 0;
-	positions = NULL;
-	velocities = NULL;
-}
-*/
 
 template <typename Vector>
 Particles<Vector>::Particles(int N)
@@ -39,5 +36,8 @@ Particles<Vector>::~Particles()
 template <typename Vector>
 int Particles<Vector>::getNumParticles() { return num_particles; }
 
-template class Particles<double>;
-//template class Particles<Vector3d>;
+/* These templates need to be instantiated so that classes of these
+ * types my be used elsewhere in the code. */
+template class Particles<double>;			//< For 1D PIC runs.
+template class Particles<Eigen::Vector2d>;	//< For 2D PIC runs.
+template class Particles<Eigen::Vector3d>;	//< For 3D PIC runs.
