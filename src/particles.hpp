@@ -21,30 +21,26 @@ template <typename PosVec, typename VelVec>
 class Particles
 {
 	private:
-		int num_particles;	/*!< Number of particles. */
+		int num_particles;	/*!< Number of particles.		*/
+		double charge;		/*!< Charge of particle type.	*/
+		double mass;		/*!< Mass of particle type.		*/
+		/*< Charge to mass ratio of particle type. */
+		double qm_ratio;
+
 		/*! Positions of the particles. */
 		std::vector<PosVec, Eigen::aligned_allocator<PosVec> >
 			positions;
+
 		/*! Velocities of the particles. */
 		std::vector<VelVec, Eigen::aligned_allocator<VelVec> >
 			velocities;
 
 	public:
-		//! Particles default constructor.
-		/*!
-		 * The default constructor creates no particles, i.e. the
-		 * number of particles is set to zero and the position and
-		 * velocity pointers are set to null.
-		 */
-		/*
-		Particles();
-		*/
-
 		//! Particles main constructor.
 		/*!
 		 * \param N Integer setting the number of particles.
 		 */
-		Particles(int N);
+		Particles(int N, double q, double m);
 
 		//! Particles destructor.
 		/*!
