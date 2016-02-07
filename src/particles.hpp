@@ -24,7 +24,7 @@ class Particles
 		int num_particles;	/*!< Number of particles.		*/
 		double charge;		/*!< Charge of particle type.	*/
 		double mass;		/*!< Mass of particle type.		*/
-		/*< Charge to mass ratio of particle type. */
+		/*! Charge to mass ratio of particle type. */
 		double qm_ratio;
 
 		/*! Positions of the particles. */
