@@ -21,7 +21,7 @@ template <typename PosInd, typename PosVec>
 class Mesh
 {
 	private:
-		PosInd num_meshpoints; /*! Number of meshpoints. */
+		const PosInd num_meshpoints; /*! Number of meshpoints. */
 
 		/*! Logical indices of the meshpoints. */
 		std::vector<PosInd, Eigen::aligned_allocator<PosInd> >
@@ -38,12 +38,6 @@ class Mesh
 		 *   logical direction.
 		 */
 		Mesh(PosInd N);
-
-		//! Mesh destructor.
-		/*!
-		 * Sets the number of meshpoints to zero.
-		 */
-		~Mesh();
 }
 
 #endif //_mesh_hpp

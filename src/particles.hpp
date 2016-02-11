@@ -22,10 +22,10 @@ class Particles
 {
 	private:
 		int num_particles;	/*!< Number of particles.		*/
-		double charge;		/*!< Charge of particle type.	*/
-		double mass;		/*!< Mass of particle type.		*/
+		const double charge;		/*!< Charge of particle type.	*/
+		const double mass;		/*!< Mass of particle type.		*/
 		/*! Charge to mass ratio of particle type. */
-		double qm_ratio;
+		const double qm_ratio;
 
 		/*! Positions of the particles. */
 		std::vector<PosVec, Eigen::aligned_allocator<PosVec> >
@@ -43,12 +43,6 @@ class Particles
 		 * \param m Mass of the particle species.
 		 */
 		Particles(int N, double q, double m);
-
-		//! Particles destructor.
-		/*!
-		 * Sets the number of particles to zero.
-		 */
-		~Particles();
 
 		//! Public facing method to get num_particles.
 		/*!
