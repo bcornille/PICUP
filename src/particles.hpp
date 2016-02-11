@@ -46,8 +46,7 @@ class Particles
 
 		//! Particles destructor.
 		/*!
-		 * Deletes the position and velocity pointers and sets the
-		 * number of particles to zero.
+		 * Sets the number of particles to zero.
 		 */
 		~Particles();
 

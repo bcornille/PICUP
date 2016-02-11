@@ -4,10 +4,10 @@
  * template class.
  *
  * Contents:
- *  * Particles(int N) implementation
+ *  * Particles(int N, double q, double m) implementation
  *  * ~Particles() implementation
  *  * getNumParticles() implemenation
- *  * Intantiated templates
+ *  * Instantiated templates
  *    * double
  *    * Eigen::Vector2d
  *    * Eigen::Vector3d
