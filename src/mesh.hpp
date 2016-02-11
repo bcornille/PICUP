@@ -25,7 +25,10 @@ template <typename PosInd, typename PosVec>
 class Mesh
 {
 	private:
-		PosInd num_meshpoints; /*! Number of meshpoints. */
+		int num_meshpoints; /*!< Total number of meshpoints. */
+
+		/*! Number of logical indices in each direction. */
+		PosInd num_indices;
 
 		/*! Logical indices of the meshpoints. */
 		std::vector<PosInd, Eigen::aligned_allocator<PosInd> >
@@ -42,6 +45,6 @@ class Mesh
 		 * dimensionality.
 		 */
 		Mesh();
-}
+};
 
 #endif //_mesh_hpp

@@ -12,17 +12,7 @@
  **********************************************************************/
 #include "mesh.hpp"
 
-template <typename PosVec>
-Mesh<int, PosVec>::Mesh() : num_meshpoints(0)
-{
-}
-
-template <typename PosVec>
-Mesh<Vector2i, PosVec>::Mesh() : num_meshpoints(Eigen::Vector2i::Zero())
-{
-}
-
-template <typename PosVec>
-Mesh<Vector3i, PosVec>::Mesh() : num_meshpoints(Eigen::Vector3i::Zero())
+template <typename PosInd, typename PosVec>
+Mesh<PosInd, PosVec>::Mesh() : num_meshpoints(0)
 {
 }
