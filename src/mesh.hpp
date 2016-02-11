@@ -12,6 +12,11 @@
 #ifndef _mesh_hpp
 #define _mesh_hpp
 
+//! A template class for the mesh
+/*!
+ * The template class allows for using 1D, 2D, or 3D strucutres for mesh
+ * logical indices and coordinates independently.
+ */
 template <typename PosInd, typename PosVec>
 class Mesh
 {
