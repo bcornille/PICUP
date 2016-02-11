@@ -39,6 +39,8 @@ class Particles
 		//! Particles main constructor.
 		/*!
 		 * \param N Integer setting the number of particles.
+		 * \param q Charge of the particle species.
+		 * \param m Mass of the particle species.
 		 */
 		Particles(int N, double q, double m);
 
