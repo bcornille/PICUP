@@ -42,7 +42,7 @@ class Particles
 		 * \param q Charge of the particle species.
 		 * \param m Mass of the particle species.
 		 */
-		Particles(int N, double q, double m);
+		Particles(double q, double m);
 
 		//! Public facing method to get num_particles.
 		/*!

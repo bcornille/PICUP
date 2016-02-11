@@ -16,12 +16,16 @@
 /*!
  * The template class allows for using 1D, 2D, or 3D strucutres for mesh
  * logical indices and coordinates independently.
+ *
+ * Since all available dimensional types of this class must be
+ * instantiated, the one that is to be used will need to have its member
+ * vector arrays resized explicitly during runtime.
  */
 template <typename PosInd, typename PosVec>
 class Mesh
 {
 	private:
-		const PosInd num_meshpoints; /*! Number of meshpoints. */
+		PosInd num_meshpoints; /*! Number of meshpoints. */
 
 		/*! Logical indices of the meshpoints. */
 		std::vector<PosInd, Eigen::aligned_allocator<PosInd> >
@@ -34,10 +38,10 @@ class Mesh
 	public:
 		//! Mesh main constructor.
 		/*!
-		 * \param N Type PosInd to set the number of meshpoints in each
-		 *   logical direction.
+		 * Sets the number of meshpoints to zero in the appropriate
+		 * dimensionality.
 		 */
-		Mesh(PosInd N);
+		Mesh();
 }
 
 #endif //_mesh_hpp

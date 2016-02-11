@@ -16,11 +16,9 @@
 #include "particles.hpp"
 
 template <typename PosVec, typename VelVec>
-Particles<PosVec, VelVec>::Particles(int N, double q, double m = 1.0)
-	: num_particles(N), charge(q), mass(m), qm_ratio(q/m)
+Particles<PosVec, VelVec>::Particles(double q, double m = 1.0)
+	: num_particles(0), charge(q), mass(m), qm_ratio(q/m)
 {
-	positions.resize(N);
-	velocities.resize(N);
 }
 
 template <typename PosVec, typename VelVec>
