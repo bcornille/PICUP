@@ -51,7 +51,11 @@ class Mesh
 		 */
 		int getNumMeshpoints();
 
-		//! Routine to setup a mesh.
+		//! Template routine to setup a mesh.
+		/*!
+		 * Generalized mesh setup is not possible, so specializations
+		 * are required for each possible mesh type.
+		 */
 		void generateMesh(PosInd N, PosVec xmin, PosVec xmax);
 };
 
