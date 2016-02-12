@@ -41,8 +41,7 @@ class Mesh
 	public:
 		//! Mesh main constructor.
 		/*!
-		 * Sets the number of meshpoints to zero in the appropriate
-		 * dimensionality.
+		 * Sets the total number of meshpoints to zero.
 		 */
 		Mesh();
 };

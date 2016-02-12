@@ -21,9 +21,9 @@ template <typename PosVec, typename VelVec>
 class Particles
 {
 	private:
-		int num_particles;	/*!< Number of particles.		*/
-		const double charge;		/*!< Charge of particle type.	*/
-		const double mass;		/*!< Mass of particle type.		*/
+		int num_particles;   /*!< Number of particles.     */
+		const double charge; /*!< Charge of particle type. */
+		const double mass;   /*!< Mass of particle type.   */
 		/*! Charge to mass ratio of particle type. */
 		const double qm_ratio;
 
@@ -38,7 +38,6 @@ class Particles
 	public:
 		//! Particles main constructor.
 		/*!
-		 * \param N Integer setting the number of particles.
 		 * \param q Charge of the particle species.
 		 * \param m Mass of the particle species.
 		 */
