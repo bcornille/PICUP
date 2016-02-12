@@ -12,7 +12,7 @@
 #ifndef _mesh_hpp
 #define _mesh_hpp
 
-//! A template class for the mesh
+//! A template class for the mesh.
 /*!
  * The template class allows for using 1D, 2D, or 3D strucutres for mesh
  * logical indices and coordinates independently.
@@ -44,6 +44,15 @@ class Mesh
 		 * Sets the total number of meshpoints to zero.
 		 */
 		Mesh();
+
+		//! Public facing method to query num_meshpoints.
+		/*!
+		 * \return num_meshpoints
+		 */
+		int getNumMeshpoints();
+
+		//! Routine to setup a mesh.
+		void generateMesh(PosInd N, PosVec xmin, PosVec xmax);
 };
 
 #endif //_mesh_hpp
