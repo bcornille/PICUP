@@ -55,6 +55,12 @@ class Mesh
 		/*!
 		 * Generalized mesh setup is not possible, so specializations
 		 * are required for each possible mesh type.
+		 *
+		 * \param N
+		 * \param xmin
+		 * \param xmax
+		 *
+		 * \sa generateMesh(int N, double xmin, double xmax)
 		 */
 		void generateMesh(PosInd N, PosVec xmin, PosVec xmax);
 };
