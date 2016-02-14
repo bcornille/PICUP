@@ -13,7 +13,10 @@ template <typename PosInd, typename PosVec>
 Mesh<PosInd, PosVec>::Mesh() : num_meshpoints(0) {}
 
 template <typename PosInd, typename PosVec>
-int Mesh<PosInd, PosVec>::getNumMeshpoints() { return num_meshpoints; }
+int Mesh<PosInd, PosVec>::getNumMeshpoints() const
+{
+	return num_meshpoints;
+}
 
 template <typename PosInd, typename PosVec>
 void Mesh<PosInd, PosVec>::
@@ -26,6 +29,9 @@ generateMesh(PosInd N, PosVec xmin, PosVec xmax) {}
  * Currently it is implemented to generate an evenly spaced mesh from
  * \p xmin to \p xmax with \p N total meshpoints.
  *
+ * The code is not currently safe to xmin > xmax and will not catch
+ * this type of error. 
+ *
  * \param N
  * \param xmin
  * \param xmax
@@ -34,6 +40,10 @@ template <>
 void Mesh<int, double>::
 generateMesh(int N, double xmin, double xmax)
 {
+	// Check to make sure a valid mesh is created.
+	/* Have not decided on error checking system yet.
+	if (xmin >= xmax)
+		throw "Cannot generate mesh." */
 	// Set number of meshpoints.
 	num_meshpoints = N;
 	// Only one indexing dimension.
@@ -50,3 +60,5 @@ generateMesh(int N, double xmin, double xmax)
 		coordinates[i] = xmin + dx*i;
 	}
 }
+
+template class Mesh<int, double>;

@@ -18,11 +18,27 @@
  * Thus the scalar field class is derived from Mesh.
  */
 template <typename PosInd, typename PosVec>
-class ScalarField : public Mesh<PosInd, PosVec>
+class PotentialField
 {
 	private:
-		/*! Value of the scalar field. */
-		std::vector<double> value;
-}
+		/*! Pointer to the mesh that the field exists on. */
+		const Mesh<PosInd, PosVec> *field_mesh;
+
+		/*! Value of the electric potential field. */
+		std::vector<double> potential;
+
+		/*! Accumulated charge density that creates the electric
+		 * potential field. */
+		std::vector<double> rho_q;
+
+	public:
+		//! Default constructor for the electric potential field.
+		/*!
+		 * The electric field potential is constructed on a given mesh.
+		 * The mesh size determines the size of the potential and rho_q
+		 * vector arrays.
+		 */
+		PotentialField(const Mesh<PosInd, PosVec> &mesh);
+};
 
 #endif //_fields_hpp
