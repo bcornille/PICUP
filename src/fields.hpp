@@ -18,11 +18,11 @@
  * Thus the scalar field class is derived from Mesh.
  */
 template <typename PosInd, typename PosVec>
-class PotentialField
+class Fields
 {
 	private:
 		/*! Pointer to the mesh that the field exists on. */
-		const Mesh<PosInd, PosVec> *field_mesh;
+		const Mesh<PosInd, PosVec> &field_mesh;
 
 		/*! Value of the electric potential field. */
 		std::vector<double> potential;
@@ -31,14 +31,27 @@ class PotentialField
 		 * potential field. */
 		std::vector<double> rho_q;
 
+		/*! Value of the electric field. */
+		std::vector<Eigen::Vector3d,
+			Eigen::aligned_allocator<Eigen::Vector3d> > e_field;
+
+		/*! Value of the magnetic field. */
+		std::vector<Eigen::Vector3d,
+			Eigen::aligned_allocator<Eigen::Vector3d> > b_field;
+
+		/*! Accumulated current density that creates the self-consistent
+		 * electric and magnetic field. */
+		std::vector<Eigen::Vector3d,
+			Eigen::aligned_allocator<Eigen::Vector3d> > j_q;
+
 	public:
-		//! Default constructor for the electric potential field.
+		//! The main constructor for the electric potential field.
 		/*!
 		 * The electric field potential is constructed on a given mesh.
 		 * The mesh size determines the size of the potential and rho_q
 		 * vector arrays.
 		 */
-		PotentialField(const Mesh<PosInd, PosVec> &mesh);
+		Fields(const Mesh<PosInd, PosVec> &mesh);
 };
 
 #endif //_fields_hpp
