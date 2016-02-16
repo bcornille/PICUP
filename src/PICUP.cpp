@@ -13,9 +13,29 @@
  *  3. PICOUT - will generate output files with physics data.
  **********************************************************************/
 
+#include "fields.hpp"
 #include <iostream>
+#include <new>
+#include <stdexcept>
 
 int main(int argc, char *argv[])
 {
+	/* This tests outputs of exception stuff.
+	 * Look it's cool.
+	 */
+	Mesh<int, double> mesh_test;
+	try
+	{
+		mesh_test.generateMesh(1, 1.0, 0.0);
+	}
+	catch (std::bad_alloc &e)
+	{
+		std::cerr << "Bad allocation: " << e.what() << std::endl;
+	}
+	catch (std::invalid_argument &e)
+	{
+		std::cerr << "Invalid argument: " << e.what() << std::endl;
+	}
+
 	return 0;
 }

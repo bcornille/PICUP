@@ -49,7 +49,7 @@ class Mesh
 		/*!
 		 * \return num_meshpoints
 		 */
-		int getNumMeshpoints() const;
+		unsigned int getNumMeshpoints() const;
 
 		//! Template routine to setup a mesh.
 		/*!
