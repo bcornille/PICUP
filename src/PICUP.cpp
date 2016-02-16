@@ -18,6 +18,12 @@
 #include <new>
 #include <stdexcept>
 
+//! Currently used for testing functions manually.
+/*!
+ * The main driver code. Eventually will consist of only calls to each
+ * of the PICUP kernels. For now it is being used for small manual
+ * test. E.g. Testing the output of exceptions.
+ */
 int main(int argc, char *argv[])
 {
 	/* This tests outputs of exception stuff.

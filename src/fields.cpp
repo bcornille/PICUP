@@ -1,9 +1,9 @@
 /*******************************************************************//*!
  * \file
- * \brief This file will contain all functions for the *Field classes.
+ * \brief This file will contain all functions for the Fields class.
  *
  * Contents:
- *  * ScalarField
+ *  * Fields::Fields(const Mesh &mesh) generic template implemenation
  *
  **********************************************************************/
 #include "fields.hpp"

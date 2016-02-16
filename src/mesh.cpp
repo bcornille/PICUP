@@ -4,7 +4,11 @@
  * class.
  *
  * Contents:
- *  * Mesh() implementation
+ *  * Mesh::Mesh() generic template implementation
+ *  * Mesh::getNumMeshpoints() generic template implementation
+ *  * Mesh::generateMesh(int N, double xmin, double xmax) implementation
+ *  * Instantiated templates
+ *    * <int, double>
  *
  **********************************************************************/
 #include "mesh.hpp"
@@ -32,9 +36,6 @@ generateMesh(PosInd N, PosVec xmin, PosVec xmax) {}
  * Currently it is implemented to generate an evenly spaced mesh from
  * \p xmin to \p xmax with \p N total meshpoints.
  *
- * The code is not currently safe to xmin > xmax and will not catch
- * this type of error. 
- *
  * \param N
  * \param xmin
  * \param xmax
@@ -43,12 +44,13 @@ template <>
 void Mesh<int, double>::
 generateMesh(int N, double xmin, double xmax)
 {
-	// Resize (allocate) vector arrays.
-	// Use the exceptions from resize to test valid N.
-	indices.resize(N);
-	coordinates.resize(N);
 	// Check to make sure a valid mesh is created.
-	// Have not decided on error checking system yet.
+	// Check that N is positive so mesh arrays can be allocated.
+	if (N <= 0)
+		throw std::invalid_argument(
+			"N is not positive in Mesh<int, double>::generateMesh");
+	/* Check that xmin < xmax so coordinates are monotonically
+	 * increasing. */
 	if (xmin >= xmax)
 		throw std::invalid_argument(
 				"xmin >= xmax in Mesh<int, double>::generateMesh" );
@@ -56,7 +58,11 @@ generateMesh(int N, double xmin, double xmax)
 	num_meshpoints = N;
 	// Only one indexing dimension.
 	num_indices = num_meshpoints;
+	// Resize (allocate) vector arrays.
+	indices.resize(num_meshpoints);
+	coordinates.resize(num_meshpoints);
 	// Calculate cell size.
+	// Cells are only evenly sized at the moment.
 	double dx = (N - 1)/(xmax - xmin);
 	// Set the index and coordinate values.
 	for (int i=0; i < num_meshpoints; i++)

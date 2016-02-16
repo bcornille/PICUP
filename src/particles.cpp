@@ -4,13 +4,16 @@
  * template class.
  *
  * Contents:
- *  * Particles(int N, double q, double m) implementation
- *  * ~Particles() implementation
- *  * getNumParticles() implemenation
+ *  * Particles::Particles(double q, double m) generic template
+ *      implementation
+ *  * Particles::getNumParticles() generic template implemenation
  *  * Instantiated templates
- *    * double
- *    * Eigen::Vector2d
- *    * Eigen::Vector3d
+ *    * <double, double>
+ *    * <double, Eigen::Vector2d>
+ *    * <dobule, Eigen::Vector3d>
+ *    * <Eigen::Vector2d, Eigen::Vector2d>
+ *    * <Eigen::Vector2d, Eigen::Vector3d>
+ *    * <Eigen::Vector3d, Eigen::Vector3d>
  *
  **********************************************************************/
 #include "particles.hpp"

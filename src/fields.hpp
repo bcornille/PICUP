@@ -3,8 +3,8 @@
  * \brief Fields header file.
  *
  * Contents:
- *  * ScalarField class
- *  * VectorField class
+ *  * Fields class
+ *
  */
 
 #include "mesh.hpp"
@@ -12,10 +12,11 @@
 #ifndef _fields_hpp
 #define _fields_hpp
 
-//! A class for scalar fields.
+//! A class for all fields.
 /*!
- * The template class defines a scalar field on a mesh.
- * Thus the scalar field class is derived from Mesh.
+ * The template class defines all fields on a mesh. Thus a constant
+ * reference to the mesh for the field is set during construction.
+ * Vector arrays for the fields are also allocated during construction.
  */
 template <typename PosInd, typename PosVec>
 class Fields
@@ -47,9 +48,9 @@ class Fields
 	public:
 		//! The main constructor for the electric potential field.
 		/*!
-		 * The electric field potential is constructed on a given mesh.
-		 * The mesh size determines the size of the potential and rho_q
-		 * vector arrays.
+		 * The vector arrays necessary for determining all fields on the
+		 * provided mesh are constructed. The mesh size determines the
+		 * size of all vector arrays.
 		 */
 		Fields(const Mesh<PosInd, PosVec> &mesh);
 };

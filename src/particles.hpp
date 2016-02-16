@@ -4,6 +4,7 @@
  *
  * Contents:
  *  * Particles class
+ *
  */
 
 #include <vector>
@@ -16,6 +17,11 @@
 /*!
  * The template class allows for using 1D, 2D, or 3D vectors for
  * particle positions and velocities.
+ *
+ * Since all available dimensional types of this class must be
+ * instantiated, the one that is to be used will need to have its member
+ * vector arrays resized explicitly during runtime.
+ *
  */
 template <typename PosVec, typename VelVec>
 class Particles
