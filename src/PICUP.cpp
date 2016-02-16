@@ -32,11 +32,10 @@ int main(int argc, char *argv[])
 	Mesh<int, double> mesh_test;
 	try
 	{
+		// Throws invalid argument exception because N not positive.
+		mesh_test.generateMesh(-1, 1.0, 0.0);
+		// Throws invalid argument exception because xmin >= xmax.
 		mesh_test.generateMesh(1, 1.0, 0.0);
-	}
-	catch (std::bad_alloc &e)
-	{
-		std::cerr << "Bad allocation: " << e.what() << std::endl;
 	}
 	catch (std::invalid_argument &e)
 	{
