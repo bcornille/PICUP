@@ -41,6 +41,9 @@ class Particles
 		std::vector<VelVec, Eigen::aligned_allocator<VelVec> >
 			velocities;
 
+		/*! Mesh cell index for each particle. */
+		std::vector<int> cell_index;
+
 	public:
 		//! Particles main constructor.
 		/*!

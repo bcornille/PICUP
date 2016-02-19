@@ -15,19 +15,38 @@
 #include <new>
 #include <stdexcept>
 #include <string>
+#include <cassert>
+
+/***********************************************************************
+ * Begin generalized template routine definitions.
+ **********************************************************************/
 
 template <typename PosInd, typename PosVec>
-Mesh<PosInd, PosVec>::Mesh() : num_meshpoints(0) {}
+Mesh<PosInd, PosVec>::Mesh() : num_meshpoints(0), num_cells(0) {}
 
 template <typename PosInd, typename PosVec>
-unsigned int Mesh<PosInd, PosVec>::getNumMeshpoints() const
+int Mesh<PosInd, PosVec>::getNumMeshpoints() const
 {
 	return num_meshpoints;
 }
 
 template <typename PosInd, typename PosVec>
 void Mesh<PosInd, PosVec>::
-generateMesh(PosInd N, PosVec xmin, PosVec xmax) {}
+generateMesh(PosInd N, PosVec xmin, PosVec xmax) { assert(false); }
+
+template <typename PosInd, typename PosVec>
+std::vector<int> Mesh<PosInd, PosVec>::getVertices(int l) const
+{
+	assert(false);
+}
+
+/***********************************************************************
+ * End generalized template routine definitions.
+ **********************************************************************/
+
+/***********************************************************************
+ * Begin specialized Mesh<int, double> routine definitions.
+ **********************************************************************/
 
 //! Specialized mesh setup routine for Mesh<int, double>.
 /*!
@@ -56,10 +75,11 @@ generateMesh(int N, double xmin, double xmax)
 				"xmin >= xmax in Mesh<int, double>::generateMesh" );
 	// Set number of meshpoints.
 	num_meshpoints = N;
+	// Set number of cells.
+	num_cells = N - 1;
 	// Only one indexing dimension.
 	num_indices = num_meshpoints;
 	// Resize (allocate) vector arrays.
-	indices.resize(num_meshpoints);
 	coordinates.resize(num_meshpoints);
 	// Calculate cell size.
 	// Cells are only evenly sized at the moment.
@@ -67,9 +87,22 @@ generateMesh(int N, double xmin, double xmax)
 	// Set the index and coordinate values.
 	for (int i=0; i < num_meshpoints; i++)
 	{
-		indices[i] = i;
 		coordinates[i] = xmin + dx*i;
 	}
 }
+
+template <>
+std::vector<int> Mesh<int, double>::getVertices(int l) const
+{
+	// Check to make sure the cell index is valid.
+	assert( (l > 0) && (l < num_cells) );
+	// Create vector to be returned.
+	std::vector<int> vertices {l, l + 1};
+	return vertices;
+}
+
+/***********************************************************************
+ * End specialized Mesh<int, double> routine definitions.
+ **********************************************************************/
 
 template class Mesh<int, double>;

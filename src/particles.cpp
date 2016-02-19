@@ -23,7 +23,8 @@ Particles<PosVec, VelVec>::Particles(double q, double m = 1.0)
 	: num_particles(0), charge(q), mass(m), qm_ratio(q/m) {}
 
 template <typename PosVec, typename VelVec>
-int Particles<PosVec, VelVec>::getNumParticles() { return num_particles; }
+int Particles<PosVec, VelVec>::
+getNumParticles() { return num_particles; }
 
 /* These templates need to be instantiated so that classes of these
  * types my be used elsewhere in the code. */

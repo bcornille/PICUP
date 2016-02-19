@@ -27,13 +27,10 @@ class Mesh
 {
 	private:
 		int num_meshpoints; /*!< Total number of meshpoints. */
+		int num_cells;      /*!< Total number of cells.      */
 
 		/*! Number of logical indices in each direction. */
 		PosInd num_indices;
-
-		/*! Logical indices of the meshpoints. */
-		std::vector<PosInd, Eigen::aligned_allocator<PosInd> >
-			indices;
 
 		/*! Coordinates of the meshpoints. */
 		std::vector<PosVec, Eigen::aligned_allocator<PosVec> >
@@ -50,7 +47,7 @@ class Mesh
 		/*!
 		 * \return num_meshpoints
 		 */
-		unsigned int getNumMeshpoints() const;
+		int getNumMeshpoints() const;
 
 		//! Template routine to setup a mesh.
 		/*!
@@ -64,6 +61,16 @@ class Mesh
 		 * \sa generateMesh(int N, double xmin, double xmax)
 		 */
 		void generateMesh(PosInd N, PosVec xmin, PosVec xmax);
+
+		//! Template routine to query list of vertices for a given cell.
+		/*!
+		 * A generalized form of this routine is not possible.
+		 *
+		 * \param l
+		 *
+		 * \sa
+		 */
+		std::vector<int> getVertices(int l) const;
 };
 
 #endif //_mesh_hpp
