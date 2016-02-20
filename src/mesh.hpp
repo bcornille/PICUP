@@ -45,7 +45,7 @@ class Mesh
 
 		//! Public facing method to query num_meshpoints.
 		/*!
-		 * \return num_meshpoints
+		 * \return <CODE> num_meshpoints </CODE>
 		 */
 		int getNumMeshpoints() const;
 
@@ -66,11 +66,13 @@ class Mesh
 		/*!
 		 * A generalized form of this routine is not possible.
 		 *
-		 * \param l
+		 * \param cell
 		 *
-		 * \sa
+		 * \returns index of vertices in a std::vector
+		 *
+		 * \sa Mesh<int, double>::getVertices(int cell)
 		 */
-		std::vector<int> getVertices(int l) const;
+		std::vector<int> getVertices(int cell) const;
 };
 
 #endif //_mesh_hpp

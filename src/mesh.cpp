@@ -7,6 +7,7 @@
  *  * Mesh::Mesh() generic template implementation
  *  * Mesh::getNumMeshpoints() generic template implementation
  *  * Mesh::generateMesh(int N, double xmin, double xmax) implementation
+ *  * Mesh<int, double>::getVertices(int cell) implementation
  *  * Instantiated templates
  *    * <int, double>
  *
@@ -30,12 +31,18 @@ int Mesh<PosInd, PosVec>::getNumMeshpoints() const
 	return num_meshpoints;
 }
 
+/* This generic template should never be called or generated. An
+ * assert has been added to make sure a specialized mesh generation
+ * function is implemented for each type combination. */
 template <typename PosInd, typename PosVec>
 void Mesh<PosInd, PosVec>::
 generateMesh(PosInd N, PosVec xmin, PosVec xmax) { assert(false); }
 
+/* This generic template should never be called or generated. An
+ * assert has been added to make sure a specialized mesh generation
+ * function is implemented for each type combination. */
 template <typename PosInd, typename PosVec>
-std::vector<int> Mesh<PosInd, PosVec>::getVertices(int l) const
+std::vector<int> Mesh<PosInd, PosVec>::getVertices(int cell) const
 {
 	assert(false);
 }
@@ -48,8 +55,9 @@ std::vector<int> Mesh<PosInd, PosVec>::getVertices(int l) const
  * Begin specialized Mesh<int, double> routine definitions.
  **********************************************************************/
 
-//! Specialized mesh setup routine for Mesh<int, double>.
 /*!
+ * Specialized mesh setup routine for Mesh<int, double>.
+ *
  * This is the setup routine for a one-dimensional mesh.
  *
  * Currently it is implemented to generate an evenly spaced mesh from
@@ -91,13 +99,25 @@ generateMesh(int N, double xmin, double xmax)
 	}
 }
 
+/*!
+ * Specialized query of the list of vertices around a cell for
+ * Mesh<int, double>.
+ *
+ * This queries the vertices of a sinple one-dimensional mesh. It needs
+ * only return a vector with integers \p cell and
+ * <CODE> cell + 1 </CODE>.
+ *
+ * \param cell
+ *
+ * \returns <CODE> std::vector vertices {cell, cell + 1} </CODE>
+ */
 template <>
-std::vector<int> Mesh<int, double>::getVertices(int l) const
+std::vector<int> Mesh<int, double>::getVertices(int cell) const
 {
 	// Check to make sure the cell index is valid.
-	assert( (l > 0) && (l < num_cells) );
+	assert( (cell > 0) && (cell < num_cells) );
 	// Create vector to be returned.
-	std::vector<int> vertices {l, l + 1};
+	std::vector<int> vertices {cell, cell + 1};
 	return vertices;
 }
 
@@ -105,4 +125,5 @@ std::vector<int> Mesh<int, double>::getVertices(int l) const
  * End specialized Mesh<int, double> routine definitions.
  **********************************************************************/
 
+// Explicitly instantiated Mesh class templates.
 template class Mesh<int, double>;
