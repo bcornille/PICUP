@@ -8,6 +8,7 @@
  */
 
 #include "mesh.hpp"
+#include "particles.hpp"
 
 #ifndef _fields_hpp
 #define _fields_hpp
@@ -53,6 +54,17 @@ class Fields
 		 * size of all vector arrays.
 		 */
 		Fields(const Mesh<PosInd, PosVec> &mesh);
+
+		//! Accumulate charge density.
+		/*!
+		 * Charge accumulation is able to be generalized due to careful
+		 * construction of the Mesh class. Especially its member
+		 * function Mesh::getVertices. Having the Mesh class handle
+		 * calculation of weighting will also be pivotal.
+		 */
+		template <typename VelVec>
+		void accumulateCharge(
+				const Particles<PosVec, VelVec>& particles);
 };
 
 #endif //_fields_hpp

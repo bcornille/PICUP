@@ -24,7 +24,21 @@ Particles<PosVec, VelVec>::Particles(double q, double m = 1.0)
 
 template <typename PosVec, typename VelVec>
 int Particles<PosVec, VelVec>::
-getNumParticles() { return num_particles; }
+getNumParticles() const { return num_particles; }
+
+template <typename PosVec, typename VelVec>
+double Particles<PosVec, VelVec>::
+getCharge() const { return charge; }
+
+template <typename PosVec, typename VelVec>
+const std::vector<PosVec, Eigen::aligned_allocator<PosVec> >&
+Particles<PosVec, VelVec>::getPositions() const { return positions; }
+
+template <typename PosVec, typename VelVec>
+const std::vector<int>& Particles<PosVec, VelVec>::getCells() const
+{
+	return cell_index;
+}
 
 /* These templates need to be instantiated so that classes of these
  * types my be used elsewhere in the code. */

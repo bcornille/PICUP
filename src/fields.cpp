@@ -18,4 +18,23 @@ Fields(const Mesh<PosInd, PosVec> &mesh) : field_mesh(mesh),
 	j_q(mesh.getNumMeshpoints(), Eigen::Vector3d::Zero())
 {}
 
+template <typename PosInd, typename PosVec>
+template <typename VelVec>
+void Fields<PosInd, PosVec>::
+accumulateCharge(const Particles<PosVec, VelVec>& particles)
+{
+	double q = particles.getCharge();
+	const std::vector<PosVec, Eigen::aligned_allocator<PosVec> > &x
+		= particles.getPositions();
+	const std::vector<int> &cells = particles.getCells();
+	for (int i = 0; i < particles.getNumParticles(); i++)
+	{
+		for (const int &l : field_mesh.getVertices(cells[i]))
+		{
+			rho_q[l] += q; // This will need a weight, but that
+			               // functionality is not yet in Mesh.
+		}
+	}
+}
+
 template class Fields<int, double>;

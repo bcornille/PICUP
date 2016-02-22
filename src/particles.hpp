@@ -54,9 +54,30 @@ class Particles
 
 		//! Public facing method to get num_particles.
 		/*!
-		 * \return num_particles
+		 * \return <CODE> num_particles </CODE>
 		 */
-		int getNumParticles();
+		int getNumParticles() const;
+
+		//! Public facing method to get charge;
+		/*!
+		 * \return <CODE> charge </CODE>
+		 */
+		double getCharge() const;
+
+		//! Return a constant reference to particle positions.
+		/*!
+		 * The main utility of this function is to allow accumulation of
+		 * charge density efficiently.
+		 */
+		const std::vector<PosVec, Eigen::aligned_allocator<PosVec> >&
+			getPositions() const;
+
+		//! Return a constant reference to the cells of particles.
+		/*!
+		 * The main utility of this function is to allow accumulation of
+		 * charge density efficiently.
+		 */
+		const std::vector<int>& getCells() const;
 };
 
 #endif //_particles_hpp
