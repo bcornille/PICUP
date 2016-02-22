@@ -31,8 +31,7 @@ accumulateCharge(const Particles<PosVec, VelVec>& particles)
 	{
 		for (const int &l : field_mesh.getVertices(cells[i]))
 		{
-			rho_q[l] += q; // This will need a weight, but that
-			               // functionality is not yet in Mesh.
+			rho_q[l] += q*field_mesh.getWeight(l);
 		}
 	}
 }

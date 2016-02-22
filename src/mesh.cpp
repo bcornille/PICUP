@@ -47,6 +47,15 @@ std::vector<int> Mesh<PosInd, PosVec>::getVertices(int cell) const
 	assert(false);
 }
 
+/* This generic template should never be called or generated. An
+ * assert has been added to make sure a specialized mesh generation
+ * function is implemented for each type combination. */
+template <typename PosInd, typename PosVec>
+double Mesh<PosInd, PosVec>::getWeight(PosVec x, int vert) const
+{
+	assert(false);
+}
+
 /***********************************************************************
  * End generalized template routine definitions.
  **********************************************************************/
@@ -119,6 +128,26 @@ std::vector<int> Mesh<int, double>::getVertices(int cell) const
 	// Create vector to be returned.
 	std::vector<int> vertices {cell, cell + 1};
 	return vertices;
+}
+
+/*!
+ * Specialized calculation of the particle weighting for
+ * Mesh<int, double>.
+ *
+ * \param x
+ * \param vert
+ *
+ * \returns <CODE> weight </CODE>
+ */
+template <>
+double Mesh<int, double>::getWeight(double x, int vert) const
+{
+	double x_diff = x - coordinates[vert];
+	double weight_1 = 1.0
+		- x_diff/(coordinates[vert] - coordinates[vert-1]);
+	double weight_2 = 1.0
+		- x_diff/(coordinates[vert+1] - coordinates[vert]);
+	return (x_diff < 0) ? weight_1 : weight_2;
 }
 
 /***********************************************************************

@@ -54,9 +54,9 @@ class Mesh
 		 * Generalized mesh setup is not possible, so specializations
 		 * are required for each possible mesh type.
 		 *
-		 * \param N
-		 * \param xmin
-		 * \param xmax
+		 * \param N number of mesh vertices in each logical direction
+		 * \param xmin vector of minimum value of each coordinate
+		 * \param xmax vector of maximum value of each coordinate
 		 *
 		 * \sa generateMesh(int N, double xmin, double xmax)
 		 */
@@ -66,13 +66,26 @@ class Mesh
 		/*!
 		 * A generalized form of this routine is not possible.
 		 *
-		 * \param cell
+		 * \param cell index
 		 *
 		 * \returns index of vertices in a std::vector
 		 *
 		 * \sa Mesh<int, double>::getVertices(int cell)
 		 */
 		std::vector<int> getVertices(int cell) const;
+
+		//! Template routine to get particle weighting.
+		/*!
+		 * A generalized form of this routine is not possible.
+		 *
+		 * \param x position of the particle
+		 * \param vert overall index of the vertex
+		 *
+		 * \returns <CODE> weight </CODE>
+		 *
+		 * \sa getWeight(double x, int vert)
+		 */
+		double getWeight(PosVec x, int vert) const;
 };
 
 #endif //_mesh_hpp

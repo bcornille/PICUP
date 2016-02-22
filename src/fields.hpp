@@ -61,6 +61,8 @@ class Fields
 		 * construction of the Mesh class. Especially its member
 		 * function Mesh::getVertices. Having the Mesh class handle
 		 * calculation of weighting will also be pivotal.
+		 *
+		 * \param particles
 		 */
 		template <typename VelVec>
 		void accumulateCharge(
