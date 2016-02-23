@@ -15,8 +15,6 @@
 
 #include "fields.hpp"
 #include <iostream>
-#include <new>
-#include <stdexcept>
 
 //! Currently used for testing functions manually.
 /*!

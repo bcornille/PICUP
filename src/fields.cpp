@@ -23,12 +23,17 @@ template <typename VelVec>
 void Fields<PosInd, PosVec>::
 accumulateCharge(const Particles<PosVec, VelVec>& particles)
 {
+	// Query charge of the particle species.
 	double q = particles.getCharge();
+	// Get reference to the list of particle positions.
 	const std::vector<PosVec, Eigen::aligned_allocator<PosVec> > &x
 		= particles.getPositions();
+	// Get reference to the list of cells occumpied by particles.
 	const std::vector<int> &cells = particles.getCells();
+	// Loop over particles.
 	for (int i = 0; i < particles.getNumParticles(); i++)
 	{
+		// Loop over vertices of the cell that the particle is in.
 		for (const int &l : field_mesh.getVertices(cells[i]))
 		{
 			rho_q[l] += q*field_mesh.getWeight(l);
@@ -36,4 +41,6 @@ accumulateCharge(const Particles<PosVec, VelVec>& particles)
 	}
 }
 
+/* Only the Mesh<int, double> class is instantiated so we can only
+ * instantiate the corresponding Fields template. */
 template class Fields<int, double>;

@@ -70,7 +70,7 @@ class Mesh
 		 *
 		 * \returns index of vertices in a std::vector
 		 *
-		 * \sa Mesh<int, double>::getVertices(int cell)
+		 * \sa Mesh<int, double>::getVertices(int cell) const
 		 */
 		std::vector<int> getVertices(int cell) const;
 
@@ -83,7 +83,7 @@ class Mesh
 		 *
 		 * \returns <CODE> weight </CODE>
 		 *
-		 * \sa getWeight(double x, int vert)
+		 * \sa getWeight(double x, int vert) const
 		 */
 		double getWeight(PosVec x, int vert) const;
 };

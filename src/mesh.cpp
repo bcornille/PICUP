@@ -13,7 +13,6 @@
  *
  **********************************************************************/
 #include "mesh.hpp"
-#include <new>
 #include <stdexcept>
 #include <string>
 #include <cassert>
@@ -72,9 +71,9 @@ double Mesh<PosInd, PosVec>::getWeight(PosVec x, int vert) const
  * Currently it is implemented to generate an evenly spaced mesh from
  * \p xmin to \p xmax with \p N total meshpoints.
  *
- * \param N
- * \param xmin
- * \param xmax
+ * \param N number of mesh vertices
+ * \param xmin minimum x coordinate
+ * \param xmax maximum x coordinate
  */
 template <>
 void Mesh<int, double>::
@@ -116,7 +115,7 @@ generateMesh(int N, double xmin, double xmax)
  * only return a vector with integers \p cell and
  * <CODE> cell + 1 </CODE>.
  *
- * \param cell
+ * \param cell index
  *
  * \returns <CODE> std::vector vertices {cell, cell + 1} </CODE>
  */
@@ -134,20 +133,24 @@ std::vector<int> Mesh<int, double>::getVertices(int cell) const
  * Specialized calculation of the particle weighting for
  * Mesh<int, double>.
  *
- * \param x
- * \param vert
+ * Currently assumes square particle of the size of the cell it is in.
+ *
+ * \param x position of the particle
+ * \param vert overall index of the vertex
  *
  * \returns <CODE> weight </CODE>
  */
 template <>
 double Mesh<int, double>::getWeight(double x, int vert) const
 {
+	// Get distance from vertex and test which side the particle is on.
 	double x_diff = x - coordinates[vert];
-	double weight_1 = 1.0
-		- x_diff/(coordinates[vert] - coordinates[vert-1]);
-	double weight_2 = 1.0
-		- x_diff/(coordinates[vert+1] - coordinates[vert]);
-	return (x_diff < 0) ? weight_1 : weight_2;
+	if (x_diff < 0) // Test if particle is behind vertex.
+	{ // Use vert and vert-1 to calculate weight.
+		return 1.0 - x_diff/(coordinates[vert] - coordinates[vert-1]);
+	} else { // Use vert+1 and vert to calculate weight.
+		return 1.0 - x_diff/(coordinates[vert+1] - coordinates[vert]);
+	}
 }
 
 /***********************************************************************

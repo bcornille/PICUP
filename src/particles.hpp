@@ -68,6 +68,8 @@ class Particles
 		/*!
 		 * The main utility of this function is to allow accumulation of
 		 * charge density efficiently.
+		 *
+		 * \return reference to <CODE> positions </CODE>
 		 */
 		const std::vector<PosVec, Eigen::aligned_allocator<PosVec> >&
 			getPositions() const;
@@ -76,6 +78,8 @@ class Particles
 		/*!
 		 * The main utility of this function is to allow accumulation of
 		 * charge density efficiently.
+		 *
+		 * \return reference to <CODE> cell_index </CODE>
 		 */
 		const std::vector<int>& getCells() const;
 };
