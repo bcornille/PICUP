@@ -7,6 +7,9 @@
  *  * Particles::Particles(double q, double m) generic template
  *      implementation
  *  * Particles::getNumParticles() generic template implemenation
+ *  * Particles::getCharge() generic template implemenation
+ *  * Particles::getPositions() generic template implemenation
+ *  * Particles::getCells() generic template implemenation
  *  * Instantiated templates
  *    * <double, double>
  *    * <double, Eigen::Vector2d>

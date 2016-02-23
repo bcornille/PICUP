@@ -66,7 +66,7 @@ class Fields
 		 */
 		template <typename VelVec>
 		void accumulateCharge(
-				const Particles<PosVec, VelVec>& particles);
+				const Particles<PosVec, VelVec> &particles);
 };
 
 #endif //_fields_hpp

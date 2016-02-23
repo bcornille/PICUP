@@ -4,6 +4,9 @@
  *
  * Contents:
  *  * Fields::Fields(const Mesh &mesh) generic template implemenation
+ *  * Fields::accumulateCharge generic template implemenation
+ *  * Instantiation templates:
+ *    * <int, double>
  *
  **********************************************************************/
 #include "fields.hpp"
@@ -21,7 +24,7 @@ Fields(const Mesh<PosInd, PosVec> &mesh) : field_mesh(mesh),
 template <typename PosInd, typename PosVec>
 template <typename VelVec>
 void Fields<PosInd, PosVec>::
-accumulateCharge(const Particles<PosVec, VelVec>& particles)
+accumulateCharge(const Particles<PosVec, VelVec> &particles)
 {
 	// Query charge of the particle species.
 	double q = particles.getCharge();
