@@ -16,6 +16,7 @@
 #include <stdexcept>
 #include <string>
 #include <cassert>
+#include <cmath>
 
 /***********************************************************************
  * Begin generalized template routine definitions.
@@ -125,7 +126,7 @@ std::vector<int> Mesh<int, double>::getVertices(int cell) const
 	// Check to make sure the cell index is valid.
 	assert( (cell > 0) && (cell < num_cells) );
 	// Create vector to be returned.
-	std::vector<int> vertices {cell, cell + 1};
+	std::vector<int> vertices {cell - 1, cell, cell + 1, cell + 2};
 	return vertices;
 }
 
@@ -144,12 +145,19 @@ template <>
 double Mesh<int, double>::getWeight(double x, int vert) const
 {
 	// Get distance from vertex and test which side the particle is on.
-	double x_diff = x - coordinates[vert];
-	if (x_diff < 0) // Test if particle is behind vertex.
-	{ // Use vert and vert-1 to calculate weight.
-		return 1.0 - x_diff/(coordinates[vert] - coordinates[vert-1]);
-	} else { // Use vert+1 and vert to calculate weight.
-		return 1.0 - x_diff/(coordinates[vert+1] - coordinates[vert]);
+	/* While dx is constant for an evenly spaced mesh it is not saved.
+	 * This is because an evenly spaced mesh is not expected to be
+	 * permanent. This calculation also assumes the particle size is
+	 * equal to the mesh spacing. */
+	double xi_diff = std::abs(x - coordinates[vert])
+		/(coordinates[vert] - coordinates[vert-1]);
+	if (xi_diff < 0.5) // Test if particle is within half an element.
+	{
+		return 0.75 - xi_diff*xi_diff;
+	} else if( xi_diff > 1.5) { 
+		return 0.0;
+	} else {
+		return 0.5*xi_diff*xi_diff - 1.5*xi_diff + 1.125;
 	}
 }
 
