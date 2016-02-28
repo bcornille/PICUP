@@ -6,8 +6,11 @@
  * Contents:
  *  * Mesh::Mesh() generic template implementation
  *  * Mesh::getNumMeshpoints() generic template implementation
- *  * Mesh::generateMesh(int N, double xmin, double xmax) implementation
- *  * Mesh<int, double>::getVertices(int cell) implementation
+ *  * Mesh<int, double>::generateMesh(int N, double xmin, double xmax)
+ *    implementation
+ *  * Mesh<int, double>::getVertices(int cell) const implementation
+ *  * Mesh<int, double>::getWeight(double x, int vert) const
+ *    implementation
  *  * Instantiated templates
  *    * <int, double>
  *
