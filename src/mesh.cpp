@@ -109,9 +109,10 @@ generateMesh(int N, double xmin, double xmax)
 	num_indices = num_meshpoints;
 	// Resize (allocate) vector arrays.
 	coordinates.resize(num_meshpoints);
+	laplace.resize(num_meshpoints, num_meshpoints);
 	// Calculate cell size.
 	// Cells are only evenly sized at the moment.
-	double dx = (N - 1)/(xmax - xmin);
+	double dx = (xmax - xmin)/(N - 1);
 	// Set the index and coordinate values.
 	for (int i=0; i < num_meshpoints; i++) {
 		coordinates[i] = xmin + dx*i;
@@ -173,18 +174,23 @@ double Mesh<int, double>::getWeight(double x, int vert) const
 template <>
 void Mesh<int, double>::generateLaplace()
 {
+	// Assume all element sizes are equal.
 	double dx = coordinates[1] - coordinates[0];
+	/* Eigen claims that this method is efficient for populating the
+	 * matrix. */
 	laplace.reserve(Eigen::VectorXi::Constant(num_meshpoints, 3));
 	for(int i = 0; i < num_meshpoints; i++) {
-		for(int j = 0; j < num_meshpoints; j++) {
-			if(i == j) {
-				laplace.coeffRef(i, j) = 2.0/dx;
-			} else if(std::abs(i - j) == 1) {
-				laplace.coeffRef(i, j) = -1.0/dx;
-			}
+		if( (i == 0) || (i == num_meshpoints - 1) ) {
+			laplace.insert(i, i) = 1.0;
+		} else {
+			laplace.insert(i, i-1) = -1.0/dx;
+			laplace.insert(i, i) = 2.0/dx;
+			laplace.insert(i, i+1) = -1.0/dx;
 		}
 	}
+	// Must compress the matrix before factorizing it.
 	laplace.makeCompressed();
+	// Calls analyze and factorize.
 	laplace_solver.compute(laplace);
 	if(laplace_solver.info() != Eigen::ComputationInfo::Success)
 		throw laplace_solver.info();

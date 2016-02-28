@@ -15,4 +15,4 @@ find_library(FIELDS fields ${SRC_DIR})
 target_link_libraries(mesh_tests gmock-gtest-all fields)
 
 add_test(NAME ParticlesTests COMMAND particles_tests)
-add_test(NAME FieldsTests COMMAND fields_tests)
+add_test(NAME MeshTests COMMAND mesh_tests)

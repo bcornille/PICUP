@@ -99,7 +99,12 @@ class Mesh
 		 */
 		void generateLaplace();
 
-		/*! Solver to be used with the laplace matrix. */
+		//! Solver to be used with the laplace matrix.
+		/*!
+		 * SparseLU was chosen as the solver type because it will allow
+		 * for general matrix form solutions in the future to use only
+		 * the MPL2 liscensed parts of the Eigen library
+		 */
 		Eigen::SparseLU<Eigen::SparseMatrix<double> > laplace_solver;
 };
 

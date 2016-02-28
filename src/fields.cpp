@@ -5,6 +5,7 @@
  * Contents:
  *  * Fields::Fields(const Mesh &mesh) generic template implemenation
  *  * Fields::accumulateCharge generic template implemenation
+ *  * Fields::solvePoisson generic template implementation
  *  * Instantiation templates:
  *    * <int, double>
  *

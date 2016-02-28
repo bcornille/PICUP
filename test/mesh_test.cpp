@@ -22,10 +22,21 @@ TEST_F(MeshTest, MeshGeneration)
 TEST_F(MeshTest, MeshVertices)
 {
 	int cell = 50;
-	std::vector<int> vertices {cell, cell + 1};
+	std::vector<int> vertices {cell - 1, cell, cell + 1, cell + 2};
 	EXPECT_EQ(vertices, mesh_test.getVertices(cell));
 }
 
+TEST_F(MeshTest, MeshWeight)
+{
+	int vert = 50;
+	double x = 0.5;
+	EXPECT_NEAR(0.5, mesh_test.getWeight(x, vert), 1.0e-14);
+}
+
+TEST_F(MeshTest, MeshLaplace)
+{
+	EXPECT_NO_THROW(mesh_test.generateLaplace());
+}
 
 int main(int argc, char **argv)
 {

@@ -70,8 +70,8 @@ class Fields
 
 		//! Solve the poisson equaion using the charge in rho_q array.
 		/*!
-		 * The SimplicialLDLT solver class is used for the 1D poisson
-		 * equation since it is symmetric positive definite.
+		 * The SparseLU solver class is used for solving the poisson
+		 * equation.
 		 */
 		void solvePoisson();
 };
