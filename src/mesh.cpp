@@ -16,7 +16,6 @@
 #include <stdexcept>
 #include <string>
 #include <cassert>
-#include <cmath>
 
 /***********************************************************************
  * Begin generalized template routine definitions.
