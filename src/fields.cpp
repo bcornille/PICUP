@@ -11,8 +11,8 @@
 template <typename PosInd, typename PosVec>
 Fields<PosInd, PosVec>::
 Fields(const Mesh<PosInd, PosVec> &mesh) : field_mesh(mesh),
-	potential(mesh.getNumMeshpoints(), 0.0),
-	rho_q(mesh.getNumMeshpoints(), 0.0),
+	potential(Eigen::VectorXd::Constant(mesh.getNumMeshpoints(), 0.0)),
+	rho_q(Eigen::VectorXd::Constant(mesh.getNumMeshpoints(), 0.0)),
 	e_field(mesh.getNumMeshpoints(), Eigen::Vector3d::Zero()),
 	b_field(mesh.getNumMeshpoints(), Eigen::Vector3d::Zero()),
 	j_q(mesh.getNumMeshpoints(), Eigen::Vector3d::Zero())
@@ -31,14 +31,18 @@ accumulateCharge(const Particles<PosVec, VelVec>& particles)
 	// Get reference to the list of cells occumpied by particles.
 	const std::vector<int> &cells = particles.getCells();
 	// Loop over particles.
-	for (int i = 0; i < particles.getNumParticles(); i++)
-	{
+	for (int i = 0; i < particles.getNumParticles(); i++) {
 		// Loop over vertices of the cell that the particle is in.
-		for (const int &l : field_mesh.getVertices(cells[i]))
-		{
+		for (const int &l : field_mesh.getVertices(cells[i])) {
 			rho_q[l] += q*field_mesh.getWeight(l);
 		}
 	}
+}
+
+template <typename PosInd, typename PosVec>
+void Fields<PosInd, PosVec>::solvePoisson()
+{
+	potential = field_mesh.laplace_solver.solve(rho_q);
 }
 
 /* Only the Mesh<int, double> class is instantiated so we can only

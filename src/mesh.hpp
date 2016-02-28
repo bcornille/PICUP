@@ -8,7 +8,7 @@
  */
 
 #include <vector>
-#include "Eigen/Core"
+#include "Eigen/SparseLU"
 
 #ifndef _mesh_hpp
 #define _mesh_hpp
@@ -35,6 +35,9 @@ class Mesh
 		/*! Coordinates of the meshpoints. */
 		std::vector<PosVec, Eigen::aligned_allocator<PosVec> >
 			coordinates;
+
+		/*! Laplace sparse matrix for mesh. */
+		Eigen::SparseMatrix<double> laplace;
 
 	public:
 		//! Mesh main constructor.
@@ -86,6 +89,18 @@ class Mesh
 		 * \sa getWeight(double x, int vert) const
 		 */
 		double getWeight(PosVec x, int vert) const;
+
+		//! Generates the laplace matrix based on the mesh.
+		/*!
+		 * A generalized generation is not most efficient for simple
+		 * problems even if possible.
+		 *
+		 * \param matrix reference to the matrix that is being filled
+		 */
+		void generateLaplace();
+
+		/*! Solver to be used with the laplace matrix. */
+		Eigen::SparseLU<Eigen::SparseMatrix<double> > laplace_solver;
 };
 
 #endif //_mesh_hpp

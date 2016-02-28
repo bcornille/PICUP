@@ -27,11 +27,11 @@ class Fields
 		const Mesh<PosInd, PosVec> &field_mesh;
 
 		/*! Value of the electric potential field. */
-		std::vector<double> potential;
+		Eigen::VectorXd potential;
 
 		/*! Accumulated charge density that creates the electric
 		 * potential field. */
-		std::vector<double> rho_q;
+		Eigen::VectorXd rho_q;
 
 		/*! Value of the electric field. */
 		std::vector<Eigen::Vector3d,
@@ -67,6 +67,13 @@ class Fields
 		template <typename VelVec>
 		void accumulateCharge(
 				const Particles<PosVec, VelVec>& particles);
+
+		//! Solve the poisson equaion using the charge in rho_q array.
+		/*!
+		 * The SimplicialLDLT solver class is used for the 1D poisson
+		 * equation since it is symmetric positive definite.
+		 */
+		void solvePoisson();
 };
 
 #endif //_fields_hpp

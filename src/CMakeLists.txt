@@ -1,6 +1,3 @@
-# Set to only use MPL2 liscensed portions of the Eigen teplate library.
-add_definitions(-DEIGEN_MPL2_ONLY)
-
 add_library(particles STATIC particles.cpp)
 add_library(fields STATIC mesh.cpp fields.cpp)
 

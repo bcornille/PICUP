@@ -17,6 +17,9 @@ else()
 	message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
+# Set to only use MPL2 liscensed portions of the Eigen teplate library.
+add_definitions(-DEIGEN_MPL2_ONLY)
+
 ## Enable testing
 enable_testing()
 

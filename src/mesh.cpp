@@ -55,6 +55,15 @@ double Mesh<PosInd, PosVec>::getWeight(PosVec x, int vert) const
 	assert(false);
 }
 
+/* This generic template should never be called or generated. An
+ * assert has been added to make sure a specialized mesh generation
+ * function is implemented for each type combination. */
+template <typename PosInd, typename PosVec>
+void Mesh<PosInd, PosVec>::generateLaplace()
+{
+	assert(false);
+}
+
 /***********************************************************************
  * End generalized template routine definitions.
  **********************************************************************/
@@ -101,8 +110,7 @@ generateMesh(int N, double xmin, double xmax)
 	// Cells are only evenly sized at the moment.
 	double dx = (N - 1)/(xmax - xmin);
 	// Set the index and coordinate values.
-	for (int i=0; i < num_meshpoints; i++)
-	{
+	for (int i=0; i < num_meshpoints; i++) {
 		coordinates[i] = xmin + dx*i;
 	}
 }
@@ -150,8 +158,7 @@ double Mesh<int, double>::getWeight(double x, int vert) const
 	 * equal to the mesh spacing. */
 	double xi_diff = std::abs(x - coordinates[vert])
 		/(coordinates[vert] - coordinates[vert-1]);
-	if (xi_diff < 0.5) // Test if particle is within half an element.
-	{
+	if (xi_diff < 0.5) {
 		return 0.75 - xi_diff*xi_diff;
 	} else if( xi_diff > 1.5) { 
 		return 0.0;
@@ -159,6 +166,27 @@ double Mesh<int, double>::getWeight(double x, int vert) const
 		return 0.5*xi_diff*xi_diff - 1.5*xi_diff + 1.125;
 	}
 }
+
+template <>
+void Mesh<int, double>::generateLaplace()
+{
+	double dx = coordinates[1] - coordinates[0];
+	laplace.reserve(Eigen::VectorXi::Constant(num_meshpoints, 3));
+	for(int i = 0; i < num_meshpoints; i++) {
+		for(int j = 0; j < num_meshpoints; j++) {
+			if(i == j) {
+				laplace.coeffRef(i, j) = 2.0/dx;
+			} else if(std::abs(i - j) == 1) {
+				laplace.coeffRef(i, j) = -1.0/dx;
+			}
+		}
+	}
+	laplace.makeCompressed();
+	laplace_solver.compute(laplace);
+	if(laplace_solver.info() != Eigen::ComputationInfo::Success)
+		throw laplace_solver.info();
+}
+
 
 /***********************************************************************
  * End specialized Mesh<int, double> routine definitions.
