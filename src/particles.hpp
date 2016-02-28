@@ -7,8 +7,7 @@
  *
  */
 
-#include <vector>
-#include "Eigen/Core"
+#include "mesh.hpp"
 
 #ifndef _particles_hpp
 #define _particles_hpp
@@ -82,6 +81,14 @@ class Particles
 		 * \return reference to <CODE> cell_index </CODE>
 		 */
 		const std::vector<int>& getCells() const;
+
+		//! Creates particles distributed across a given mesh.
+		/*!
+		 * \param N
+		 * \param mesh
+		 */
+		template <typename PosInd>
+		void generateParticles(int N, const Mesh<PosInd, PosVec> &mesh);
 };
 
 #endif //_particles_hpp

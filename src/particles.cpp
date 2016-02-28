@@ -43,17 +43,25 @@ const std::vector<int>& Particles<PosVec, VelVec>::getCells() const
 	return cell_index;
 }
 
+template <typename PosVec, typename VelVec>
+template <typename PosInd>
+void Particles<PosVec, VelVec>::
+generateParticles(int N, const Mesh<PosInd, PosVec> &mesh)
+{
+	assert(false);
+}
+
 /* These templates need to be instantiated so that classes of these
  * types my be used elsewhere in the code. */
 // For 1-D PIC runs.
 template class Particles<double, double>;
 // For 1-1/2-D PIC runs.
-template class Particles<double, Eigen::Vector2d>;
+// template class Particles<double, Eigen::Vector2d>;
 // For 1-2/2-D PIC runs.
-template class Particles<double, Eigen::Vector3d>;
+// template class Particles<double, Eigen::Vector3d>;
 // For 2-D PIC runs.
-template class Particles<Eigen::Vector2d, Eigen::Vector2d>;
+// template class Particles<Eigen::Vector2d, Eigen::Vector2d>;
 // For 2-1/2-D PIC runs.
-template class Particles<Eigen::Vector2d, Eigen::Vector3d>;
+// template class Particles<Eigen::Vector2d, Eigen::Vector3d>;
 // For 3-D PIC runs.
-template class Particles<Eigen::Vector3d, Eigen::Vector3d>;
+// template class Particles<Eigen::Vector3d, Eigen::Vector3d>;

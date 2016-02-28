@@ -38,7 +38,7 @@ accumulateCharge(const Particles<PosVec, VelVec> &particles)
 	for (int i = 0; i < particles.getNumParticles(); i++) {
 		// Loop over vertices of the cell that the particle is in.
 		for (const int &l : field_mesh.getVertices(cells[i])) {
-			rho_q[l] += q*field_mesh.getWeight(l);
+			rho_q[l] += q*field_mesh.getWeight(x[l], l);
 		}
 	}
 }
@@ -52,3 +52,5 @@ void Fields<PosInd, PosVec>::solvePoisson()
 /* Only the Mesh<int, double> class is instantiated so we can only
  * instantiate the corresponding Fields template. */
 template class Fields<int, double>;
+template void Fields<int, double>::
+accumulateCharge<double>(const Particles<double, double> &particles);
