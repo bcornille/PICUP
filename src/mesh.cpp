@@ -67,6 +67,15 @@ void Mesh<PosInd, PosVec>::generateLaplace()
 	assert(false);
 }
 
+/* This generic template should never be called or generated. An
+ * assert has been added to make sure a specialized mesh generation
+ * function is implemented for each type combination. */
+template <typename PosInd, typename PosVec>
+PosVec Mesh<PosInd, PosVec>::sampleMesh()
+{
+	assert(false);
+}
+
 /***********************************************************************
  * End generalized template routine definitions.
  **********************************************************************/
@@ -196,6 +205,12 @@ void Mesh<int, double>::generateLaplace()
 		throw laplace_solver.info();
 }
 
+template<>
+double Mesh<int, double>::sampleMesh()
+{
+	return (coordinates[num_meshpoints - 1] - coordinates[0])
+		*uniform_dist(generator) + coordinates[0];
+}
 
 /***********************************************************************
  * End specialized Mesh<int, double> routine definitions.

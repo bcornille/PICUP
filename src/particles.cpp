@@ -48,7 +48,13 @@ template <typename PosInd>
 void Particles<PosVec, VelVec>::
 generateParticles(int N, const Mesh<PosInd, PosVec> &mesh)
 {
-	assert(false);
+	positions.resize(N);
+	velocities.resize(N);
+	cell_index.resize(N);
+	for(int i = 0; i < N; i++) {
+		positions[i] = mesh.sampleMesh();
+		cell_index[i] = mesh.getCell(positions[i]);
+	}
 }
 
 /* These templates need to be instantiated so that classes of these

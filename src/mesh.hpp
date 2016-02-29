@@ -8,6 +8,7 @@
  */
 
 #include <vector>
+#include <random>
 #include "Eigen/SparseLU"
 
 #ifndef _mesh_hpp
@@ -28,6 +29,9 @@ class Mesh
 	private:
 		int num_meshpoints; /*!< Total number of meshpoints. */
 		int num_cells;      /*!< Total number of cells.      */
+		/*! Random number generator, currently with default seed. */
+		std::default_random_engine generator;
+		std::uniform_real_distribution<double> uniform_dist;
 
 		/*! Number of logical indices in each direction. */
 		PosInd num_indices;
@@ -102,10 +106,27 @@ class Mesh
 		//! Solver to be used with the laplace matrix.
 		/*!
 		 * SparseLU was chosen as the solver type because it will allow
-		 * for general matrix form solutions in the future to use only
-		 * the MPL2 liscensed parts of the Eigen library
+		 * for general matrix form solutions in the future and to use
+		 * only the MPL2 liscensed parts of the Eigen library
 		 */
 		Eigen::SparseLU<Eigen::SparseMatrix<double> > laplace_solver;
+
+		//! Randomly sample the mesh space for a position.
+		/*!
+		 * A generalized sampling of the mesh volume is either not
+		 * possible or not advised.
+		 *
+		 * Currently this only returns a position sampled uniformly from
+		 * the total volume area. In order to circumvent the costly
+		 * function of finding the cell of a particle after sampling
+		 * it may be advisable to sample the cells as a discrete
+		 * distrubution weighted by volume, then uniformly sample the
+		 * cell volume afterward. Both values can then be given
+		 * simultaneously.
+		 *
+		 * \return <CODE> position </CODE> of a sampled mesh volume
+		 */
+		PosVec sampleMesh();
 };
 
 #endif //_mesh_hpp
