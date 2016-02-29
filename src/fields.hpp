@@ -7,7 +7,6 @@
  *
  */
 
-#include "mesh.hpp"
 #include "particles.hpp"
 
 #ifndef _fields_hpp
