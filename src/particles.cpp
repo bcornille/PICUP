@@ -34,8 +34,8 @@ double Particles<PosVec, VelVec>::
 getCharge() const { return charge; }
 
 template <typename PosVec, typename VelVec>
-const std::vector<PosVec, Eigen::aligned_allocator<PosVec> >&
-Particles<PosVec, VelVec>::getPositions() const { return positions; }
+const std::vector<PosVec>& Particles<PosVec, VelVec>::
+getPositions() const { return positions; }
 
 template <typename PosVec, typename VelVec>
 const std::vector<int>& Particles<PosVec, VelVec>::getCells() const

@@ -37,7 +37,7 @@ class Mesh
 		PosInd num_indices;
 
 		/*! Coordinates of the meshpoints. */
-		std::vector<PosVec, Eigen::aligned_allocator<PosVec> >
+		std::vector<PosVec>
 			coordinates;
 
 		/*! Laplace sparse matrix for mesh. */

@@ -33,11 +33,11 @@ class Particles
 		const double qm_ratio;
 
 		/*! Positions of the particles. */
-		std::vector<PosVec, Eigen::aligned_allocator<PosVec> >
+		std::vector<PosVec>
 			positions;
 
 		/*! Velocities of the particles. */
-		std::vector<VelVec, Eigen::aligned_allocator<VelVec> >
+		std::vector<VelVec>
 			velocities;
 
 		/*! Mesh cell index for each particle. */
@@ -70,7 +70,7 @@ class Particles
 		 *
 		 * \return reference to <CODE> positions </CODE>
 		 */
-		const std::vector<PosVec, Eigen::aligned_allocator<PosVec> >&
+		const std::vector<PosVec>&
 			getPositions() const;
 
 		//! Return a constant reference to the cells of particles.

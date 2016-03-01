@@ -33,17 +33,14 @@ class Fields
 		Eigen::VectorXd rho_q;
 
 		/*! Value of the electric field. */
-		std::vector<Eigen::Vector3d,
-			Eigen::aligned_allocator<Eigen::Vector3d> > e_field;
+		std::vector<Eigen::Vector3d> e_field;
 
 		/*! Value of the magnetic field. */
-		std::vector<Eigen::Vector3d,
-			Eigen::aligned_allocator<Eigen::Vector3d> > b_field;
+		std::vector<Eigen::Vector3d> b_field;
 
 		/*! Accumulated current density that creates the self-consistent
 		 * electric and magnetic field. */
-		std::vector<Eigen::Vector3d,
-			Eigen::aligned_allocator<Eigen::Vector3d> > j_q;
+		std::vector<Eigen::Vector3d> j_q;
 
 	public:
 		//! The main constructor for the electric potential field.
