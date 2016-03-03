@@ -22,45 +22,37 @@
 #include "particles.hpp"
 
 template <typename PosVec, typename VelVec>
-Particles<PosVec, VelVec>::Particles(double q, double m = 1.0)
+Species<PosVec, VelVec>::Species(double q, double m = 1.0)
 	: num_particles(0), charge(q), mass(m), qm_ratio(q/m) {}
 
 template <typename PosVec, typename VelVec>
-int Particles<PosVec, VelVec>::
+int Species<PosVec, VelVec>::
 getNumParticles() const { return num_particles; }
 
 template <typename PosVec, typename VelVec>
-double Particles<PosVec, VelVec>::
+double Species<PosVec, VelVec>::
 getCharge() const { return charge; }
 
 template <typename PosVec, typename VelVec>
-const std::vector<PosVec>& Particles<PosVec, VelVec>::
-getPositions() const { return positions; }
-
-template <typename PosVec, typename VelVec>
-const std::vector<int>& Particles<PosVec, VelVec>::getCells() const
-{
-	return cell_index;
-}
+const std::vector<Particle<PosVec, VelVec> >& Species<PosVec, VelVec>::
+getParticles() const { return particle_list; }
 
 template <typename PosVec, typename VelVec>
 template <typename PosInd>
-void Particles<PosVec, VelVec>::
+void Species<PosVec, VelVec>::
 generateParticles(int N, const Mesh<PosInd, PosVec> &mesh)
 {
-	positions.resize(N);
-	velocities.resize(N);
-	cell_index.resize(N);
+	particle_list.resize(N);
 	for(int i = 0; i < N; i++) {
-		positions[i] = mesh.sampleMesh();
-		cell_index[i] = mesh.getCell(positions[i]);
+		particle_list[i].position = mesh.sampleMesh();
+		particle_list[i].cell = mesh.getCell(particle_list[i].position);
 	}
 }
 
 /* These templates need to be instantiated so that classes of these
  * types my be used elsewhere in the code. */
 // For 1-D PIC runs.
-template class Particles<double, double>;
+template class Species<double, double>;
 // For 1-1/2-D PIC runs.
 // template class Particles<double, Eigen::Vector2d>;
 // For 1-2/2-D PIC runs.

@@ -3,7 +3,7 @@
 
 TEST(ParticlesTest, Constructor)
 {
-	Particles<double, double> particles_11d_test(1.0, 1.0);
+	Species<double, double> particles_11d_test(1.0, 1.0);
 	EXPECT_EQ (0, particles_11d_test.getNumParticles());
 /*
 	Particles<double, Eigen::Vector2d> particles_12d_test(1.0, 1.0);

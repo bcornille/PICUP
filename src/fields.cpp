@@ -25,20 +25,18 @@ Fields(const Mesh<PosInd, PosVec> &mesh) : field_mesh(mesh),
 template <typename PosInd, typename PosVec>
 template <typename VelVec>
 void Fields<PosInd, PosVec>::
-accumulateCharge(const Particles<PosVec, VelVec> &particles)
+accumulateCharge(const Species<PosVec, VelVec> &particles)
 {
 	// Query charge of the particle species.
 	double q = particles.getCharge();
-	// Get reference to the list of particle positions.
-	const std::vector<PosVec> &x
-		= particles.getPositions();
-	// Get reference to the list of cells occumpied by particles.
-	const std::vector<int> &cells = particles.getCells();
+	// Get reference to the list of particles.
+	const std::vector<Particle<PosVec, VelVec> > &part_list
+		= particles.getParticles();
 	// Loop over particles.
 	for (int i = 0; i < particles.getNumParticles(); i++) {
 		// Loop over vertices of the cell that the particle is in.
-		for (const int &l : field_mesh.getVertices(cells[i])) {
-			rho_q[l] += q*field_mesh.getWeight(x[l], l);
+		for (const int &l : field_mesh.getVertices(part_list[i].cell)) {
+			rho_q[l] += q*field_mesh.getWeight(part_list[l].position, l);
 		}
 	}
 }
@@ -53,4 +51,4 @@ void Fields<PosInd, PosVec>::solvePoisson()
  * instantiate the corresponding Fields template. */
 template class Fields<int, double>;
 template void Fields<int, double>::
-accumulateCharge<double>(const Particles<double, double> &particles);
+accumulateCharge<double>(const Species<double, double> &particles);

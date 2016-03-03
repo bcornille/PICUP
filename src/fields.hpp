@@ -62,7 +62,7 @@ class Fields
 		 */
 		template <typename VelVec>
 		void accumulateCharge(
-				const Particles<PosVec, VelVec>& particles);
+				const Species<PosVec, VelVec>& particles);
 
 		//! Solve the poisson equaion using the charge in rho_q array.
 		/*!

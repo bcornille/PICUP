@@ -12,6 +12,27 @@
 #ifndef _particles_hpp
 #define _particles_hpp
 
+//! A template structure for an individual particle.
+/*!
+ * The purpose of this structure is for better data locality during
+ * particle position updates and other calls to particle phase
+ * information. Including the cell number also allows for simple
+ * sorting of the particles by cell.
+ */
+template <typename PosVec, typename VelVec>
+struct Particle {
+	PosVec position; //!< Particle postion.
+	VelVec velocity; //!< Particle velocity.
+	int cell; //!< Cell that the particle occupies.
+};
+
+template <typename PosVec, typename VelVec>
+bool operator< (const Particle<PosVec, VelVec> &part_a,
+		const Particle<PosVec, VelVec> &part_b)
+{
+	return part_a.cell < part_b.cell;
+}
+
 //! A template class for the particles.
 /*!
  * The template class allows for using 1D, 2D, or 3D vectors for
@@ -23,7 +44,7 @@
  *
  */
 template <typename PosVec, typename VelVec>
-class Particles
+class Species
 {
 	private:
 		int num_particles;   /*!< Number of particles.     */
@@ -32,16 +53,14 @@ class Particles
 		/*! Charge to mass ratio of particle type. */
 		const double qm_ratio;
 
-		/*! Positions of the particles. */
-		std::vector<PosVec>
-			positions;
-
-		/*! Velocities of the particles. */
-		std::vector<VelVec>
-			velocities;
-
-		/*! Mesh cell index for each particle. */
-		std::vector<int> cell_index;
+		//! Vector containing all the particles of this species.
+		/*!
+		 * Storing the various information about each particle in a
+		 * structure and keeping them as a list helps to reduce cache
+		 * thrashing and can provide significantly improved performance.
+		 * \cite Verboncoeur2005
+		 */
+		std::vector<Particle<PosVec, VelVec> > particle_list;
 
 	public:
 		//! Particles main constructor.
@@ -49,7 +68,7 @@ class Particles
 		 * \param q Charge of the particle species.
 		 * \param m Mass of the particle species.
 		 */
-		Particles(double q, double m);
+		Species(double q, double m);
 
 		//! Public facing method to get num_particles.
 		/*!
@@ -70,17 +89,8 @@ class Particles
 		 *
 		 * \return reference to <CODE> positions </CODE>
 		 */
-		const std::vector<PosVec>&
-			getPositions() const;
-
-		//! Return a constant reference to the cells of particles.
-		/*!
-		 * The main utility of this function is to allow accumulation of
-		 * charge density efficiently.
-		 *
-		 * \return reference to <CODE> cell_index </CODE>
-		 */
-		const std::vector<int>& getCells() const;
+		const std::vector<Particle<PosVec, VelVec> >&
+			getParticles() const;
 
 		//! Creates particles distributed across a given mesh.
 		/*!
