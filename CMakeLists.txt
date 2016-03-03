@@ -53,6 +53,8 @@ set(USE_MDFILE_AS_MAINPAGE "../README.md")
 set(SOURCE_BROWSER         "YES")
 set(FULL_PATH_NAMES        "NO")
 set(STRIP_FROM_PATH        "")
+set(CITE_BIB_FILES         "../docs/references.bib")
+set(LATEX_BIB_STYLE        "bibtex")
 
 if(DOC_GEN_HTML)
   set(GENERATE_HTML "YES")
