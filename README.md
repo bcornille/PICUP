@@ -3,6 +3,7 @@ Particle-In-Cell Utility for Practice
 
 #### See Also
 [Git Repository](https://github.com/bcornille/PICUP)
+
 [Online Documentation](http://bcornille.github.io/PICUP)
 
 ## Goals of this project
