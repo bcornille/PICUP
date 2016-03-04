@@ -94,11 +94,17 @@ class Species
 
 		//! Creates particles distributed across a given mesh.
 		/*!
+		 * Currently the Mesh reference cannot be passed as const since
+		 * the random number generator is a member of Mesh and its state
+		 * is changed by sampling the Mesh volume. This is possibly a
+		 * poor design choice and a global random number generator may
+		 * be more suitable.
+		 *
 		 * \param N
 		 * \param mesh
 		 */
 		template <typename PosInd>
-		void generateParticles(int N, const Mesh<PosInd, PosVec> &mesh);
+		void generateParticles(int N, Mesh<PosInd, PosVec> &mesh);
 };
 
 #endif //_particles_hpp

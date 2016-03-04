@@ -36,9 +36,12 @@ accumulateCharge(const Species<PosVec, VelVec> &particles)
 	for (int i = 0; i < particles.getNumParticles(); i++) {
 		// Loop over vertices of the cell that the particle is in.
 		for (const int &l : field_mesh.getVertices(part_list[i].cell)) {
-			rho_q[l] += q*field_mesh.getWeight(part_list[l].position, l);
+			assert( (l >= 0) && (l < rho_q.size()) );
+			rho_q[l] += q*field_mesh.getWeight(part_list[i].position, l);
 		}
 	}
+	rho_q[0] = 0.0;
+	rho_q[rho_q.size() - 1] = 0.0;
 }
 
 template <typename PosInd, typename PosVec>

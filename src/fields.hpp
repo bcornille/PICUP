@@ -70,6 +70,9 @@ class Fields
 		 * equation.
 		 */
 		void solvePoisson();
+
+		Eigen::VectorXd &getCharge() { return rho_q; }
+		Eigen::VectorXd &getPotential() { return potential; }
 };
 
 #endif //_fields_hpp

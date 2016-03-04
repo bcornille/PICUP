@@ -1,4 +1,4 @@
-add_library(particles STATIC particles.cpp)
+add_library(particles STATIC mesh.cpp particles.cpp)
 add_library(fields STATIC mesh.cpp fields.cpp)
 
 # Main program executable.

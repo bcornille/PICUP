@@ -11,6 +11,8 @@
  *  * Mesh<int, double>::getVertices(int cell) const implementation
  *  * Mesh<int, double>::getWeight(double x, int vert) const
  *    implementation
+ *  * Mesh<int, double>::generateLaplace() implementation
+ *  * Mesh<int, double>::sampleMesh() implementation
  *  * Instantiated templates
  *    * <int, double>
  *
@@ -76,6 +78,15 @@ PosVec Mesh<PosInd, PosVec>::sampleMesh()
 	assert(false);
 }
 
+/* This generic template should never be called or generated. An
+ * assert has been added to make sure a specialized mesh generation
+ * function is implemented for each type combination. */
+template <typename PosInd, typename PosVec>
+int Mesh<PosInd, PosVec>::getCell(PosVec x) const
+{
+	assert(false);
+}
+
 /***********************************************************************
  * End generalized template routine definitions.
  **********************************************************************/
@@ -95,6 +106,8 @@ PosVec Mesh<PosInd, PosVec>::sampleMesh()
  * \param N number of mesh vertices
  * \param xmin minimum x coordinate
  * \param xmax maximum x coordinate
+ *
+ * \throws std::invalid_argument
  */
 template <>
 void Mesh<int, double>::
@@ -144,9 +157,12 @@ template <>
 std::vector<int> Mesh<int, double>::getVertices(int cell) const
 {
 	// Check to make sure the cell index is valid.
-	assert( (cell > 0) && (cell < num_cells) );
+	assert( (cell >= 0) && (cell < num_cells) );
 	// Create vector to be returned.
 	std::vector<int> vertices {cell - 1, cell, cell + 1, cell + 2};
+	if (cell == 0) vertices.erase(vertices.begin());
+	if (cell > num_cells - 2) vertices.pop_back();
+	if (cell > num_cells - 1) vertices.pop_back();
 	return vertices;
 }
 
@@ -180,6 +196,13 @@ double Mesh<int, double>::getWeight(double x, int vert) const
 	}
 }
 
+//! Generates the Laplace operator for the mesh.
+/*!
+ * The Laplace operator matrix is produced for a mesh that is assumed to
+ * be evenly spaced linear elements.
+ *
+ * \throws laplace_solver.info()
+ */
 template <>
 void Mesh<int, double>::generateLaplace()
 {
@@ -189,8 +212,12 @@ void Mesh<int, double>::generateLaplace()
 	 * matrix. */
 	laplace.reserve(Eigen::VectorXi::Constant(num_meshpoints, 3));
 	for(int i = 0; i < num_meshpoints; i++) {
-		if( (i == 0) || (i == num_meshpoints - 1) ) {
-			laplace.insert(i, i) = 1.0;
+		if(i == 0) {
+			laplace.insert(i, i) = 2.0/dx;
+			laplace.insert(i, i+1) = -1.0/dx;
+		} else if(i == num_meshpoints - 1) {
+			laplace.insert(i, i-1) = -1.0/dx;
+			laplace.insert(i, i) = 2.0/dx;
 		} else {
 			laplace.insert(i, i-1) = -1.0/dx;
 			laplace.insert(i, i) = 2.0/dx;
@@ -205,11 +232,28 @@ void Mesh<int, double>::generateLaplace()
 		throw laplace_solver.info();
 }
 
+//! Randomly samples mesh region.
+/*!
+ * Uniformly distributed sampling of the mesh region. This may be a bad
+ * way to sample the mesh because it is independent of the mesh elements
+ * so an expensive step of finding the which mesh element the sampled
+ * point occupies must be done afterward. While this doesn't pose an
+ * issue for an evenly spaced mesh, the implementation and
+ * standardization of this step may want to be reconsidered.
+ */
 template<>
 double Mesh<int, double>::sampleMesh()
 {
 	return (coordinates[num_meshpoints - 1] - coordinates[0])
 		*uniform_dist(generator) + coordinates[0];
+}
+
+template<>
+int Mesh<int, double>::getCell(double x) const
+{
+	return static_cast<int>(std::floor((x - coordinates[0])
+			/(coordinates[num_meshpoints - 1] - coordinates[0])
+			*num_meshpoints));
 }
 
 /***********************************************************************

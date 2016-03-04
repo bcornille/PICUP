@@ -31,6 +31,8 @@ class Mesh
 		int num_cells;      /*!< Total number of cells.      */
 		/*! Random number generator, currently with default seed. */
 		std::default_random_engine generator;
+		/*! Uniform distribution sampler using the default range
+		 * 0.0 to 1.0 */
 		std::uniform_real_distribution<double> uniform_dist;
 
 		/*! Number of logical indices in each direction. */
@@ -127,6 +129,8 @@ class Mesh
 		 * \return <CODE> position </CODE> of a sampled mesh volume
 		 */
 		PosVec sampleMesh();
+
+		int getCell(PosVec x) const;
 };
 
 #endif //_mesh_hpp

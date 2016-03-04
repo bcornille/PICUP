@@ -1,22 +1,16 @@
 /*******************************************************************//*!
  * \file
- * \brief This file will contain all functions for the Particles
+ * \brief This file will contain all functions for the Species
  * template class.
  *
  * Contents:
- *  * Particles::Particles(double q, double m) generic template
+ *  * Species::Species(double q, double m) generic template
  *      implementation
- *  * Particles::getNumParticles() generic template implemenation
- *  * Particles::getCharge() generic template implemenation
- *  * Particles::getPositions() generic template implemenation
- *  * Particles::getCells() generic template implemenation
+ *  * Species::getNumParticles() generic template implemenation
+ *  * Species::getCharge() generic template implemenation
+ *  * Species::getParticles() generic template implemenation
  *  * Instantiated templates
  *    * <double, double>
- *    * <double, Eigen::Vector2d>
- *    * <dobule, Eigen::Vector3d>
- *    * <Eigen::Vector2d, Eigen::Vector2d>
- *    * <Eigen::Vector2d, Eigen::Vector3d>
- *    * <Eigen::Vector3d, Eigen::Vector3d>
  *
  **********************************************************************/
 #include "particles.hpp"
@@ -40,8 +34,9 @@ getParticles() const { return particle_list; }
 template <typename PosVec, typename VelVec>
 template <typename PosInd>
 void Species<PosVec, VelVec>::
-generateParticles(int N, const Mesh<PosInd, PosVec> &mesh)
+generateParticles(int N, Mesh<PosInd, PosVec> &mesh)
 {
+	num_particles = N;
 	particle_list.resize(N);
 	for(int i = 0; i < N; i++) {
 		particle_list[i].position = mesh.sampleMesh();
@@ -53,13 +48,15 @@ generateParticles(int N, const Mesh<PosInd, PosVec> &mesh)
  * types my be used elsewhere in the code. */
 // For 1-D PIC runs.
 template class Species<double, double>;
+template void Species<double, double>::
+generateParticles<int>(int N, Mesh<int, double> &mesh);
 // For 1-1/2-D PIC runs.
-// template class Particles<double, Eigen::Vector2d>;
+// template class Species<double, Eigen::Vector2d>;
 // For 1-2/2-D PIC runs.
-// template class Particles<double, Eigen::Vector3d>;
+// template class Species<double, Eigen::Vector3d>;
 // For 2-D PIC runs.
-// template class Particles<Eigen::Vector2d, Eigen::Vector2d>;
+// template class Species<Eigen::Vector2d, Eigen::Vector2d>;
 // For 2-1/2-D PIC runs.
-// template class Particles<Eigen::Vector2d, Eigen::Vector3d>;
+// template class Species<Eigen::Vector2d, Eigen::Vector3d>;
 // For 3-D PIC runs.
-// template class Particles<Eigen::Vector3d, Eigen::Vector3d>;
+// template class Species<Eigen::Vector3d, Eigen::Vector3d>;
