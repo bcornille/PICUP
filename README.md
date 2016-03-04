@@ -1,5 +1,9 @@
 # PICUP
-[Particle-In-Cell Utility for Practice](https://github.com/bcornille/PICUP)
+Particle-In-Cell Utility for Practice
+
+#### See Also
+[Git Repository](https://github.com/bcornille/PICUP)
+[Online Documentation](http://bcornille.github.io/PICUP)
 
 ## Goals of this project
 The primary goal of this project is to develop a basic particle-in-cell code.
