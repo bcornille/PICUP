@@ -26,6 +26,13 @@ struct Particle {
 	int cell; //!< Cell that the particle occupies.
 };
 
+//! Operator for sorting particles by cell.
+/*!
+ * This operator allows particles to be sorted by the index of the cell
+ * that they occupy. Sorting particles by cell every 10-100 time steps
+ * is said to give a considerable performance boost by reusing field
+ * values that have been stored in cache. \cite Verboncoeur2015
+ */
 template <typename PosVec, typename VelVec>
 bool operator< (const Particle<PosVec, VelVec> &part_a,
 		const Particle<PosVec, VelVec> &part_b)

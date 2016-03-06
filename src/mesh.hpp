@@ -100,8 +100,6 @@ class Mesh
 		/*!
 		 * A generalized generation is not most efficient for simple
 		 * problems even if possible.
-		 *
-		 * \param matrix reference to the matrix that is being filled
 		 */
 		void generateLaplace();
 
