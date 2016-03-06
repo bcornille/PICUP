@@ -125,9 +125,9 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adf19095f2be6e5d4942d0f62ffe36811"><td class="memTemplParams" colspan="2"><a class="anchor" id="adf19095f2be6e5d4942d0f62ffe36811"></a>
-template&lt;typename PosVec , typename VelVec &gt; </td></tr>
-<tr class="memitem:adf19095f2be6e5d4942d0f62ffe36811"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="structParticle.html">Particle</a>&lt; PosVec, VelVec &gt; &amp;part_a, const <a class="el" href="structParticle.html">Particle</a>&lt; PosVec, VelVec &gt; &amp;part_b)</td></tr>
+<tr class="memitem:adf19095f2be6e5d4942d0f62ffe36811"><td class="memTemplParams" colspan="2">template&lt;typename PosVec , typename VelVec &gt; </td></tr>
+<tr class="memitem:adf19095f2be6e5d4942d0f62ffe36811"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="particles_8hpp.html#adf19095f2be6e5d4942d0f62ffe36811">operator&lt;</a> (const <a class="el" href="structParticle.html">Particle</a>&lt; PosVec, VelVec &gt; &amp;part_a, const <a class="el" href="structParticle.html">Particle</a>&lt; PosVec, VelVec &gt; &amp;part_b)</td></tr>
+<tr class="memdesc:adf19095f2be6e5d4942d0f62ffe36811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator for sorting particles by cell.  <a href="#adf19095f2be6e5d4942d0f62ffe36811">More...</a><br/></td></tr>
 <tr class="separator:adf19095f2be6e5d4942d0f62ffe36811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -138,10 +138,44 @@ template&lt;typename PosVec , typename VelVec &gt; </td></tr>
 </ul>
 
 <p>Definition in file <a class="el" href="particles_8hpp_source.html">particles.hpp</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="adf19095f2be6e5d4942d0f62ffe36811"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PosVec , typename VelVec &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structParticle.html">Particle</a>&lt; PosVec, VelVec &gt; &amp;&#160;</td>
+          <td class="paramname"><em>part_a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structParticle.html">Particle</a>&lt; PosVec, VelVec &gt; &amp;&#160;</td>
+          <td class="paramname"><em>part_b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Operator for sorting particles by cell. </p>
+<p>This operator allows particles to be sorted by the index of the cell that they occupy. Sorting particles by cell every 10-100 time steps is said to give a considerable performance boost by reusing field values that have been stored in cache. <a class="el" href="citelist.html#CITEREF_Verboncoeur2015">Verboncoeur2015</a> </p>
+
+<p>Definition at line <a class="el" href="particles_8hpp_source.html#l00037">37</a> of file <a class="el" href="particles_8hpp_source.html">particles.hpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 4 2016 16:40:14 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 6 2016 15:56:16 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

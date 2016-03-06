@@ -132,20 +132,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="classMesh.html#a212f6e99467ef7f568ef1d17b1879cc9">getWeight</a>(PosVec x, <span class="keywordtype">int</span> vert) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a3144c9e0bf0b5ce7bfd57762fd254d60">generateLaplace</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a3144c9e0bf0b5ce7bfd57762fd254d60">generateLaplace</a>();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classMesh.html#aa1f5088f808bf472fca281e0c6ac4504">  114</a></span>&#160;        Eigen::SparseLU&lt;Eigen::SparseMatrix&lt;double&gt; &gt; <a class="code" href="classMesh.html#aa1f5088f808bf472fca281e0c6ac4504">laplace_solver</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classMesh.html#aa1f5088f808bf472fca281e0c6ac4504">  112</a></span>&#160;        Eigen::SparseLU&lt;Eigen::SparseMatrix&lt;double&gt; &gt; <a class="code" href="classMesh.html#aa1f5088f808bf472fca281e0c6ac4504">laplace_solver</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        PosVec <a class="code" href="classMesh.html#a2265d2587a7ac6bd3425872431483fab">sampleMesh</a>();</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordtype">int</span> getCell(PosVec x) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif //_mesh_hpp</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        PosVec <a class="code" href="classMesh.html#a2265d2587a7ac6bd3425872431483fab">sampleMesh</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordtype">int</span> getCell(PosVec x) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#endif //_mesh_hpp</span></div>
 <div class="ttc" id="classMesh_html_a75816df4f090dbdd75099aba25c3fb8c"><div class="ttname"><a href="classMesh.html#a75816df4f090dbdd75099aba25c3fb8c">Mesh::uniform_dist</a></div><div class="ttdeci">std::uniform_real_distribution&lt; double &gt; uniform_dist</div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00036">mesh.hpp:36</a></div></div>
-<div class="ttc" id="classMesh_html_aa1f5088f808bf472fca281e0c6ac4504"><div class="ttname"><a href="classMesh.html#aa1f5088f808bf472fca281e0c6ac4504">Mesh::laplace_solver</a></div><div class="ttdeci">Eigen::SparseLU&lt; Eigen::SparseMatrix&lt; double &gt; &gt; laplace_solver</div><div class="ttdoc">Solver to be used with the laplace matrix. </div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00114">mesh.hpp:114</a></div></div>
+<div class="ttc" id="classMesh_html_aa1f5088f808bf472fca281e0c6ac4504"><div class="ttname"><a href="classMesh.html#aa1f5088f808bf472fca281e0c6ac4504">Mesh::laplace_solver</a></div><div class="ttdeci">Eigen::SparseLU&lt; Eigen::SparseMatrix&lt; double &gt; &gt; laplace_solver</div><div class="ttdoc">Solver to be used with the laplace matrix. </div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00112">mesh.hpp:112</a></div></div>
 <div class="ttc" id="classMesh_html_a82492c2185024b3bed95ffe13c5962eb"><div class="ttname"><a href="classMesh.html#a82492c2185024b3bed95ffe13c5962eb">Mesh::generator</a></div><div class="ttdeci">std::default_random_engine generator</div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00033">mesh.hpp:33</a></div></div>
 <div class="ttc" id="classMesh_html_a20c189f27da9c697dcb08bbbf5be86ea"><div class="ttname"><a href="classMesh.html#a20c189f27da9c697dcb08bbbf5be86ea">Mesh::num_indices</a></div><div class="ttdeci">PosInd num_indices</div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00039">mesh.hpp:39</a></div></div>
 <div class="ttc" id="classMesh_html_acad8f82904d6f5f720de276ca3ed8508"><div class="ttname"><a href="classMesh.html#acad8f82904d6f5f720de276ca3ed8508">Mesh::laplace</a></div><div class="ttdeci">Eigen::SparseMatrix&lt; double &gt; laplace</div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00046">mesh.hpp:46</a></div></div>
@@ -163,7 +163,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 4 2016 16:40:14 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 6 2016 15:56:16 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

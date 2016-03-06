@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rho_5fq',['rho_q',['../classFields.html#a850added8d52b183804fb847c16d5cb2',1,'Fields']]]
+  ['qm_5fratio',['qm_ratio',['../classSpecies.html#acb8f1303561aebd32a447b914c5daa7f',1,'Species']]]
 ];
