@@ -253,7 +253,7 @@ int Mesh<int, double>::getCell(double x) const
 {
 	return static_cast<int>(std::floor((x - coordinates[0])
 			/(coordinates[num_meshpoints - 1] - coordinates[0])
-			*num_meshpoints));
+			*num_cells));
 }
 
 /***********************************************************************

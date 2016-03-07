@@ -38,14 +38,16 @@ int main(int argc, char *argv[])
 		// mesh_test.generateMesh(1, 1.0, 0.0);
 		mesh_test.generateMesh(100, 0.0, 1.0);
 		mesh_test.generateLaplace();
-		parts_e.generateParticles(1, mesh_test);
-		parts_p.generateParticles(0, mesh_test);
+		parts_e.generateParticles(100, mesh_test);
+		parts_p.generateParticles(100, mesh_test);
+		parts_e.sortParticles();
+		parts_p.sortParticles();
 		Fields<int, double> fields_test(mesh_test);
 		fields_test.accumulateCharge<double>(parts_e);
 		fields_test.accumulateCharge<double>(parts_p);
 		fields_test.solvePoisson();
 		//std::cout << fields_test.getCharge() << std::endl;
-		std::cout << fields_test.getPotential() << std::endl;
+		//std::cout << fields_test.getPotential() << std::endl;
 	}
 	catch (std::invalid_argument &e)
 	{

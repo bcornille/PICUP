@@ -44,6 +44,12 @@ generateParticles(int N, Mesh<PosInd, PosVec> &mesh)
 	}
 }
 
+template <typename PosVec, typename VelVec>
+void Species<PosVec, VelVec>::sortParticles()
+{
+	std::sort(particle_list.begin(), particle_list.end());
+}
+
 /* These templates need to be instantiated so that classes of these
  * types my be used elsewhere in the code. */
 // For 1-D PIC runs.

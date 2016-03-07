@@ -112,6 +112,14 @@ class Species
 		 */
 		template <typename PosInd>
 		void generateParticles(int N, Mesh<PosInd, PosVec> &mesh);
+
+		//! Reorder particles to be sorted/grouped by cell.
+		/*!
+		 * This helps with performance because fields in cache are more
+		 * readily reused if all the particles in a cell are dealt with
+		 * at once.
+		 */
+		void sortParticles();
 };
 
 #endif //_particles_hpp
