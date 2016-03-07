@@ -111,27 +111,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">// mesh_test.generateMesh(1, 1.0, 0.0);</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        mesh_test.<a class="code" href="classMesh.html#a6b21b6de5008d0b9e35f1eb82c22caab">generateMesh</a>(100, 0.0, 1.0);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        mesh_test.<a class="code" href="classMesh.html#a3144c9e0bf0b5ce7bfd57762fd254d60">generateLaplace</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        parts_e.<a class="code" href="classSpecies.html#ad1289661204ea77d35bb47a4c77d0485">generateParticles</a>(1, mesh_test);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        parts_p.<a class="code" href="classSpecies.html#ad1289661204ea77d35bb47a4c77d0485">generateParticles</a>(0, mesh_test);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classFields.html">Fields&lt;int, double&gt;</a> fields_test(mesh_test);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        fields_test.<a class="code" href="classFields.html#aecb07f6f3713ecd2125e63c89cae2466">accumulateCharge</a>&lt;<span class="keywordtype">double</span>&gt;(parts_e);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        fields_test.<a class="code" href="classFields.html#aecb07f6f3713ecd2125e63c89cae2466">accumulateCharge</a>&lt;<span class="keywordtype">double</span>&gt;(parts_p);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        fields_test.<a class="code" href="classFields.html#af627aee2efcdbde1f7fe97e900e1ba53">solvePoisson</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">//std::cout &lt;&lt; fields_test.getCharge() &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        std::cout &lt;&lt; fields_test.getPotential() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">catch</span> (std::invalid_argument &amp;e)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Invalid argument: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">catch</span> (<span class="keywordtype">int</span> info)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Bad Laplace operator generation: &quot;</span> &lt;&lt; info &lt;&lt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            std::endl;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        parts_e.<a class="code" href="classSpecies.html#ad1289661204ea77d35bb47a4c77d0485">generateParticles</a>(100, mesh_test);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        parts_p.<a class="code" href="classSpecies.html#ad1289661204ea77d35bb47a4c77d0485">generateParticles</a>(100, mesh_test);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        parts_e.<a class="code" href="classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58">sortParticles</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        parts_p.<a class="code" href="classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58">sortParticles</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classFields.html">Fields&lt;int, double&gt;</a> fields_test(mesh_test);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        fields_test.<a class="code" href="classFields.html#aecb07f6f3713ecd2125e63c89cae2466">accumulateCharge</a>&lt;<span class="keywordtype">double</span>&gt;(parts_e);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        fields_test.<a class="code" href="classFields.html#aecb07f6f3713ecd2125e63c89cae2466">accumulateCharge</a>&lt;<span class="keywordtype">double</span>&gt;(parts_p);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        fields_test.<a class="code" href="classFields.html#af627aee2efcdbde1f7fe97e900e1ba53">solvePoisson</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">//std::cout &lt;&lt; fields_test.getCharge() &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">//std::cout &lt;&lt; fields_test.getPotential() &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">catch</span> (std::invalid_argument &amp;e)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Invalid argument: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">catch</span> (<span class="keywordtype">int</span> info)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Bad Laplace operator generation: &quot;</span> &lt;&lt; info &lt;&lt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            std::endl;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="ttc" id="classSpecies_html_a11726d80d9e43809d09175fa7a0ddc58"><div class="ttname"><a href="classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58">Species::sortParticles</a></div><div class="ttdeci">void sortParticles()</div><div class="ttdoc">Reorder particles to be sorted/grouped by cell. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8cpp_source.html#l00048">particles.cpp:48</a></div></div>
 <div class="ttc" id="classMesh_html"><div class="ttname"><a href="classMesh.html">Mesh</a></div><div class="ttdoc">A template class for the mesh. </div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00027">mesh.hpp:27</a></div></div>
 <div class="ttc" id="classMesh_html_a3144c9e0bf0b5ce7bfd57762fd254d60"><div class="ttname"><a href="classMesh.html#a3144c9e0bf0b5ce7bfd57762fd254d60">Mesh::generateLaplace</a></div><div class="ttdeci">void generateLaplace()</div><div class="ttdoc">Generates the laplace matrix based on the mesh. </div><div class="ttdef"><b>Definition:</b> <a href="mesh_8cpp_source.html#l00067">mesh.cpp:67</a></div></div>
 <div class="ttc" id="classFields_html_aecb07f6f3713ecd2125e63c89cae2466"><div class="ttname"><a href="classFields.html#aecb07f6f3713ecd2125e63c89cae2466">Fields::accumulateCharge</a></div><div class="ttdeci">void accumulateCharge(const Species&lt; PosVec, VelVec &gt; &amp;particles)</div><div class="ttdoc">Accumulate charge density. </div><div class="ttdef"><b>Definition:</b> <a href="fields_8cpp_source.html#l00028">fields.cpp:28</a></div></div>
@@ -145,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 6 2016 15:56:16 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 6 2016 18:06:56 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

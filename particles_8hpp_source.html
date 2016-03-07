@@ -142,10 +142,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> PosInd&gt;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSpecies.html#ad1289661204ea77d35bb47a4c77d0485">generateParticles</a>(<span class="keywordtype">int</span> N, <a class="code" href="classMesh.html">Mesh&lt;PosInd, PosVec&gt;</a> &amp;mesh);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif //_particles_hpp</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58">sortParticles</a>();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;};</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif //_particles_hpp</span></div>
 <div class="ttc" id="classSpecies_html_a6cda52bf34407792b67bc579994f84da"><div class="ttname"><a href="classSpecies.html#a6cda52bf34407792b67bc579994f84da">Species::Species</a></div><div class="ttdeci">Species(double q, double m)</div><div class="ttdoc">Particles main constructor. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8cpp_source.html#l00019">particles.cpp:19</a></div></div>
+<div class="ttc" id="classSpecies_html_a11726d80d9e43809d09175fa7a0ddc58"><div class="ttname"><a href="classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58">Species::sortParticles</a></div><div class="ttdeci">void sortParticles()</div><div class="ttdoc">Reorder particles to be sorted/grouped by cell. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8cpp_source.html#l00048">particles.cpp:48</a></div></div>
 <div class="ttc" id="classMesh_html"><div class="ttname"><a href="classMesh.html">Mesh</a></div><div class="ttdoc">A template class for the mesh. </div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00027">mesh.hpp:27</a></div></div>
 <div class="ttc" id="classSpecies_html_ac820a2148e7badd07300d8505cbd02ac"><div class="ttname"><a href="classSpecies.html#ac820a2148e7badd07300d8505cbd02ac">Species::getCharge</a></div><div class="ttdeci">double getCharge() const </div><div class="ttdoc">Public facing method to get charge;. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8cpp_source.html#l00028">particles.cpp:28</a></div></div>
 <div class="ttc" id="structParticle_html"><div class="ttname"><a href="structParticle.html">Particle</a></div><div class="ttdoc">A template structure for an individual particle. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8hpp_source.html#l00023">particles.hpp:23</a></div></div>
@@ -165,7 +169,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 6 2016 15:56:16 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 6 2016 18:06:56 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

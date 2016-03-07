@@ -120,6 +120,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad1289661204ea77d35bb47a4c77d0485"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classSpecies.html#ad1289661204ea77d35bb47a4c77d0485">generateParticles</a> (int N, <a class="el" href="classMesh.html">Mesh</a>&lt; PosInd, PosVec &gt; &amp;mesh)</td></tr>
 <tr class="memdesc:ad1289661204ea77d35bb47a4c77d0485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates particles distributed across a given mesh.  <a href="#ad1289661204ea77d35bb47a4c77d0485">More...</a><br/></td></tr>
 <tr class="separator:ad1289661204ea77d35bb47a4c77d0485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11726d80d9e43809d09175fa7a0ddc58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58">sortParticles</a> ()</td></tr>
+<tr class="memdesc:a11726d80d9e43809d09175fa7a0ddc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorder particles to be sorted/grouped by cell.  <a href="#a11726d80d9e43809d09175fa7a0ddc58">More...</a><br/></td></tr>
+<tr class="separator:a11726d80d9e43809d09175fa7a0ddc58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -340,6 +343,37 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a11726d80d9e43809d09175fa7a0ddc58"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PosVec , typename VelVec &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSpecies.html">Species</a>&lt; PosVec, VelVec &gt;::sortParticles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reorder particles to be sorted/grouped by cell. </p>
+<p>This helps with performance because fields in cache are more readily reused if all the particles in a cell are dealt with at once. </p>
+
+<p>Definition at line <a class="el" href="particles_8cpp_source.html#l00048">48</a> of file <a class="el" href="particles_8cpp_source.html">particles.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSpecies_a11726d80d9e43809d09175fa7a0ddc58_icgraph.png" border="0" usemap="#classSpecies_a11726d80d9e43809d09175fa7a0ddc58_icgraph" alt=""/></div>
+<map name="classSpecies_a11726d80d9e43809d09175fa7a0ddc58_icgraph" id="classSpecies_a11726d80d9e43809d09175fa7a0ddc58_icgraph">
+<area shape="rect" id="node2" href="PICUP_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Currently used for testing functions manually. " alt="" coords="205,5,256,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <h2 class="groupheader">Field Documentation</h2>
 <a class="anchor" id="ac2fce1ca0343696abac37b39478b2b09"></a>
 <div class="memitem">
@@ -475,7 +509,7 @@ template&lt;typename PosVec, typename VelVec&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 6 2016 15:56:16 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 6 2016 18:06:56 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

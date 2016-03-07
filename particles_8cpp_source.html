@@ -122,23 +122,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/* These templates need to be instantiated so that classes of these</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> * types my be used elsewhere in the code. */</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// For 1-D PIC runs.</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classSpecies.html">Species&lt;double, double&gt;</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">template</span> <span class="keywordtype">void</span> <a class="code" href="classSpecies.html">Species&lt;double, double&gt;</a>::</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;generateParticles&lt;int&gt;(<span class="keywordtype">int</span> N, <a class="code" href="classMesh.html">Mesh&lt;int, double&gt;</a> &amp;mesh);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// For 1-1/2-D PIC runs.</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// template class Species&lt;double, Eigen::Vector2d&gt;;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// For 1-2/2-D PIC runs.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">// template class Species&lt;double, Eigen::Vector3d&gt;;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">// For 2-D PIC runs.</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">// template class Species&lt;Eigen::Vector2d, Eigen::Vector2d&gt;;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">// For 2-1/2-D PIC runs.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">// template class Species&lt;Eigen::Vector2d, Eigen::Vector3d&gt;;</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">// For 3-D PIC runs.</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">// template class Species&lt;Eigen::Vector3d, Eigen::Vector3d&gt;;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PosVec, <span class="keyword">typename</span> VelVec&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58">Species&lt;PosVec, VelVec&gt;::sortParticles</a>()</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::sort(particle_list.begin(), particle_list.end());</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/* These templates need to be instantiated so that classes of these</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> * types my be used elsewhere in the code. */</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// For 1-D PIC runs.</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classSpecies.html">Species&lt;double, double&gt;</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">template</span> <span class="keywordtype">void</span> <a class="code" href="classSpecies.html">Species&lt;double, double&gt;</a>::</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;generateParticles&lt;int&gt;(<span class="keywordtype">int</span> N, <a class="code" href="classMesh.html">Mesh&lt;int, double&gt;</a> &amp;mesh);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">// For 1-1/2-D PIC runs.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">// template class Species&lt;double, Eigen::Vector2d&gt;;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">// For 1-2/2-D PIC runs.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">// template class Species&lt;double, Eigen::Vector3d&gt;;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">// For 2-D PIC runs.</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">// template class Species&lt;Eigen::Vector2d, Eigen::Vector2d&gt;;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">// For 2-1/2-D PIC runs.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">// template class Species&lt;Eigen::Vector2d, Eigen::Vector3d&gt;;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">// For 3-D PIC runs.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">// template class Species&lt;Eigen::Vector3d, Eigen::Vector3d&gt;;</span></div>
 <div class="ttc" id="classSpecies_html_a6cda52bf34407792b67bc579994f84da"><div class="ttname"><a href="classSpecies.html#a6cda52bf34407792b67bc579994f84da">Species::Species</a></div><div class="ttdeci">Species(double q, double m)</div><div class="ttdoc">Particles main constructor. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8cpp_source.html#l00019">particles.cpp:19</a></div></div>
+<div class="ttc" id="classSpecies_html_a11726d80d9e43809d09175fa7a0ddc58"><div class="ttname"><a href="classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58">Species::sortParticles</a></div><div class="ttdeci">void sortParticles()</div><div class="ttdoc">Reorder particles to be sorted/grouped by cell. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8cpp_source.html#l00048">particles.cpp:48</a></div></div>
 <div class="ttc" id="particles_8hpp_html"><div class="ttname"><a href="particles_8hpp.html">particles.hpp</a></div><div class="ttdoc">Particles header file. </div></div>
 <div class="ttc" id="classMesh_html"><div class="ttname"><a href="classMesh.html">Mesh</a></div><div class="ttdoc">A template class for the mesh. </div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00027">mesh.hpp:27</a></div></div>
 <div class="ttc" id="classSpecies_html_ac820a2148e7badd07300d8505cbd02ac"><div class="ttname"><a href="classSpecies.html#ac820a2148e7badd07300d8505cbd02ac">Species::getCharge</a></div><div class="ttdeci">double getCharge() const </div><div class="ttdoc">Public facing method to get charge;. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8cpp_source.html#l00028">particles.cpp:28</a></div></div>
@@ -150,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 6 2016 15:56:16 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 6 2016 18:06:56 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
