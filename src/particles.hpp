@@ -1,9 +1,10 @@
 /*!
  * \file
- * \brief Particles header file.
+ * \brief Particle/Species header file.
  *
  * Contents:
- *  * Particles class
+ *  * Particle struct
+ *  * Species class
  *
  */
 
