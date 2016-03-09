@@ -19,6 +19,7 @@ class Region
 		const Mesh<PosInd, PosVec> &region_mesh;
 		const Fields<PosInd, PosVec> &region_fields;
 		std::vector<Species> species_list;
+		//std::vector<std::unique_ptr<Boundary> > boundary_list;
 
 	public:
 }
