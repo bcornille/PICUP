@@ -33,9 +33,11 @@ accumulateCharge(const Species<PosVec, VelVec> &particles)
 	const std::vector<Particle<PosVec, VelVec> > &part_list
 		= particles.getParticles();
 	// Loop over particles.
-	for (int i = 0; i < particles.getNumParticles(); i++) {
+	for (int i = 0; i < particles.getNumParticles(); i++)
+	{
 		// Loop over vertices of the cell that the particle is in.
-		for (const int &l : field_mesh.getVertices(part_list[i].cell)) {
+		for (const int &l : field_mesh.getVertices(part_list[i].cell))
+		{
 			assert( (l >= 0) && (l < rho_q.size()) );
 			rho_q[l] += q*field_mesh.getWeight(part_list[i].position, l);
 		}

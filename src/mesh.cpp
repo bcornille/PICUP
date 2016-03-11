@@ -116,13 +116,23 @@ generateMesh(int N, double xmin, double xmax)
 	// Check to make sure a valid mesh is created.
 	// Check that N is positive so mesh arrays can be allocated.
 	if (N <= 0)
-		throw std::invalid_argument(
-			"N is not positive in Mesh<int, double>::generateMesh");
+	{
+		throw
+		{
+			std::invalid_argument(
+				"N is not positive in Mesh<int, double>::generateMesh");
+		}
+	}
 	/* Check that xmin < xmax so coordinates are monotonically
 	 * increasing. */
 	if (xmin >= xmax)
-		throw std::invalid_argument(
-				"xmin >= xmax in Mesh<int, double>::generateMesh" );
+	{
+		throw
+		{
+			std::invalid_argument(
+					"xmin >= xmax in Mesh<int, double>::generateMesh" );
+		}
+	}
 	// Set number of meshpoints.
 	num_meshpoints = N;
 	// Set number of cells.
@@ -136,7 +146,8 @@ generateMesh(int N, double xmin, double xmax)
 	// Cells are only evenly sized at the moment.
 	double dx = (xmax - xmin)/(N - 1);
 	// Set the index and coordinate values.
-	for (int i=0; i < num_meshpoints; i++) {
+	for (int i=0; i < num_meshpoints; i++)
+	{
 		coordinates[i] = xmin + dx*i;
 	}
 }
@@ -187,11 +198,16 @@ double Mesh<int, double>::getWeight(double x, int vert) const
 	 * equal to the mesh spacing. */
 	double xi_diff = std::abs(x - coordinates[vert])
 		/(coordinates[vert] - coordinates[vert-1]);
-	if (xi_diff < 0.5) {
+	if (xi_diff < 0.5)
+	{
 		return 0.75 - xi_diff*xi_diff;
-	} else if( xi_diff > 1.5) { 
+	}
+	else if( xi_diff > 1.5)
+	{ 
 		return 0.0;
-	} else {
+	}
+	else
+	{
 		return 0.5*xi_diff*xi_diff - 1.5*xi_diff + 1.125;
 	}
 }
@@ -211,14 +227,20 @@ void Mesh<int, double>::generateLaplace()
 	/* Eigen claims that this method is efficient for populating the
 	 * matrix. */
 	laplace.reserve(Eigen::VectorXi::Constant(num_meshpoints, 3));
-	for(int i = 0; i < num_meshpoints; i++) {
-		if(i == 0) {
+	for(int i = 0; i < num_meshpoints; i++)
+	{
+		if(i == 0)
+		{
 			laplace.insert(i, i) = 2.0/dx;
 			laplace.insert(i, i+1) = -1.0/dx;
-		} else if(i == num_meshpoints - 1) {
+		}
+		else if(i == num_meshpoints - 1)
+		{
 			laplace.insert(i, i-1) = -1.0/dx;
 			laplace.insert(i, i) = 2.0/dx;
-		} else {
+		}
+		else
+		{
 			laplace.insert(i, i-1) = -1.0/dx;
 			laplace.insert(i, i) = 2.0/dx;
 			laplace.insert(i, i+1) = -1.0/dx;
@@ -229,7 +251,9 @@ void Mesh<int, double>::generateLaplace()
 	// Calls analyze and factorize.
 	laplace_solver.compute(laplace);
 	if(laplace_solver.info() != Eigen::ComputationInfo::Success)
+	{
 		throw laplace_solver.info();
+	}
 }
 
 //! Randomly samples mesh region.
