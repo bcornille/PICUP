@@ -117,21 +117,15 @@ generateMesh(int N, double xmin, double xmax)
 	// Check that N is positive so mesh arrays can be allocated.
 	if (N <= 0)
 	{
-		throw
-		{
-			std::invalid_argument(
+		throw std::invalid_argument(
 				"N is not positive in Mesh<int, double>::generateMesh");
-		}
 	}
 	/* Check that xmin < xmax so coordinates are monotonically
 	 * increasing. */
 	if (xmin >= xmax)
 	{
-		throw
-		{
-			std::invalid_argument(
-					"xmin >= xmax in Mesh<int, double>::generateMesh" );
-		}
+		throw std::invalid_argument(
+				"xmin >= xmax in Mesh<int, double>::generateMesh" );
 	}
 	// Set number of meshpoints.
 	num_meshpoints = N;
@@ -173,7 +167,6 @@ std::vector<int> Mesh<int, double>::getVertices(int cell) const
 	std::vector<int> vertices {cell - 1, cell, cell + 1, cell + 2};
 	if (cell == 0) vertices.erase(vertices.begin());
 	if (cell > num_cells - 2) vertices.pop_back();
-	if (cell > num_cells - 1) vertices.pop_back();
 	return vertices;
 }
 
