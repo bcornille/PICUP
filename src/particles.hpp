@@ -1,9 +1,10 @@
 /*!
  * \file
- * \brief Particles header file.
+ * \brief Particle/Species header file.
  *
  * Contents:
- *  * Particles class
+ *  * Particle struct
+ *  * Species class
  *
  */
 
@@ -20,7 +21,8 @@
  * sorting of the particles by cell.
  */
 template <typename PosVec, typename VelVec>
-struct Particle {
+struct Particle
+{
 	PosVec position; //!< Particle postion.
 	VelVec velocity; //!< Particle velocity.
 	int cell; //!< Cell that the particle occupies.

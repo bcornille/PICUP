@@ -38,7 +38,8 @@ generateParticles(int N, Mesh<PosInd, PosVec> &mesh)
 {
 	num_particles = N;
 	particle_list.resize(N);
-	for(int i = 0; i < N; i++) {
+	for(int i = 0; i < N; i++)
+	{
 		particle_list[i].position = mesh.sampleMesh();
 		particle_list[i].cell = mesh.getCell(particle_list[i].position);
 	}
