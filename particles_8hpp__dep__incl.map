@@ -1,6 +1,7 @@
 <map id="particles.hpp" name="particles.hpp">
-<area shape="rect" id="node2" href="$fields_8hpp.html" title="Fields header file. " alt="" coords="58,80,136,107"/>
-<area shape="rect" id="node5" href="$particles_8cpp.html" title="This file will contain all functions for the Species template class. " alt="" coords="161,80,257,107"/>
+<area shape="rect" id="node2" href="$fields_8hpp.html" title="Fields header file. " alt="" coords="113,80,191,107"/>
+<area shape="rect" id="node6" href="$particles_8cpp.html" title="This file will contain all functions for the Species template class. " alt="" coords="216,80,312,107"/>
 <area shape="rect" id="node3" href="$fields_8cpp.html" title="This file will contain all functions for the Fields class. " alt="" coords="5,155,83,181"/>
 <area shape="rect" id="node4" href="$PICUP_8cpp.html" title="This is the main program file for the Particle&#45;In&#45;Cell Utility for Practice (PICUP). " alt="" coords="107,155,196,181"/>
+<area shape="rect" id="node5" href="$region_8hpp.html" title="Region header file. " alt="" coords="221,155,303,181"/>
 </map>

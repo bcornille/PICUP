@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>PICUP: particles.cpp File Reference</title>
+<title>PICUP: region.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,38 +87,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">particles.cpp File Reference</div>  </div>
+<div class="title">region.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This file will contain all functions for the <a class="el" href="classSpecies.html" title="A template class for the particles. ">Species</a> template class.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="particles_8hpp_source.html">particles.hpp</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for particles.cpp:</div>
-<div class="dyncontent">
-<div class="center"><img src="particles_8cpp__incl.png" border="0" usemap="#particles_8cpp" alt=""/></div>
-<map name="particles_8cpp" id="particles_8cpp">
-<area shape="rect" id="node2" href="particles_8hpp.html" title="Particle/Species header file. " alt="" coords="5,80,101,107"/><area shape="rect" id="node3" href="mesh_8hpp.html" title="Mesh header file. " alt="" coords="14,155,92,181"/></map>
-</div>
-</div>
-<p><a href="particles_8cpp_source.html">Go to the source code of this file.</a></p>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file will contain all functions for the <a class="el" href="classSpecies.html" title="A template class for the particles. ">Species</a> template class. </p>
-<p>Contents:</p>
-<ul>
-<li><a class="el" href="classSpecies.html#a6cda52bf34407792b67bc579994f84da" title="Particles main constructor. ">Species::Species(double q, double m)</a> generic template implementation</li>
-<li><a class="el" href="classSpecies.html#a3fa326115deec3df06a20ae7396bc0df" title="Public facing method to get num_particles. ">Species::getNumParticles()</a> generic template implemenation</li>
-<li><a class="el" href="classSpecies.html#ac820a2148e7badd07300d8505cbd02ac" title="Public facing method to get charge;. ">Species::getCharge()</a> generic template implemenation</li>
-<li><a class="el" href="classSpecies.html#a0616b84b0d104f752f411d7846a9da2c" title="Return a constant reference to particle positions. ">Species::getParticles()</a> generic template implemenation</li>
-<li>Instantiated templates<ul>
-<li>&lt;double, double&gt; </li>
-</ul>
-</li>
-</ul>
-
-<p>Definition in file <a class="el" href="particles_8cpp_source.html">particles.cpp</a>.</p>
-</div></div><!-- contents -->
+<a href="region_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fields_8hpp.html">fields.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef _region_hpp</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _region_hpp</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PosInd, <span class="keyword">typename</span> PosVec, <span class="keyword">typename</span> VelVec&gt;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classRegion.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRegion.html">Region</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">const</span> <a class="code" href="classMesh.html">Mesh&lt;PosInd, PosVec&gt;</a> &amp;region_mesh;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">const</span> <a class="code" href="classFields.html">Fields&lt;PosInd, PosVec&gt;</a> &amp;region_fields;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        std::vector&lt;Species&gt; species_list;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">//std::vector&lt;std::unique_ptr&lt;Boundary&gt; &gt; boundary_list;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif //_region_hpp</span></div>
+<div class="ttc" id="classMesh_html"><div class="ttname"><a href="classMesh.html">Mesh</a></div><div class="ttdoc">A template class for the mesh. </div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00027">mesh.hpp:27</a></div></div>
+<div class="ttc" id="classRegion_html"><div class="ttname"><a href="classRegion.html">Region</a></div><div class="ttdef"><b>Definition:</b> <a href="region_8hpp_source.html#l00016">region.hpp:16</a></div></div>
+<div class="ttc" id="classFields_html"><div class="ttname"><a href="classFields.html">Fields</a></div><div class="ttdoc">A class for all fields. </div><div class="ttdef"><b>Definition:</b> <a href="fields_8hpp_source.html#l00022">fields.hpp:22</a></div></div>
+<div class="ttc" id="fields_8hpp_html"><div class="ttname"><a href="fields_8hpp.html">fields.hpp</a></div><div class="ttdoc">Fields header file. </div></div>
+</div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Thu Mar 17 2016 09:33:05 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>PICUP: Main Page</title>
+<title>PICUP: Region&lt; PosInd, PosVec, VelVec &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -38,9 +38,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -60,7 +60,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,41 +81,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">PICUP Documentation</div>  </div>
+<div class="title">Region&lt; PosInd, PosVec, VelVec &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Particle-In-Cell Utility for Practice</p>
-<h4>See Also</h4>
-<p><a href="https://github.com/bcornille/PICUP">Git Repository</a></p>
-<p><a href="http://bcornille.github.io/PICUP">Online Documentation</a></p>
-<h2>Goals of this project</h2>
-<p>The primary goal of this project is to develop a basic particle-in-cell code. This code may be used for basic validation and investigation.</p>
-<p>The secondary goals for this project include:</p>
-<ul>
-<li>Learning the methods used for particle-in-cell codes</li>
-<li>Learning/practicing object-oriented programming</li>
-<li>Fun</li>
+<div class="dynheader">
+Collaboration diagram for Region&lt; PosInd, PosVec, VelVec &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classRegion__coll__graph.png" border="0" usemap="#Region_3_01PosInd_00_01PosVec_00_01VelVec_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="Region_3_01PosInd_00_01PosVec_00_01VelVec_01_4_coll__map" id="Region_3_01PosInd_00_01PosVec_00_01VelVec_01_4_coll__map">
+<area shape="rect" id="node3" href="classSpecies.html" title="A template class for the particles. " alt="" coords="5,5,195,32"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a1929b835febe64e0a394b4a7679e3f20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1929b835febe64e0a394b4a7679e3f20"></a>
+const <a class="el" href="classMesh.html">Mesh</a>&lt; PosInd, PosVec &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>region_mesh</b></td></tr>
+<tr class="separator:a1929b835febe64e0a394b4a7679e3f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a910adc1cfe859ad967185e081c6c3969"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a910adc1cfe859ad967185e081c6c3969"></a>
+const <a class="el" href="classFields.html">Fields</a>&lt; PosInd, PosVec &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>region_fields</b></td></tr>
+<tr class="separator:a910adc1cfe859ad967185e081c6c3969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf6246a332a67dbe63e70ed303a9a3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3bf6246a332a67dbe63e70ed303a9a3f"></a>
+std::vector&lt; <a class="el" href="classSpecies.html">Species</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>species_list</b></td></tr>
+<tr class="separator:a3bf6246a332a67dbe63e70ed303a9a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename PosInd, typename PosVec, typename VelVec&gt;<br/>
+class Region&lt; PosInd, PosVec, VelVec &gt;</h3>
+
+
+<p>Definition at line <a class="el" href="region_8hpp_source.html#l00016">16</a> of file <a class="el" href="region_8hpp_source.html">region.hpp</a>.</p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="region_8hpp_source.html">region.hpp</a></li>
 </ul>
-<h2>Building with CMake</h2>
-<p>Type the following commands into the terminal to build on Linux systems. </p>
-<pre class="fragment">mkdir build; cd build
-cmake ../
-make
-</pre><h3>Dependencies</h3>
-<p>These packages are required to build PICUP.</p>
-<ul>
-<li><a href="https://cmake.org/">CMake</a> (&gt;= 2.8.12.2)</li>
-<li><a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a></li>
-</ul>
-<h4>Included libraries and frameworks</h4>
-<p>This project includes source code from several other projects.</p>
-<ul>
-<li><a href="https://github.com/google/googletest">GoogleTest</a> and <a href="https://github.com/google/googletest/tree/master/googlemock">GoogleMock</a></li>
-<li>Portions of <a href="http://eigen.tuxfamily.org/">Eigen</a> </li>
-</ul>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Thu Mar 17 2016 09:33:05 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">

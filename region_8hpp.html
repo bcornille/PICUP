@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>PICUP: Main Page</title>
+<title>PICUP: region.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -38,10 +38,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -60,7 +60,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,40 +80,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a>  </div>
   <div class="headertitle">
-<div class="title">PICUP Documentation</div>  </div>
+<div class="title">region.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Particle-In-Cell Utility for Practice</p>
-<h4>See Also</h4>
-<p><a href="https://github.com/bcornille/PICUP">Git Repository</a></p>
-<p><a href="http://bcornille.github.io/PICUP">Online Documentation</a></p>
-<h2>Goals of this project</h2>
-<p>The primary goal of this project is to develop a basic particle-in-cell code. This code may be used for basic validation and investigation.</p>
-<p>The secondary goals for this project include:</p>
+
+<p><a class="el" href="classRegion.html">Region</a> header file.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="fields_8hpp_source.html">fields.hpp</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for region.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="region_8hpp__incl.png" border="0" usemap="#region_8hpp" alt=""/></div>
+<map name="region_8hpp" id="region_8hpp">
+<area shape="rect" id="node2" href="fields_8hpp.html" title="Fields header file. " alt="" coords="14,80,92,107"/><area shape="rect" id="node3" href="particles_8hpp.html" title="Particle/Species header file. " alt="" coords="5,155,101,181"/></map>
+</div>
+</div>
+<p><a href="region_8hpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRegion.html">Region&lt; PosInd, PosVec, VelVec &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classRegion.html">Region</a> header file. </p>
+<p>Contents:</p>
 <ul>
-<li>Learning the methods used for particle-in-cell codes</li>
-<li>Learning/practicing object-oriented programming</li>
-<li>Fun</li>
+<li><a class="el" href="classRegion.html">Region</a> class </li>
 </ul>
-<h2>Building with CMake</h2>
-<p>Type the following commands into the terminal to build on Linux systems. </p>
-<pre class="fragment">mkdir build; cd build
-cmake ../
-make
-</pre><h3>Dependencies</h3>
-<p>These packages are required to build PICUP.</p>
-<ul>
-<li><a href="https://cmake.org/">CMake</a> (&gt;= 2.8.12.2)</li>
-<li><a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a></li>
-</ul>
-<h4>Included libraries and frameworks</h4>
-<p>This project includes source code from several other projects.</p>
-<ul>
-<li><a href="https://github.com/google/googletest">GoogleTest</a> and <a href="https://github.com/google/googletest/tree/master/googlemock">GoogleMock</a></li>
-<li>Portions of <a href="http://eigen.tuxfamily.org/">Eigen</a> </li>
-</ul>
+
+<p>Definition in file <a class="el" href="region_8hpp_source.html">region.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

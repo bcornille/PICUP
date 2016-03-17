@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Particles header file.  
+<p>Particle/Species header file.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="mesh_8hpp_source.html">mesh.hpp</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
@@ -109,7 +109,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="particles_8hpp__dep__incl.png" border="0" usemap="#particles_8hppdep" alt=""/></div>
 <map name="particles_8hppdep" id="particles_8hppdep">
-<area shape="rect" id="node2" href="fields_8hpp.html" title="Fields header file. " alt="" coords="58,80,136,107"/><area shape="rect" id="node5" href="particles_8cpp.html" title="This file will contain all functions for the Species template class. " alt="" coords="161,80,257,107"/><area shape="rect" id="node3" href="fields_8cpp.html" title="This file will contain all functions for the Fields class. " alt="" coords="5,155,83,181"/><area shape="rect" id="node4" href="PICUP_8cpp.html" title="This is the main program file for the Particle&#45;In&#45;Cell Utility for Practice (PICUP). " alt="" coords="107,155,196,181"/></map>
+<area shape="rect" id="node2" href="fields_8hpp.html" title="Fields header file. " alt="" coords="113,80,191,107"/><area shape="rect" id="node6" href="particles_8cpp.html" title="This file will contain all functions for the Species template class. " alt="" coords="216,80,312,107"/><area shape="rect" id="node3" href="fields_8cpp.html" title="This file will contain all functions for the Fields class. " alt="" coords="5,155,83,181"/><area shape="rect" id="node4" href="PICUP_8cpp.html" title="This is the main program file for the Particle&#45;In&#45;Cell Utility for Practice (PICUP). " alt="" coords="107,155,196,181"/><area shape="rect" id="node5" href="region_8hpp.html" title="Region header file. " alt="" coords="221,155,303,181"/></map>
 </div>
 </div>
 <p><a href="particles_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -131,10 +131,11 @@ Functions</h2></td></tr>
 <tr class="separator:adf19095f2be6e5d4942d0f62ffe36811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Particles header file. </p>
+<div class="textblock"><p>Particle/Species header file. </p>
 <p>Contents:</p>
 <ul>
-<li>Particles class </li>
+<li><a class="el" href="structParticle.html" title="A template structure for an individual particle. ">Particle</a> struct</li>
+<li><a class="el" href="classSpecies.html" title="A template class for the particles. ">Species</a> class </li>
 </ul>
 
 <p>Definition in file <a class="el" href="particles_8hpp_source.html">particles.hpp</a>.</p>
@@ -168,14 +169,14 @@ template&lt;typename PosVec , typename VelVec &gt; </div>
 <p>Operator for sorting particles by cell. </p>
 <p>This operator allows particles to be sorted by the index of the cell that they occupy. Sorting particles by cell every 10-100 time steps is said to give a considerable performance boost by reusing field values that have been stored in cache. <a class="el" href="citelist.html#CITEREF_Verboncoeur2015">Verboncoeur2015</a> </p>
 
-<p>Definition at line <a class="el" href="particles_8hpp_source.html#l00037">37</a> of file <a class="el" href="particles_8hpp_source.html">particles.hpp</a>.</p>
+<p>Definition at line <a class="el" href="particles_8hpp_source.html#l00039">39</a> of file <a class="el" href="particles_8hpp_source.html">particles.hpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 6 2016 18:06:56 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 17 2016 09:33:05 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

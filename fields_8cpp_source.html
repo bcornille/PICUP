@@ -114,42 +114,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> std::vector&lt;Particle&lt;PosVec, VelVec&gt; &gt; &amp;part_list</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        = particles.<a class="code" href="classSpecies.html#a0616b84b0d104f752f411d7846a9da2c">getParticles</a>();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// Loop over particles.</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; particles.<a class="code" href="classSpecies.html#a3fa326115deec3df06a20ae7396bc0df">getNumParticles</a>(); i++) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">// Loop over vertices of the cell that the particle is in.</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;l : field_mesh.getVertices(part_list[i].cell)) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            assert( (l &gt;= 0) &amp;&amp; (l &lt; rho_q.size()) );</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            rho_q[l] += q*field_mesh.getWeight(part_list[i].position, l);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    rho_q[0] = 0.0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    rho_q[rho_q.size() - 1] = 0.0;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PosInd, <span class="keyword">typename</span> PosVec&gt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classFields.html#af627aee2efcdbde1f7fe97e900e1ba53">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classFields.html#af627aee2efcdbde1f7fe97e900e1ba53">Fields&lt;PosInd, PosVec&gt;::solvePoisson</a>()</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    potential = field_mesh.laplace_solver.solve(rho_q);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/* Only the Mesh&lt;int, double&gt; class is instantiated so we can only</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> * instantiate the corresponding Fields template. */</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classFields.html">Fields&lt;int, double&gt;</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">template</span> <span class="keywordtype">void</span> <a class="code" href="classFields.html">Fields&lt;int, double&gt;</a>::</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;accumulateCharge&lt;double&gt;(<span class="keyword">const</span> <a class="code" href="classSpecies.html">Species&lt;double, double&gt;</a> &amp;particles);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; particles.<a class="code" href="classSpecies.html#a3fa326115deec3df06a20ae7396bc0df">getNumParticles</a>(); i++)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">// Loop over vertices of the cell that the particle is in.</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;l : field_mesh.getVertices(part_list[i].cell))</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            assert( (l &gt;= 0) &amp;&amp; (l &lt; rho_q.size()) );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            rho_q[l] += q*field_mesh.getWeight(part_list[i].position, l);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    rho_q[0] = 0.0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    rho_q[rho_q.size() - 1] = 0.0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PosInd, <span class="keyword">typename</span> PosVec&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classFields.html#af627aee2efcdbde1f7fe97e900e1ba53">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classFields.html#af627aee2efcdbde1f7fe97e900e1ba53">Fields&lt;PosInd, PosVec&gt;::solvePoisson</a>()</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    potential = field_mesh.laplace_solver.solve(rho_q);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/* Only the Mesh&lt;int, double&gt; class is instantiated so we can only</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> * instantiate the corresponding Fields template. */</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classFields.html">Fields&lt;int, double&gt;</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">template</span> <span class="keywordtype">void</span> <a class="code" href="classFields.html">Fields&lt;int, double&gt;</a>::</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;accumulateCharge&lt;double&gt;(<span class="keyword">const</span> <a class="code" href="classSpecies.html">Species&lt;double, double&gt;</a> &amp;particles);</div>
 <div class="ttc" id="classMesh_html"><div class="ttname"><a href="classMesh.html">Mesh</a></div><div class="ttdoc">A template class for the mesh. </div><div class="ttdef"><b>Definition:</b> <a href="mesh_8hpp_source.html#l00027">mesh.hpp:27</a></div></div>
 <div class="ttc" id="classSpecies_html_ac820a2148e7badd07300d8505cbd02ac"><div class="ttname"><a href="classSpecies.html#ac820a2148e7badd07300d8505cbd02ac">Species::getCharge</a></div><div class="ttdeci">double getCharge() const </div><div class="ttdoc">Public facing method to get charge;. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8cpp_source.html#l00028">particles.cpp:28</a></div></div>
 <div class="ttc" id="classFields_html_aecb07f6f3713ecd2125e63c89cae2466"><div class="ttname"><a href="classFields.html#aecb07f6f3713ecd2125e63c89cae2466">Fields::accumulateCharge</a></div><div class="ttdeci">void accumulateCharge(const Species&lt; PosVec, VelVec &gt; &amp;particles)</div><div class="ttdoc">Accumulate charge density. </div><div class="ttdef"><b>Definition:</b> <a href="fields_8cpp_source.html#l00028">fields.cpp:28</a></div></div>
 <div class="ttc" id="classFields_html"><div class="ttname"><a href="classFields.html">Fields</a></div><div class="ttdoc">A class for all fields. </div><div class="ttdef"><b>Definition:</b> <a href="fields_8hpp_source.html#l00022">fields.hpp:22</a></div></div>
 <div class="ttc" id="classSpecies_html_a3fa326115deec3df06a20ae7396bc0df"><div class="ttname"><a href="classSpecies.html#a3fa326115deec3df06a20ae7396bc0df">Species::getNumParticles</a></div><div class="ttdeci">int getNumParticles() const </div><div class="ttdoc">Public facing method to get num_particles. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8cpp_source.html#l00024">particles.cpp:24</a></div></div>
 <div class="ttc" id="fields_8hpp_html"><div class="ttname"><a href="fields_8hpp.html">fields.hpp</a></div><div class="ttdoc">Fields header file. </div></div>
-<div class="ttc" id="classSpecies_html"><div class="ttname"><a href="classSpecies.html">Species</a></div><div class="ttdoc">A template class for the particles. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8hpp_source.html#l00054">particles.hpp:54</a></div></div>
+<div class="ttc" id="classSpecies_html"><div class="ttname"><a href="classSpecies.html">Species</a></div><div class="ttdoc">A template class for the particles. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8hpp_source.html#l00056">particles.hpp:56</a></div></div>
 <div class="ttc" id="classSpecies_html_a0616b84b0d104f752f411d7846a9da2c"><div class="ttname"><a href="classSpecies.html#a0616b84b0d104f752f411d7846a9da2c">Species::getParticles</a></div><div class="ttdeci">const std::vector&lt; Particle&lt; PosVec, VelVec &gt; &gt; &amp; getParticles() const </div><div class="ttdoc">Return a constant reference to particle positions. </div><div class="ttdef"><b>Definition:</b> <a href="particles_8cpp_source.html#l00032">particles.cpp:32</a></div></div>
-<div class="ttc" id="classFields_html_af627aee2efcdbde1f7fe97e900e1ba53"><div class="ttname"><a href="classFields.html#af627aee2efcdbde1f7fe97e900e1ba53">Fields::solvePoisson</a></div><div class="ttdeci">void solvePoisson()</div><div class="ttdoc">Solve the poisson equaion using the charge in rho_q array. </div><div class="ttdef"><b>Definition:</b> <a href="fields_8cpp_source.html#l00048">fields.cpp:48</a></div></div>
+<div class="ttc" id="classFields_html_af627aee2efcdbde1f7fe97e900e1ba53"><div class="ttname"><a href="classFields.html#af627aee2efcdbde1f7fe97e900e1ba53">Fields::solvePoisson</a></div><div class="ttdeci">void solvePoisson()</div><div class="ttdoc">Solve the poisson equaion using the charge in rho_q array. </div><div class="ttdef"><b>Definition:</b> <a href="fields_8cpp_source.html#l00050">fields.cpp:50</a></div></div>
 <div class="ttc" id="classFields_html_ab7c120f92a3e46c765cf348e780df919"><div class="ttname"><a href="classFields.html#ab7c120f92a3e46c765cf348e780df919">Fields::Fields</a></div><div class="ttdeci">Fields(const Mesh&lt; PosInd, PosVec &gt; &amp;mesh)</div><div class="ttdoc">The main constructor for the electric potential field. </div><div class="ttdef"><b>Definition:</b> <a href="fields_8cpp_source.html#l00017">fields.cpp:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 6 2016 18:06:56 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 17 2016 09:33:05 for PICUP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
