@@ -1,0 +1,14 @@
+{
+	"n_space_dim" : 1,
+	"n_v_dim" : 1,
+
+	"Mesh" : {
+		"structured" : true,
+		"num_nodes" : 100,
+		"xmin" : 0.0,
+		"xmax" : 1.0
+	},
+
+	"Fields" : {
+	}
+}
