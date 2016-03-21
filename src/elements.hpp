@@ -12,13 +12,13 @@
 template <typename PosVec>
 stuct Node
 {
-	PosVec coordinates;
+	PosVec local_coords;
 };
 
 template <typename PosVec, int poly_deg>
 class Element
 {
-	private:
+	protected:
 };
 
 #endif //_elements_hpp
