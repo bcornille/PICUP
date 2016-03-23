@@ -9,17 +9,16 @@
 		"xmax" : 1.0
 	},
 
-	"SpeciesList" : {
-		[	{	"name" : "electrons",
-				"charge" : -1.6021766209e-19,
-				"mass" : 9.10938356e-31,
-				"n_parts" : 1000
-			},
-			{	"name" : "protons",
-				"charge" : 1.6021766209e-19,
-				"mass" : 1.672621778e-27,
-				"n_parts" : 1000
-			}
-		]
-	}
+	"SpeciesList" : [
+		{	"name" : "electrons",
+			"charge" : -1.6021766209e-19,
+			"mass" : 9.10938356e-31,
+			"n_parts" : 1000
+		},
+		{	"name" : "protons",
+			"charge" : 1.6021766209e-19,
+			"mass" : 1.672621778e-27,
+			"n_parts" : 1000
+		}
+	]
 }
