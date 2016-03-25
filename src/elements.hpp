@@ -22,6 +22,7 @@ template <int pdim>
 class Element
 {
 	protected:
+		std::array<&Node<pdim>, 1 << pdim >
 };
 
 template <int pdim>
