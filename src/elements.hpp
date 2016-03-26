@@ -19,16 +19,12 @@ class Node
 };
 
 template <int pdim>
-class Element
+class NodeElement
 {
 	protected:
-		std::array<&Node<pdim>, 1 << pdim >
-};
+		std::array<*Node<pdim>, 1 << pdim >;
 
-template <int pdim>
-class Vertex : public Node
-{
-	private:
+	public:
 };
 
 #endif //_elements_hpp
