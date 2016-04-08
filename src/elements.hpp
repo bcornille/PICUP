@@ -9,20 +9,26 @@
 #ifndef _elements_hpp
 #define _elements_hpp
 
+template<int pdim>
+using Vectord = Eigen::Matrix<double, pdim, 1>
+
 template <int pdim>
 class Node
 {
 	protected:
-		Eigen::Matrix<double, pdim, 1> global_coords;
+		const Vectord global_coords;
 
-		int global_id
+		int global_id;
+
+	public:
+		Node(Vectord x);
 };
 
 template <int pdim>
 class NodeElement
 {
 	protected:
-		std::array<*Node<pdim>, 1 << pdim >;
+		std::array<shared_ptr<Node<pdim> >, 1 << pdim > vertex_nodes;
 
 	public:
 };
