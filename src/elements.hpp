@@ -16,12 +16,10 @@ template <int pdim>
 class Node
 {
 	protected:
-		const Vectord<pdim> local_coords;
-
 		const int global_id;
 
 	public:
-		Node(Vectord<pdim> lambda, int id);
+		Node(int id);
 };
 
 template <int pdim>
@@ -31,17 +29,26 @@ class VertexNode : public Node
 		const Vectord<pdim> global_coords;
 
 	public:
-		VertexNode(Vectord<pdim> x, Vectord<pdim> lambda, int id);
+		VertexNode(Vectord<pdim> x, int id);
 }
 
 template <int pdim>
-class NodeElement
+class InteriorNode : public Node
 {
 	protected:
-		std::array<shared_ptr<Node<pdim> >, 1 << pdim > vertex_nodes;
+		const Vectord<pdim> local_coords;
 
 	public:
-		NodeElement(std::array<Vector<pdim>, 1 << pdim > x);
+		InteriorNode(Vectord<pdim> lambda, int id);
+}
+
+class NodeElement1D
+{
+	protected:
+		std::array<std::shared_ptr<Node<pdim> >, 2> vertex_nodes;
+
+	public:
+		NodeElement(std::array<std::shared_ptr<Node<pdim> >, 2> &vertices);
 };
 
 #endif //_elements_hpp
