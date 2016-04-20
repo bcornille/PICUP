@@ -6,6 +6,9 @@
  *
  */
 
+#include <array>
+#include "Eigen/SparseLU"
+
 #ifndef _elements_hpp
 #define _elements_hpp
 
@@ -45,7 +48,7 @@ class InteriorNode : public Node
 class NodeElement1D
 {
 	protected:
-		std::array<std::shared_ptr<Node<pdim> >, 2> vertex_nodes;
+		std::array<std::shared_ptr<Node<1> >, 2> vertex_nodes;
 
 	public:
 		NodeElement(std::array<std::shared_ptr<Node<pdim> >, 2> &vertices);
