@@ -54,7 +54,7 @@ class Mesh1D
 		 * \param xmax maximum coordinate value
 		 */
 		Mesh(int N, Vectord<1> xmin = Vectord<1>::Zero(),
-				Vectord<1> xmax = Vectord<1>::Identity());
+				Vectord<1> xmax = Vectord<1>::Ones());
 };
 
 #endif //_mesh_hpp

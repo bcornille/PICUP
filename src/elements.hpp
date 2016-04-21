@@ -12,9 +12,11 @@
 #ifndef _elements_hpp
 #define _elements_hpp
 
+//! Templated typedef for an Eigen-type vector of doubles.
 template<int pdim>
 using Vectord = Eigen::Matrix<double, pdim, 1>
 
+//! Class definition of a Node.
 template <int pdim>
 class Node
 {
@@ -23,6 +25,7 @@ class Node
 
 	public:
 		Node(int id);
+		virtual ~Node() = default;
 };
 
 template <int pdim>

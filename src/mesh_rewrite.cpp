@@ -29,7 +29,7 @@ Mesh1D::Mesh1D(int N, Vectord<1> xmin = Vectord<1>::Zero(),
 				"xmin >= xmax in Mesh<int, double>::generateMesh" );
 	}
 	// Cells are only evenly sized at the moment.
-	double dx = (xmax[0] - xmin[0])/N;
+	double dx = (xmax[0] - xmin[0])/num_edges;
 	Vectord<1> x(xmin);
 	// Set the index and coordinate values.
 	mesh_nodes.resize(N+1);
@@ -41,7 +41,16 @@ Mesh1D::Mesh1D(int N, Vectord<1> xmin = Vectord<1>::Zero(),
 		node_elements.push_back({&(mesh_nodes[i-1]), &(mesh_nodes[i])});
 	}
 	// Set discrete Hodge star operator.
+	// (In future may want to assemble this separately.)
 	hodge_epsilon.setIdentity(N);
-	hodge_epsilon = hodge_epsilon/dx/dx; // Missin epsilon_0.
+	hodge_epsilon = hodge_epsilon/dx; // Missin epsilon_0.
 	// Construct grad operator here.
+	grad.resize(num_edges, num_vertices);
+	grad.reserve(2*num_edges);
+	for (int i=0; i < num_edges; i++)
+	{
+		grad.insert(i, i) = -1.0;
+		grad.inserd(i, i+1) = 1.0;
+	}
+	grad.makeCompressed();
 }

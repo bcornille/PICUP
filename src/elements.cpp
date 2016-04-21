@@ -22,5 +22,5 @@ InteriorNode::InteriorNode(Vectord<pdim> lambda, int id) :
 	local_coords(lambda), Node(id) {};
 
 NodeElement1D::
-NodeElement1D(std::array<std::shared_ptr<Node<pdim> >, 2> vertices) :
+NodeElement1D(std::array<*Node<pdim>, 2> vertices) :
 	vertex_nodes(vertices) {};
