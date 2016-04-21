@@ -48,10 +48,10 @@ class InteriorNode : public Node
 class NodeElement1D
 {
 	protected:
-		std::array<std::shared_ptr<Node<1> >, 2> vertex_nodes;
+		std::array<*Node<1>, 2> vertex_nodes;
 
 	public:
-		NodeElement(std::array<std::shared_ptr<Node<pdim> >, 2> &vertices);
+		NodeElement(std::array<*Node<1>, 2> vertices);
 };
 
 #endif //_elements_hpp

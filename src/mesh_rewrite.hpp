@@ -23,16 +23,16 @@ class Mesh1D
 		const int num_edges;
 
 		/*! Vector containing all the mesh nodes. */
-		std::vector<VertexNode<pdim> > mesh_nodes;
+		std::vector<VertexNode<1> > mesh_nodes;
 
 		/*! Vector containing the 1-dimensional Whitney 0-form
 		 * elements. These should be identical to 1st order linear
 		 * elements in 1-dimension.*/
-		std::vector<Element1D> node_elements;
+		std::vector<NodeElement1D> node_elements;
 
 		/*! Matrix representing the discrete Hodge star operator
 		 * including the local permitivity information. */
-		Eigen::SparseMatrix<double> hodge_epsilon;
+		Eigen::DiagonalMatrix<double> hodge_epsilon;
 
 		/*! Matrix representation of the discrete gradient operator.
 		 * This includes no metric information and contains purely
