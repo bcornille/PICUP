@@ -14,7 +14,7 @@
 
 //! Templated typedef for an Eigen-type vector of doubles.
 template<int pdim>
-using Vectord = Eigen::Matrix<double, pdim, 1>
+using Vectord = Eigen::Matrix<double, pdim, 1>;
 
 //! A template class definition of a Node.
 /*!
@@ -32,32 +32,32 @@ class Node
 };
 
 template <int pdim>
-class VertexNode : public Node
+class VertexNode : public Node<pdim>
 {
 	protected:
 		const Vectord<pdim> global_coords;
 
 	public:
 		VertexNode(Vectord<pdim> x, int id);
-}
+};
 
 template <int pdim>
-class InteriorNode : public Node
+class InteriorNode : public Node<pdim>
 {
 	protected:
 		const Vectord<pdim> local_coords;
 
 	public:
 		InteriorNode(Vectord<pdim> lambda, int id);
-}
+};
 
 class NodeElement1D
 {
 	protected:
-		std::array<*Node<1>, 2> vertex_nodes;
+		std::array<Node<1>*, 2> vertex_nodes;
 
 	public:
-		NodeElement1D(std::array<*Node<1>, 2> vertices);
+		NodeElement1D(std::array<Node<1>*, 2> vertices);
 };
 
 #endif //_elements_hpp

@@ -9,7 +9,7 @@
 
 #include <vector>
 #include <random>
-#include "Eigen/SparseLU"
+#include "elements.hpp"
 
 #ifndef _mesh_hpp
 #define _mesh_hpp
@@ -32,7 +32,7 @@ class Mesh1D
 
 		/*! Matrix representing the discrete Hodge star operator
 		 * including the local permitivity information. */
-		Eigen::DiagonalMatrix<double> hodge_epsilon;
+		Eigen::DiagonalMatrix<double, Eigen::Dynamic> hodge_epsilon;
 
 		/*! Matrix representation of the discrete gradient operator.
 		 * This includes no metric information and contains purely
@@ -53,7 +53,7 @@ class Mesh1D
 		 * \param xmin minimum coordinate value
 		 * \param xmax maximum coordinate value
 		 */
-		Mesh(int N, Vectord<1> xmin = Vectord<1>::Zero(),
+		Mesh1D(int N, Vectord<1> xmin = Vectord<1>::Zero(),
 				Vectord<1> xmax = Vectord<1>::Ones());
 };
 

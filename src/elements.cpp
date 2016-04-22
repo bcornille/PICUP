@@ -10,17 +10,17 @@
 #include "elements.hpp"
 
 template <int pdim>
-Node::Node(int id) :
+Node<pdim>::Node(int id) :
 	global_id(id) {};
 
 template <int pdim>
-VertexNode::VertexNode(Vectord<pdim> x, int id) :
-	global_coords(x), Node(id) {};
+VertexNode<pdim>::VertexNode(Vectord<pdim> x, int id) :
+	global_coords(x), Node<pdim>(id) {};
 
 template <int pdim>
-InteriorNode::InteriorNode(Vectord<pdim> lambda, int id) :
-	local_coords(lambda), Node(id) {};
+InteriorNode<pdim>::InteriorNode(Vectord<pdim> lambda, int id) :
+	local_coords(lambda), Node<pdim>(id) {};
 
 NodeElement1D::
-NodeElement1D(std::array<*Node<pdim>, 2> vertices) :
+NodeElement1D(std::array<Node<1>*, 2> vertices) :
 	vertex_nodes(vertices) {};
