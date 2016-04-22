@@ -34,11 +34,13 @@ Mesh1D::Mesh1D(int N, Vectord<1> xmin = Vectord<1>::Zero(),
 	// Set the index and coordinate values.
 	mesh_nodes.resize(N+1);
 	node_elements.reserve(N);
+	mesh_nodes[0] = VertexNode(x, 0);
 	for (int i=1; i < num_vertices; i++)
 	{
 		x(0) = xmin + dx*i;
-		mesh_nodes[i] = x;
-		node_elements.push_back({&(mesh_nodes[i-1]), &(mesh_nodes[i])});
+		mesh_nodes[i] = VertexNode(x, i);
+		node_elements.push_back(
+				NodeElement1D({&mesh_nodes[i-1], &mesh_nodes[i]}) );
 	}
 	// Set discrete Hodge star operator.
 	// (In future may want to assemble this separately.)

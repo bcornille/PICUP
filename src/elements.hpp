@@ -16,7 +16,10 @@
 template<int pdim>
 using Vectord = Eigen::Matrix<double, pdim, 1>
 
-//! Class definition of a Node.
+//! A template class definition of a Node.
+/*!
+ *
+ */
 template <int pdim>
 class Node
 {
@@ -54,7 +57,7 @@ class NodeElement1D
 		std::array<*Node<1>, 2> vertex_nodes;
 
 	public:
-		NodeElement(std::array<*Node<1>, 2> vertices);
+		NodeElement1D(std::array<*Node<1>, 2> vertices);
 };
 
 #endif //_elements_hpp
