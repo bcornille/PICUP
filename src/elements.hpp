@@ -31,10 +31,24 @@ class Node
 		const int global_id; /*!< Global ID of the node. */
 
 	public:
+		//! Default constructor of Node.
+		/*!
+		 * Creates the node with a new unique ID number.
+		 */
 		Node();
+
+		//! Virtual destructor.
+		/*!
+		 * Since Node is a base class the destructor should be virtual.
+		 */
 		virtual ~Node() = default;
 };
 
+//! Class for nodes that are the vertices of the mesh.
+/*!
+ * The vertices of the mesh require the nodal coordinates in the global
+ * space region.
+ */
 template <int pdim>
 class VertexNode : public Node<pdim>
 {
