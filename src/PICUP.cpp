@@ -13,7 +13,7 @@
  *  3. PICOUT - will generate output files with physics data.
  **********************************************************************/
 
-#include "fields.hpp"
+#include "mesh_rewrite.hpp"
 #include <iostream>
 
 //! Currently used for testing functions manually.
@@ -27,36 +27,16 @@ int main(int argc, char *argv[])
 	/* This tests outputs of exception stuff.
 	 * Look it's cool.
 	 */
-	Mesh<int, double> mesh_test;
-	Species<double, double> parts_e(-1.0, 1.0);
-	Species<double, double> parts_p(1.0, 1.0);
 	try
 	{
-		// Throws invalid argument exception because N not positive.
-		// mesh_test.generateMesh(-1, 1.0, 0.0);
-		// Throws invalid argument exception because xmin >= xmax.
-		// mesh_test.generateMesh(1, 1.0, 0.0);
-		mesh_test.generateMesh(100, 0.0, 1.0);
-		mesh_test.generateLaplace();
-		parts_e.generateParticles(100, mesh_test);
-		parts_p.generateParticles(100, mesh_test);
-		parts_e.sortParticles();
-		parts_p.sortParticles();
-		Fields<int, double> fields_test(mesh_test);
-		fields_test.accumulateCharge<double>(parts_e);
-		fields_test.accumulateCharge<double>(parts_p);
-		fields_test.solvePoisson();
-		//std::cout << fields_test.getCharge() << std::endl;
-		//std::cout << fields_test.getPotential() << std::endl;
+		// Invalid arguments
+		// Mesh1D mesh_fail1(-1);
+		// Mesh1D mesh_fail2(100, Vectord<1>::Ones(), Vectord<1>::Zero());
+		Mesh1D mesh_test(100);
 	}
 	catch (std::invalid_argument &e)
 	{
 		std::cerr << "Invalid argument: " << e.what() << std::endl;
-	}
-	catch (int info)
-	{
-		std::cerr << "Bad Laplace operator generation: " << info <<
-			std::endl;
 	}
 
 	return 0;

@@ -4,4 +4,4 @@ add_library(mesh_rewrite STATIC elements.cpp mesh_rewrite.cpp)
 
 # Main program executable.
 add_executable(PICUP PICUP.cpp)
-target_link_libraries(PICUP particles fields)
+target_link_libraries(PICUP particles mesh_rewrite)

@@ -10,17 +10,22 @@
 #include "elements.hpp"
 
 template <int pdim>
-Node<pdim>::Node(int id) :
-	global_id(id) {};
+std::atomic<int> Node<pdim>::s_id(0);
 
 template <int pdim>
-VertexNode<pdim>::VertexNode(Vectord<pdim> x, int id) :
-	global_coords(x), Node<pdim>(id) {};
+Node<pdim>::Node() :
+	global_id(s_id++) {};
 
 template <int pdim>
-InteriorNode<pdim>::InteriorNode(Vectord<pdim> lambda, int id) :
-	local_coords(lambda), Node<pdim>(id) {};
+VertexNode<pdim>::VertexNode(Vectord<pdim> x) :
+	global_coords(x), Node<pdim>() {};
+
+template <int pdim>
+InteriorNode<pdim>::InteriorNode(Vectord<pdim> lambda) :
+	local_coords(lambda), Node<pdim>() {};
 
 NodeElement1D::
-NodeElement1D(std::array<Node<1>*, 2> vertices) :
+NodeElement1D(std::array<VertexNode<1>*, 2> vertices) :
 	vertex_nodes(vertices) {};
+
+template class VertexNode<1>;
