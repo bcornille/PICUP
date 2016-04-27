@@ -14,6 +14,17 @@
 #ifndef _mesh_hpp
 #define _mesh_hpp
 
+//! One-dimensional Mesh class.
+/*!
+ * The one-dimensional mesh will only support electrostatic
+ * particle-in-cell algorithm, thus several elements of this class have
+ * been designed around that.  The mesh is constructed primarily of
+ * NodeElement1D with EdgeElement1D set between them.  A a special
+ * property of the Hodge star (epsilon) operator for this mesh is that
+ * it is a DiagonalMatrix.  Additionally, we only need to generate the
+ * discrete gradient operator matrix on the primal grid, since it can be
+ * simply related to the discrete divergence operator on the dual grid.
+ */
 class Mesh1D
 {
 	private:

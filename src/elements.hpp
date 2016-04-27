@@ -53,12 +53,20 @@ template <int pdim>
 class VertexNode : public Node<pdim>
 {
 	protected:
+		/*! Global mesh coordinates of the vertex. */
 		const Vectord<pdim> global_coords;
 
 	public:
+		//! Main conctructor of the vertex.
+		/*!
+		 * Places the vertex at position <CODE> x </CODE>.
+		 *
+		 * \param x
+		 */
 		VertexNode(Vectord<pdim> x);
 };
 
+/* Currently not using interior nodes.
 template <int pdim>
 class InteriorNode : public Node<pdim>
 {
@@ -68,13 +76,27 @@ class InteriorNode : public Node<pdim>
 	public:
 		InteriorNode(Vectord<pdim> lambda);
 };
+*/
 
+//! One-dimenstional 1st-order nodal (0-form) element.
+/*!
+ * This element uses linear (hat) basis functions.
+ */
 class NodeElement1D
 {
 	protected:
+		/* Array of pointers to the vertices that the node is bound by.
+		 */
 		std::array<VertexNode<1>*, 2> vertex_nodes;
 
 	public:
+		//! Main constructor for the Element.
+		/*!
+		 * Constructed using the array of pointers to VertexNode that
+		 * will be used in the class.
+		 *
+		 * \param vertices
+		 */
 		NodeElement1D(std::array<VertexNode<1>*, 2> vertices);
 };
 

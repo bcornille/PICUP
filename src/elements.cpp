@@ -20,9 +20,11 @@ template <int pdim>
 VertexNode<pdim>::VertexNode(Vectord<pdim> x) :
 	global_coords(x), Node<pdim>() {};
 
+/*
 template <int pdim>
 InteriorNode<pdim>::InteriorNode(Vectord<pdim> lambda) :
 	local_coords(lambda), Node<pdim>() {};
+*/
 
 NodeElement1D::
 NodeElement1D(std::array<VertexNode<1>*, 2> vertices) :
