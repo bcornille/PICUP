@@ -60,4 +60,24 @@ template <int pdim>
 bool operator< (const Particle<pdim> &part_a,
 		const Particle<pdim> &part_b);
 
+template <int pdim>
+class Species
+{
+	private:
+		int num_particles;   /*!< Number of particles.     */
+		const double charge; /*!< Charge of particle type. */
+		const double mass;   /*!< Mass of particle type.   */
+		/*! Charge to mass ratio of particle type. */
+		const double qm_ratio;
+
+		//! Vector containing all the particles of this species.
+		/*!
+		 * Storing the various information about each particle in a
+		 * structure and keeping them as a list helps to reduce cache
+		 * thrashing and can provide significantly improved performance.
+		 * \cite Verboncoeur2005
+		 */
+		std::vector<Particle<pdim> > particle_list;
+}
+
 #endif //_particles_hpp
