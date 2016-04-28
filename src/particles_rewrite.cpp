@@ -17,3 +17,7 @@ bool operator< (const Particle<pdim> &part_a,
 {
 	return part_a.cell < part_b.cell;
 }
+
+template <int pdim>
+Species<pdim>::Species(double q, double m) :
+	num_particles(0), charge(q), mass(m), qm_ratio(q/m) {}

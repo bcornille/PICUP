@@ -78,6 +78,15 @@ class Species
 		 * \cite Verboncoeur2005
 		 */
 		std::vector<Particle<pdim> > particle_list;
+
+	public:
+		//! Particles main constructor.
+		/*!
+		 * \param q Charge of the particle species.
+		 * \param m Mass of the particle species.
+		 */
+		Species(double q, double m = 1.0);
+
 }
 
 #endif //_particles_hpp
