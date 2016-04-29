@@ -34,7 +34,7 @@ class Mesh1D
 		const int num_edges;
 
 		/*! Vector containing all the mesh nodes. */
-		std::vector<VertexNode<1> > mesh_nodes;
+		std::vector<VertexNode<1> > vertices;
 
 		/*! Vector containing the 1-dimensional Whitney 0-form
 		 * elements. These should be identical to 1st order linear
@@ -53,6 +53,8 @@ class Mesh1D
 		 * \f$\tilde{\mathbf{S}}\f$ is the discrete divergence operator
 		 * on the dual grid. */
 		Eigen::SparseMatrix<double> grad;
+
+		std::vector<double> volumes;
 
 	public:
 		//! Mesh main constructor.

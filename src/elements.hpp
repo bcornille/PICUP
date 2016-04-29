@@ -100,4 +100,10 @@ class NodeElement1D
 		NodeElement1D(std::array<VertexNode<1>*, 2> vertices);
 };
 
+//! One-dimensional 1st-order edge (1-form) element.
+/*!
+ * This element uses a  Whitney 1-form basis function.  In one dimension
+ * this is a constant value over the element.
+ */
+
 #endif //_elements_hpp
