@@ -66,28 +66,16 @@ class VertexNode : public Node<pdim>
 		VertexNode(Vectord<pdim> x);
 };
 
-/* Currently not using interior nodes.
+// Forward declaration
+class NodeElement1D;
+
 template <int pdim>
-class InteriorNode : public Node<pdim>
+class Edge
 {
 	protected:
-		const Vectord<pdim> local_coords;
-
-	public:
-		InteriorNode(Vectord<pdim> lambda);
-};
-*/
-
-//! One-dimenstional 1st-order nodal (0-form) element.
-/*!
- * This element uses linear (hat) basis functions.
- */
-class NodeElement1D
-{
-	protected:
-		/* Array of pointers to the vertices that the node is bound by.
-		 */
-		std::array<VertexNode<1>*, 2> vertex_nodes;
+		/*! Array of pointers to the vertices that the line segment is
+		 * bound by. */
+		std::array<VertexNode<pdim>*, 2> vertex_nodes;
 
 	public:
 		//! Main constructor for the Element.
@@ -97,7 +85,42 @@ class NodeElement1D
 		 *
 		 * \param vertices
 		 */
-		NodeElement1D(std::array<VertexNode<1>*, 2> vertices);
+		Edge(std::array<VertexNode<pdim>*, 2> vertices);
+
+		friend class std::conditional<pdim == 1, NodeElement1D, void>::type;
+};
+
+/* Currently not using interior nodes.
+   template <int pdim>
+   class InteriorNode : public Node<pdim>
+   {
+   protected:
+   const Vectord<pdim> local_coords;
+
+   public:
+   InteriorNode(Vectord<pdim> lambda);
+   };
+   */
+
+//! One-dimenstional 1st-order nodal (0-form) element.
+/*!
+ * This element uses linear (hat) basis functions.
+ */
+class NodeElement1D
+{
+	protected:
+		//! Reference to the Edge that
+		const Edge<1> &edge;
+
+	public:
+		//! Main constructor for the Element.
+		/*!
+		 * Constructed using the array of pointers to VertexNode that
+		 * will be used in the class.
+		 *
+		 * \param vertices
+		 */
+		NodeElement1D(Edge<1> &edge_ref);
 };
 
 //! One-dimensional 1st-order edge (1-form) element.

@@ -36,6 +36,8 @@ class Mesh1D
 		/*! Vector containing all the mesh nodes. */
 		std::vector<VertexNode<1> > vertices;
 
+		std::vector<Edge<1> > edges;
+
 		/*! Vector containing the 1-dimensional Whitney 0-form
 		 * elements. These should be identical to 1st order linear
 		 * elements in 1-dimension.*/

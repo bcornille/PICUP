@@ -87,6 +87,6 @@ class Species
 		 */
 		Species(double q, double m = 1.0);
 
-}
+};
 
 #endif //_particles_hpp

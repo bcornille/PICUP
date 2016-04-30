@@ -20,6 +20,10 @@ template <int pdim>
 VertexNode<pdim>::VertexNode(Vectord<pdim> x) :
 	global_coords(x), Node<pdim>() {};
 
+template <int pdim>
+Edge<pdim>::Edge(std::array<VertexNode<pdim>*, 2> vertices) :
+	vertex_nodes(vertices) {};
+
 /*
 template <int pdim>
 InteriorNode<pdim>::InteriorNode(Vectord<pdim> lambda) :
@@ -27,7 +31,7 @@ InteriorNode<pdim>::InteriorNode(Vectord<pdim> lambda) :
 */
 
 NodeElement1D::
-NodeElement1D(std::array<VertexNode<1>*, 2> vertices) :
-	vertex_nodes(vertices) {};
+NodeElement1D(Edge<1> &edge_ref) : edge(edge_ref) {};
 
 template class VertexNode<1>;
+template class Edge<1>;
