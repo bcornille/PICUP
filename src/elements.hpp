@@ -64,6 +64,11 @@ class VertexNode : public Node<pdim>
 		 * \param x
 		 */
 		VertexNode(Vectord<pdim> x);
+
+		//! Get coordinates.
+		/*!
+		 */
+		Vectord<pdim> getCoords();
 };
 
 // Forward declaration
@@ -77,6 +82,8 @@ class Edge
 		 * bound by. */
 		std::array<VertexNode<pdim>*, 2> vertex_nodes;
 
+		double edge_length;
+
 	public:
 		//! Main constructor for the Element.
 		/*!
@@ -86,6 +93,11 @@ class Edge
 		 * \param vertices
 		 */
 		Edge(std::array<VertexNode<pdim>*, 2> vertices);
+
+		//! Get length.
+		/*!
+		 */
+		double getLength();
 
 		friend class std::conditional<pdim == 1, NodeElement1D, void>::type;
 };

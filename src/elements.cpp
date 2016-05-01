@@ -21,8 +21,17 @@ VertexNode<pdim>::VertexNode(Vectord<pdim> x) :
 	global_coords(x), Node<pdim>() {};
 
 template <int pdim>
+Vectord<pdim> VertexNode<pdim>::getCoords() { return global_coords; };
+
+template <int pdim>
 Edge<pdim>::Edge(std::array<VertexNode<pdim>*, 2> vertices) :
-	vertex_nodes(vertices) {};
+	vertex_nodes(vertices),
+	edge_length((vertex_nodes[1]->getCoords()
+				- vertex_nodes[0]->getCoords()).norm())
+{};
+
+template <int pdim>
+double Edge<pdim>::getLength() { return edge_length; };
 
 /*
 template <int pdim>

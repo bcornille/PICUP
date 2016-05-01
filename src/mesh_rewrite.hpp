@@ -36,6 +36,8 @@ class Mesh1D
 		/*! Vector containing all the mesh nodes. */
 		std::vector<VertexNode<1> > vertices;
 
+		/*! Vector containing all the mesh edges.  In one-dimension
+		 * these are also considered the cells.*/
 		std::vector<Edge<1> > edges;
 
 		/*! Vector containing the 1-dimensional Whitney 0-form
@@ -55,8 +57,6 @@ class Mesh1D
 		 * \f$\tilde{\mathbf{S}}\f$ is the discrete divergence operator
 		 * on the dual grid. */
 		Eigen::SparseMatrix<double> grad;
-
-		std::vector<double> volumes;
 
 	public:
 		//! Mesh main constructor.
