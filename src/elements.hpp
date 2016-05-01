@@ -74,6 +74,13 @@ class VertexNode : public Node<pdim>
 // Forward declaration
 class NodeElement1D;
 
+//! Class describing edges.
+/*!
+ * Points to two VertexNode describing a line segement. Is also
+ * conditionally a friend of NodeElement1D when the class is Edge<1>.
+ * This is to allows NodeElement1D to read the variables in Edge
+ * directly. (This is not necessary, but I think it will be convenient.)
+ */
 template <int pdim>
 class Edge
 {
@@ -82,6 +89,7 @@ class Edge
 		 * bound by. */
 		std::array<VertexNode<pdim>*, 2> vertex_nodes;
 
+		/*! Length of the edge in the mesh space. */
 		double edge_length;
 
 	public:
@@ -96,6 +104,7 @@ class Edge
 
 		//! Get length.
 		/*!
+		 * \returns <CODE> edge_length </CODE>
 		 */
 		double getLength();
 
