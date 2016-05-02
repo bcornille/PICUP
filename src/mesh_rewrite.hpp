@@ -70,6 +70,11 @@ class Mesh1D
 		 */
 		Mesh1D(int N, Vectord<1> xmin = Vectord<1>::Zero(),
 				Vectord<1> xmax = Vectord<1>::Ones());
+
+		//! Get weights of the mesh elements.
+		/*!
+		 */
+		std::vector<double> getWeights() const;
 };
 
 #endif //_mesh_hpp

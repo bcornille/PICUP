@@ -87,6 +87,16 @@ class Species
 		 */
 		Species(double q, double m = 1.0);
 
+		//! Generates particles evenly distributed on the mesh.
+		/*!
+		 * The mesh elements are sampled with a discrete distribution
+		 * based on the "volume" of the elements.  These cells are then
+		 * sampled evenly within the volume.
+		 *
+		 * \param N
+		 * \param mesh
+		 */
+		void generateParticles(int N, const Mesh1D &mesh);
 };
 
 #endif //_particles_hpp

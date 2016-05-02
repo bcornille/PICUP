@@ -54,3 +54,15 @@ Mesh1D::Mesh1D(int N, Vectord<1> xmin, Vectord<1> xmax) :
 	}
 	grad.makeCompressed();
 }
+
+std::vector<double> Mesh1D::getWeights() const
+{
+	std::vector<double> weights(num_edges);
+	// The weights of one-dimensional cells are the lengths.
+	for (int i = 0; i < num_edges; i++)
+	{
+		weights[i] = edges[i].getLength();
+	}
+
+	return weights;
+}

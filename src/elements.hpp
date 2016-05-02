@@ -106,7 +106,7 @@ class Edge
 		/*!
 		 * \returns <CODE> edge_length </CODE>
 		 */
-		double getLength();
+		double getLength() const;
 
 		friend class std::conditional<pdim == 1, NodeElement1D, void>::type;
 };
