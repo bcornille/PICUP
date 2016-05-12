@@ -66,3 +66,8 @@ std::vector<double> Mesh1D::getWeights() const
 
 	return weights;
 }
+
+Vectord<1> Mesh1D::sampleCell(int cell) const
+{
+	return Vectord<1>::Zero(); //TODO: Implement sampling.
+}

@@ -10,7 +10,7 @@
  **********************************************************************/
 
 #include "particles_rewrite.hpp"
-#include <random>
+#include "random.hpp"
 
 template <int pdim>
 bool operator< (const Particle<pdim> &part_a,
@@ -33,8 +33,8 @@ void Species<pdim>::generateParticles(int N, const Mesh1D &mesh)
 	particle_list.resize(num_particles);
 	for(int i = 0; i < N; i++)
 	{
-		/*
 		particle_list[i].cell = cell_dist(generator);
+		/*
 		particle_list[i].postion = mesh.sampleCell(particle_list[i].cell);
 		*/
 	}

@@ -14,6 +14,14 @@
 #ifndef _mesh_hpp
 #define _mesh_hpp
 
+template <int pdim>
+class Mesh
+{
+	public:
+		virtual std::vector<double> getWeights() const = 0;
+		virtual Vectord<pdim> sampleCell(int cell) const = 0;
+};
+
 //! One-dimensional Mesh class.
 /*!
  * The one-dimensional mesh will only support electrostatic
@@ -25,7 +33,7 @@
  * discrete gradient operator matrix on the primal grid, since it can be
  * simply related to the discrete divergence operator on the dual grid.
  */
-class Mesh1D
+class Mesh1D : Mesh<1>
 {
 	private:
 		/*! Number of vertices defining the primal mesh. */
@@ -75,6 +83,11 @@ class Mesh1D
 		/*!
 		 */
 		std::vector<double> getWeights() const;
+
+		//! Randomly sample cell volume.
+		/*!
+		 */
+		Vectord<1> sampleCell(int cell) const;
 };
 
 #endif //_mesh_hpp
