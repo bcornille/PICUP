@@ -1,0 +1,4 @@
+template<int edgedim = pdim>
+typename std::enable_if<edgedim == 1 && edgedim == pdim,
+         Vectord<pdim> >::type sampleEdge();
+
