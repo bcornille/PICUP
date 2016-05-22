@@ -42,7 +42,7 @@ class Mesh1D : Mesh<1>
 		const int num_edges;
 
 		/*! Vector containing all the mesh nodes. */
-		std::vector<VertexNode<1> > vertices;
+		std::vector<std::shared_ptr<Vertex<1> > > vertices;
 
 		/*! Vector containing all the mesh edges.  In one-dimension
 		 * these are also considered the cells.*/

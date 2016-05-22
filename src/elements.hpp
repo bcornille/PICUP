@@ -8,6 +8,7 @@
 
 #include <array>
 #include <atomic>
+#include <memory>
 #include "Eigen/SparseLU"
 
 #ifndef _elements_hpp
@@ -50,7 +51,7 @@ class Node
  * space region.
  */
 template <int pdim>
-class VertexNode : public Node<pdim>
+class Vertex : public Node<pdim>
 {
 	protected:
 		/*! Global mesh coordinates of the vertex. */
@@ -63,7 +64,7 @@ class VertexNode : public Node<pdim>
 		 *
 		 * \param x
 		 */
-		VertexNode(Vectord<pdim> x);
+		Vertex(Vectord<pdim> x);
 
 		//! Get coordinates.
 		/*!
@@ -87,7 +88,7 @@ class Edge
 	protected:
 		/*! Array of pointers to the vertices that the line segment is
 		 * bound by. */
-		std::array<VertexNode<pdim>*, 2> vertex_nodes;
+		std::array<std::shared_ptr<Vertex<pdim> >, 2> endpoints;
 
 		/*! Length of the edge in the mesh space. */
 		double edge_length;
@@ -100,7 +101,7 @@ class Edge
 		 *
 		 * \param vertices
 		 */
-		Edge(std::array<VertexNode<pdim>*, 2> vertices);
+		Edge(std::array<std::shared_ptr<Vertex<pdim> >, 2> vertices);
 
 		//! Get length.
 		/*!
