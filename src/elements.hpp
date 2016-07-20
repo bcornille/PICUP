@@ -68,12 +68,12 @@ class Vertex : public Node<pdim>
 
 		//! Get coordinates.
 		/*!
-		 */
+		*/
 		Vectord<pdim> getCoords();
 };
 
 // Forward declaration
-class NodeElement1D;
+//class Element1DZeroForm;
 
 //! Class describing edges.
 /*!
@@ -94,7 +94,7 @@ class Edge
 		double edge_length;
 
 	public:
-		//! Main constructor for the Element.
+		//! Main constructor for Edge.
 		/*!
 		 * Constructed using the array of pointers to VertexNode that
 		 * will be used in the class.
@@ -109,7 +109,24 @@ class Edge
 		 */
 		double getLength() const;
 
-		friend class std::conditional<pdim == 1, NodeElement1D, void>::type;
+		//friend clas s std::conditional<pdim == 1, NodeElement1D, void>::type;
+};
+
+class Cell1D : public Edge<1>
+{
+	public:
+		//! Main constructor for Cell1D
+		/*!
+		 * Constructs the Edge.
+		 *
+		 * \param vertices
+		 */
+		Cell1D(std::array<std::shared_ptr<Vertex<1> >, 2> vertices);
+
+		//! Get cell size.
+		/*!
+		*/
+		double getSize() const { return getLength(); };
 };
 
 /* Currently not using interior nodes.
@@ -124,25 +141,24 @@ class Edge
    };
    */
 
-//! One-dimenstional 1st-order nodal (0-form) element.
+//! One-dimenstional 1st-order 0-form element.
 /*!
  * This element uses linear (hat) basis functions.
  */
-class NodeElement1D
+class Element1DZeroForm
 {
 	protected:
-		//! Reference to the Edge that
-		const Edge<1> &edge;
+		//! Reference to the Cell that the element exists on.
+		const Cell1D &cell;
 
 	public:
 		//! Main constructor for the Element.
 		/*!
-		 * Constructed using the array of pointers to VertexNode that
-		 * will be used in the class.
+		 * Constructed with a reference to the cell of the element.
 		 *
-		 * \param vertices
+		 * \param cell_ref
 		 */
-		NodeElement1D(Edge<1> &edge_ref);
+		Element1DZeroForm(Cell1D &cell_ref);
 };
 
 //! One-dimensional 1st-order edge (1-form) element.
@@ -150,5 +166,21 @@ class NodeElement1D
  * This element uses a  Whitney 1-form basis function.  In one dimension
  * this is a constant value over the element.
  */
+class Element1DOneForm
+{
+	protected:
+		//! Reference to the Cell that the element exists on.
+		const Cell1D &cell;
+
+	public:
+		//! Main constructor for the Element.
+		/*!
+		 * Constructed with a reference to the cell of the element.
+		 *
+		 * \param cell_ref
+		 */
+		Element1DOneForm(Cell1D &cell_ref);
+
+};
 
 #endif //_elements_hpp

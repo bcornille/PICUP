@@ -34,14 +34,22 @@ Edge(std::array<std::shared_ptr<Vertex<pdim> >, 2> vertices) :
 template <int pdim>
 double Edge<pdim>::getLength() const { return edge_length; }
 
+Cell1D::
+Cell1D(std::array<std::shared_ptr<Vertex<1> >, 2> vertices) :
+	Edge<1>(vertices)
+{}
+
 /*
 template <int pdim>
 InteriorNode<pdim>::InteriorNode(Vectord<pdim> lambda) :
 	local_coords(lambda), Node<pdim>() {};
 */
 
-NodeElement1D::
-NodeElement1D(Edge<1> &edge_ref) : edge(edge_ref) {}
+Element1DZeroForm::
+Element1DZeroForm(Cell1D &cell_ref) : cell(cell_ref) {}
+
+Element1DOneForm::
+Element1DOneForm(Cell1D &cell_ref) : cell(cell_ref) {}
 
 template class Vertex<1>;
 template class Edge<1>;

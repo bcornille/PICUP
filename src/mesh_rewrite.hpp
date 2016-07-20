@@ -46,12 +46,12 @@ class Mesh1D : Mesh<1>
 
 		/*! Vector containing all the mesh edges.  In one-dimension
 		 * these are also considered the cells.*/
-		std::vector<Edge<1> > edges;
+		std::vector<Cell1D> cells;
 
 		/*! Vector containing the 1-dimensional Whitney 0-form
 		 * elements. These should be identical to 1st order linear
 		 * elements in 1-dimension.*/
-		std::vector<NodeElement1D> node_elements;
+		std::vector<Element1DZeroForm> zero_forms;
 
 		/*! Matrix representing the discrete Hodge star operator
 		 * including the local permitivity information. */

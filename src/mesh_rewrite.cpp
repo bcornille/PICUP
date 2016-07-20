@@ -31,14 +31,14 @@ Mesh1D::Mesh1D(int N, Vectord<1> xmin, Vectord<1> xmax) :
 	double dx = (xmax[0] - xmin[0])/num_edges;
 	Vectord<1> x(xmin);
 	// Set the index and coordinate values.
-	node_elements.reserve(N);
+	zero_forms.reserve(N);
 	vertices.emplace_back(std::make_shared<Vertex<1> >(x));
 	for (int i=1; i < num_vertices; i++)
 	{
 		x(0) = xmin[0] + dx*i;
 		vertices.emplace_back(std::make_shared<Vertex<1> >(x));
-		edges.push_back(Edge<1>({vertices[i-1], vertices[i]}));
-		node_elements.push_back(NodeElement1D(edges[i]));
+		cells.push_back(Cell1D({vertices[i-1], vertices[i]}));
+		zero_forms.push_back(Element1DZeroForm(cells[i]));
 	}
 	// Set discrete Hodge star operator.
 	// (In future may want to assemble this separately.)
@@ -61,7 +61,7 @@ std::vector<double> Mesh1D::getWeights() const
 	// The weights of one-dimensional cells are the lengths.
 	for (int i = 0; i < num_edges; i++)
 	{
-		weights[i] = edges[i].getLength();
+		weights[i] = cells[i].getSize();
 	}
 
 	return weights;
