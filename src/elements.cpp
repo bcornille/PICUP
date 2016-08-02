@@ -24,8 +24,12 @@ template <int pdim>
 Vectord<pdim> Vertex<pdim>::getCoords() { return global_coords; }
 
 template <int pdim>
+std::atomic<int> Edge<pdim>::s_id(0);
+
+template <int pdim>
 Edge<pdim>::
 Edge(std::array<std::shared_ptr<Vertex<pdim> >, 2> vertices) :
+	global_id(s_id++),
 	endpoints(vertices),
 	edge_length((endpoints[1]->getCoords()
 				- endpoints[0]->getCoords()).norm())

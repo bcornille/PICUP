@@ -86,6 +86,10 @@ template <int pdim>
 class Edge
 {
 	protected:
+		/*! Static counter of ID number. */
+		static std::atomic<int> s_id;
+		const int global_id; /*!< Global ID of the edge. */
+
 		/*! Array of pointers to the vertices that the line segment is
 		 * bound by. */
 		std::array<std::shared_ptr<Vertex<pdim> >, 2> endpoints;
@@ -112,6 +116,10 @@ class Edge
 		//friend clas s std::conditional<pdim == 1, NodeElement1D, void>::type;
 };
 
+//! Class describing a 1D cell.
+/*!
+ * A cell in one dimension is an Edge.
+ */
 class Cell1D : public Edge<1>
 {
 	public:

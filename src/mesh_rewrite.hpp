@@ -14,11 +14,17 @@
 #ifndef _mesh_hpp
 #define _mesh_hpp
 
+//! Interface class for various types of Mesh in arbitrary dimension.
+/*!
+ * Most functions will be pure virtual functions.
+ */
 template <int pdim>
 class Mesh
 {
 	public:
+		//! Get the weights for particle generation in each cell.
 		virtual std::vector<double> getWeights() const = 0;
+		//! Sample the volume of the given cell.
 		virtual Vectord<pdim> sampleCell(int cell) const = 0;
 };
 
