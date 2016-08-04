@@ -10,6 +10,7 @@
 #include <atomic>
 #include <memory>
 #include "Eigen/SparseLU"
+#include "random.hpp"
 
 #ifndef _elements_hpp
 #define _elements_hpp
@@ -122,6 +123,9 @@ class Edge
  */
 class Cell1D : public Edge<1>
 {
+	protected:
+		std::uniform_real_distribution<double> distribution;
+
 	public:
 		//! Main constructor for Cell1D
 		/*!
@@ -135,6 +139,8 @@ class Cell1D : public Edge<1>
 		/*!
 		*/
 		double getSize() const { return getLength(); };
+
+		Vectord<1> sampleCell();
 };
 
 /* Currently not using interior nodes.

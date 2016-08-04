@@ -10,7 +10,6 @@
  **********************************************************************/
 
 #include "particles_rewrite.hpp"
-#include "random.hpp"
 
 template <int pdim>
 bool operator< (const Particle<pdim> &part_a,
@@ -25,7 +24,7 @@ Species<pdim>::Species(double q, double m) :
 {}
 
 template <int pdim>
-void Species<pdim>::generateParticles(int N, const Mesh1D &mesh)
+void Species<pdim>::generateParticles(int N, Mesh1D &mesh)
 {
 	std::vector<double> weights(mesh.getWeights());
 	std::discrete_distribution<> cell_dist(weights.begin(), weights.end());
@@ -33,9 +32,9 @@ void Species<pdim>::generateParticles(int N, const Mesh1D &mesh)
 	particle_list.resize(num_particles);
 	for(int i = 0; i < N; i++)
 	{
-		particle_list[i].cell = cell_dist(generator);
-		/*
-		particle_list[i].postion = mesh.sampleCell(particle_list[i].cell);
-		*/
+		particle_list[i].cell = cell_dist(picup_rand::generator);
+		particle_list[i].position = mesh.sampleCell(particle_list[i].cell);
 	}
 }
+
+template class Species<1>;

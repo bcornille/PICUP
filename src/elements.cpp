@@ -40,8 +40,17 @@ double Edge<pdim>::getLength() const { return edge_length; }
 
 Cell1D::
 Cell1D(std::array<std::shared_ptr<Vertex<1> >, 2> vertices) :
+	distribution(vertices[0]->getCoords()[0],
+			vertices[1]->getCoords()[0]),
 	Edge<1>(vertices)
 {}
+
+Vectord<1> Cell1D::sampleCell()
+{
+	Vectord<1> point;
+	point[0] = distribution(picup_rand::generator);
+	return point;
+}
 
 /*
 template <int pdim>

@@ -7,11 +7,15 @@
  *
  */
 
+#include <chrono>
 #include <random>
 
 #ifndef _random_hpp
 #define _random_hpp
 
-std::default_random_engine generator;
+namespace picup_rand {
+	extern unsigned seed;
+	extern std::default_random_engine generator;
+}
 
 #endif //_random_hpp

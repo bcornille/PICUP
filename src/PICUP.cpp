@@ -13,7 +13,7 @@
  *  3. PICOUT - will generate output files with physics data.
  **********************************************************************/
 
-#include "mesh_rewrite.hpp"
+#include "particles_rewrite.hpp"
 #include <iostream>
 
 //! Currently used for testing functions manually.
@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
 		// Mesh1D mesh_fail1(-1);
 		// Mesh1D mesh_fail2(100, Vectord<1>::Ones(), Vectord<1>::Zero());
 		Mesh1D mesh_test(100);
+		Species<1> protons(1.0);
+		protons.generateParticles(100, mesh_test);
 	}
 	catch (std::invalid_argument &e)
 	{

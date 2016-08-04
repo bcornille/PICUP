@@ -8,7 +8,6 @@
  */
 
 #include <vector>
-#include <random>
 #include "elements.hpp"
 
 #ifndef _mesh_hpp
@@ -25,7 +24,7 @@ class Mesh
 		//! Get the weights for particle generation in each cell.
 		virtual std::vector<double> getWeights() const = 0;
 		//! Sample the volume of the given cell.
-		virtual Vectord<pdim> sampleCell(int cell) const = 0;
+		virtual Vectord<pdim> sampleCell(int cell) = 0;
 };
 
 //! One-dimensional Mesh class.
@@ -93,7 +92,7 @@ class Mesh1D : Mesh<1>
 		//! Randomly sample cell volume.
 		/*!
 		 */
-		Vectord<1> sampleCell(int cell) const;
+		Vectord<1> sampleCell(int cell);
 };
 
 #endif //_mesh_hpp

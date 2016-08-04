@@ -96,7 +96,7 @@ class Species
 		 * \param N
 		 * \param mesh
 		 */
-		void generateParticles(int N, const Mesh1D &mesh);
+		void generateParticles(int N, Mesh1D &mesh);
 };
 
 #endif //_particles_hpp
