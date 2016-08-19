@@ -97,6 +97,9 @@ class Species
 		 * \param mesh
 		 */
 		void generateParticles(int N, Mesh1D &mesh);
+
+		const std::vector<Particle<pdim> >& getParticles() const
+		{ return particle_list; }
 };
 
 #endif //_particles_hpp
