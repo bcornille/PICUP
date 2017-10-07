@@ -16,3 +16,5 @@ target_link_libraries(mesh_tests gmock-gtest-all fields)
 
 add_test(NAME ParticlesTests COMMAND particles_tests)
 add_test(NAME MeshTests COMMAND mesh_tests)
+
+add_custom_target(build_tests DEPENDS particles_tests mesh_tests)

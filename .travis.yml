@@ -5,4 +5,5 @@ scrit:
   - mkdir build
   - cd build
   - cmake ..
+  - make buld_test
   - make test
