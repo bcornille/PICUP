@@ -90,3 +90,5 @@ add_custom_target(
 set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile
 	PROPERTIES GENERATED 1)
 set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${OUTPUT_DIRECTORY})
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

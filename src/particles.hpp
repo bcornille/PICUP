@@ -77,7 +77,7 @@ class Species
 		 * \param q Charge of the particle species.
 		 * \param m Mass of the particle species.
 		 */
-		Species(double q, double m);
+		Species(double q = 1.0, double m = 1.0);
 
 		//! Public facing method to get num_particles.
 		/*!

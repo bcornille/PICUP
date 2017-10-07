@@ -16,7 +16,7 @@
 #include "particles.hpp"
 
 template <typename PosVec, typename VelVec>
-Species<PosVec, VelVec>::Species(double q, double m = 1.0)
+Species<PosVec, VelVec>::Species(double q, double m)
 	: num_particles(0), charge(q), mass(m), qm_ratio(q/m) {}
 
 template <typename PosVec, typename VelVec>
