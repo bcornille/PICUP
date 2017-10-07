@@ -1,6 +1,9 @@
 language:
   - cpp
 
+install:
+  - sudo apt install doxygen
+
 script:
   - mkdir build
   - cd build
