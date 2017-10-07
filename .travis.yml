@@ -8,5 +8,5 @@ script:
   - mkdir build
   - cd build
   - cmake ..
-  - make buld_test
+  - make build_test
   - make test
