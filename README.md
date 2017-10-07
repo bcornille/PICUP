@@ -1,4 +1,5 @@
 # PICUP
+[![Build Status](https://travis-ci.org/bcornille/PICUP.svg?branch=develop)](https://travis-ci.org/bcornille/PICUP)
 Particle-In-Cell Utility for Practice
 
 #### See Also
