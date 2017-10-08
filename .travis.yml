@@ -1,8 +1,16 @@
 language:
   - cpp
 
-install:
-  - sudo apt install doxygen
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-7
+      - doxygen
+
+env:
+  COMPILER=g++-7
 
 script:
   - mkdir build
