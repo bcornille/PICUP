@@ -10,7 +10,7 @@ addons:
       - doxygen
 
 env:
-  COMPILER=g++-7
+  COMPILER="CXX=g++-7"
 
 before_install:
   - eval "${COMPILER}"
