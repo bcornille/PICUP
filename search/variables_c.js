@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uniform_5fdist',['uniform_dist',['../classMesh.html#a75816df4f090dbdd75099aba25c3fb8c',1,'Mesh']]]
+  ['qm_5fratio',['qm_ratio',['../classSpecies.html#acb8f1303561aebd32a447b914c5daa7f',1,'Species']]]
 ];

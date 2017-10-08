@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['j_5fq',['j_q',['../classFields.html#a0cc2af4b9874f1679557cd727d75ee6c',1,'Fields']]]
+  ['hodge_5fepsilon',['hodge_epsilon',['../classMesh1D.html#a98176f817049a3b4f4fba999d55d254d',1,'Mesh1D']]]
 ];

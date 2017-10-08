@@ -1,12 +1,4 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$classMesh.html#a6b21b6de5008d0b9e35f1eb82c22caab" title="Template routine to setup a mesh. " alt="" coords="121,5,265,32"/>
-<area shape="rect" id="node3" href="$classMesh.html#a3144c9e0bf0b5ce7bfd57762fd254d60" title="Generates the laplace matrix based on the mesh. " alt="" coords="115,56,272,83"/>
-<area shape="rect" id="node4" href="$classSpecies.html#ad1289661204ea77d35bb47a4c77d0485" title="Creates particles distributed across a given mesh. " alt="" coords="104,107,283,133"/>
-<area shape="rect" id="node6" href="$classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58" title="Reorder particles to be sorted/grouped by cell. " alt="" coords="118,157,269,184"/>
-<area shape="rect" id="node7" href="$classFields.html#aecb07f6f3713ecd2125e63c89cae2466" title="Accumulate charge density. " alt="" coords="106,208,281,235"/>
-<area shape="rect" id="node11" href="$classFields.html#af627aee2efcdbde1f7fe97e900e1ba53" title="Solve the poisson equaion using the charge in rho_q array. " alt="" coords="122,259,265,285"/>
-<area shape="rect" id="node5" href="$classMesh.html#a2265d2587a7ac6bd3425872431483fab" title="Randomly sample the mesh space for a position. " alt="" coords="351,107,487,133"/>
-<area shape="rect" id="node8" href="$classSpecies.html#ac820a2148e7badd07300d8505cbd02ac" title="Public facing method to get charge;. " alt="" coords="350,157,487,184"/>
-<area shape="rect" id="node9" href="$classSpecies.html#a0616b84b0d104f752f411d7846a9da2c" title="Return a constant reference to particle positions. " alt="" coords="345,208,492,235"/>
-<area shape="rect" id="node10" href="$classSpecies.html#a3fa326115deec3df06a20ae7396bc0df" title="Public facing method to get num_particles. " alt="" coords="331,259,506,285"/>
+<area shape="rect" id="node2" href="$classSpecies.html#a9aaca9ee0815f04760529f9e05eaea50" title="Creates particles distributed across a given mesh. " alt="" coords="104,5,283,32"/>
+<area shape="rect" id="node3" href="$classMesh.html#a2265d2587a7ac6bd3425872431483fab" title="Randomly sample the mesh space for a position. " alt="" coords="331,5,467,32"/>
 </map>

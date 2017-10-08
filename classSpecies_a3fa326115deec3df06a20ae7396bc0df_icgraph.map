@@ -1,4 +1,6 @@
 <map id="Species::getNumParticles" name="Species::getNumParticles">
-<area shape="rect" id="node2" href="$classFields.html#aecb07f6f3713ecd2125e63c89cae2466" title="Accumulate charge density. " alt="" coords="230,5,405,32"/>
-<area shape="rect" id="node3" href="$PICUP_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Currently used for testing functions manually. " alt="" coords="453,5,504,32"/>
+<area shape="rect" id="node2" href="$classFields.html#af696580867538c2fac20aa5bef170ca6" title="Accumulate charge density. " alt="" coords="228,5,403,32"/>
+<area shape="rect" id="node4" href="$classSpecies.html#ae6ae30245055788a3a800564620ec7a4" title="Particles main constructor. " alt="" coords="253,56,377,83"/>
+<area shape="rect" id="node3" href="$classFields.html#ab7c120f92a3e46c765cf348e780df919" title="The main constructor for the electric potential field. " alt="" coords="451,5,551,32"/>
+<area shape="rect" id="node5" href="$particles__rewrite_8hpp.html#a6833fef260b7ef5397b3665df98843f7" title="Operator for sorting particles by cell. " alt="" coords="462,56,539,83"/>
 </map>

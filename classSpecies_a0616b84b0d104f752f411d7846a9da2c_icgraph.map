@@ -1,4 +1,6 @@
 <map id="Species::getParticles" name="Species::getParticles">
-<area shape="rect" id="node2" href="$classFields.html#aecb07f6f3713ecd2125e63c89cae2466" title="Accumulate charge density. " alt="" coords="201,5,375,32"/>
-<area shape="rect" id="node3" href="$PICUP_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Currently used for testing functions manually. " alt="" coords="424,5,475,32"/>
+<area shape="rect" id="node2" href="$classFields.html#af696580867538c2fac20aa5bef170ca6" title="Accumulate charge density. " alt="" coords="608,31,783,57"/>
+<area shape="rect" id="node4" href="$classSpecies.html#ac820a2148e7badd07300d8505cbd02ac" title="Public facing method to get charge;. " alt="" coords="200,31,337,57"/>
+<area shape="rect" id="node3" href="$classFields.html#ab7c120f92a3e46c765cf348e780df919" title="The main constructor for the electric potential field. " alt="" coords="831,31,931,57"/>
+<area shape="rect" id="node5" href="$classSpecies.html#a3fa326115deec3df06a20ae7396bc0df" title="Public facing method to get num_particles. " alt="" coords="385,81,560,108"/>
 </map>

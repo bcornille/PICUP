@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['samplemesh',['sampleMesh',['../classMesh.html#a2265d2587a7ac6bd3425872431483fab',1,'Mesh::sampleMesh()'],['../classMesh.html#a948743226f0731e5e68f821a24286bac',1,'Mesh::sampleMesh()']]],
-  ['solvepoisson',['solvePoisson',['../classFields.html#af627aee2efcdbde1f7fe97e900e1ba53',1,'Fields']]],
-  ['sortparticles',['sortParticles',['../classSpecies.html#a11726d80d9e43809d09175fa7a0ddc58',1,'Species']]],
-  ['species',['Species',['../classSpecies.html#a6cda52bf34407792b67bc579994f84da',1,'Species']]]
+  ['main',['main',['../PICUP_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'PICUP.cpp']]],
+  ['mesh',['Mesh',['../classMesh.html#a58fb91d7d860581fe757e702411344cf',1,'Mesh']]],
+  ['mesh1d',['Mesh1D',['../classMesh1D.html#a45556f2a303354e440b57747a675192c',1,'Mesh1D']]]
 ];

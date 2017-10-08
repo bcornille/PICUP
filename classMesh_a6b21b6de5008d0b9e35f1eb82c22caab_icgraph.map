@@ -1,3 +1,5 @@
 <map id="Mesh::generateMesh" name="Mesh::generateMesh">
-<area shape="rect" id="node2" href="$PICUP_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Currently used for testing functions manually. " alt="" coords="197,5,248,32"/>
+<area shape="rect" id="node2" href="$classMesh.html#a93e6864ffb553411544ae0397b016a75" title="Public facing method to query num_meshpoints. " alt="" coords="197,5,372,32"/>
+<area shape="rect" id="node3" href="$classMesh.html#a2265d2587a7ac6bd3425872431483fab" title="Randomly sample the mesh space for a position. " alt="" coords="217,56,353,83"/>
+<area shape="rect" id="node4" href="$classSpecies.html#a9aaca9ee0815f04760529f9e05eaea50" title="Creates particles distributed across a given mesh. " alt="" coords="420,56,599,83"/>
 </map>
