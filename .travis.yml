@@ -10,7 +10,10 @@ addons:
       - doxygen
 
 env:
-  CXX=g++-7
+  COMPILER=g++-7
+
+before_install:
+  - eval "${COMPILER}"
 
 script:
   - mkdir build
