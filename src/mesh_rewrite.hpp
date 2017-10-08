@@ -26,11 +26,11 @@ class Mesh
 		//! Sample the volume of the given cell.
 		virtual Vectord<pdim> sampleCell(int cell) = 0;
 		//! Get the number of Mesh vertices.
-		virtual getNumMeshPoints = 0;
+		virtual int getNumMeshPoints() const = 0;
 		//! Get the number of Mesh edges.
-		virtual getNumMeshEdges = 0;
+		virtual int getNumMeshEdges() const = 0;
 		//! Get the number of Mesh faces.
-		virtual getNumMeshFaces = 0;
+		virtual int getNumMeshFaces() const = 0;
 };
 
 //! One-dimensional Mesh class.
@@ -100,9 +100,9 @@ class Mesh1D : Mesh<1>
 		 */
 		Vectord<1> sampleCell(int cell);
 
-		int getNumMeshpoints() const { return num_vertices; };
-		int getNumMeshedges() const { return num_edges; }
-		int getNumMeshedges() const { return 0; /* No faces in 1D. */ }
+		int getNumMeshPoints() const { return num_vertices; };
+		int getNumMeshEdges() const { return num_edges; }
+		int getNumMeshFaces() const { return 0; /* No faces in 1D. */ }
 };
 
 #endif //_mesh_hpp
